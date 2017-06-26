@@ -6,7 +6,11 @@ import com.jsl.babytrader.Screens.PlayScreen;
 
 public class BabyTrader extends Game {
 	public SpriteBatch batch;
-	
+
+	public static final int V_WIDTH = 400;
+	public static final int V_HEIGHT = 208;
+
+
 	@Override
 	public void create () {
 		// create new threads here?

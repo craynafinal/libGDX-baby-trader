@@ -10,6 +10,9 @@ public class BabyTrader extends Game {
 	public static final int V_WIDTH = 400;
 	public static final int V_HEIGHT = 208;
 
+	// sprite
+	// pixel per meter
+	public static final float PPM = 100;
 
 	@Override
 	public void create () {

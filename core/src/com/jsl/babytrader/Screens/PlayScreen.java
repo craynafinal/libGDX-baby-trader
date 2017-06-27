@@ -1,6 +1,7 @@
 package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -23,6 +24,8 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Scenes.Hud;
+import com.jsl.babytrader.Sprites.Player;
+import com.jsl.babytrader.Tools.B2WorldCreator;
 
 /**
  * Created by crayna on 6/3/17.
@@ -50,6 +53,9 @@ public class PlayScreen implements Screen {
     private World world;
     private Box2DDebugRenderer b2dr;
 
+    // sprite
+    private Player player = null;
+
     Thread t = null;
 
     int test = 1;
@@ -61,47 +67,25 @@ public class PlayScreen implements Screen {
 
         // view port code
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(BabyTrader.V_WIDTH, BabyTrader.V_HEIGHT, gamecam);
+        gamePort = new FitViewport(BabyTrader.V_WIDTH / BabyTrader.PPM, BabyTrader.V_HEIGHT / BabyTrader.PPM, gamecam);
 
         hud = new Hud(game.batch);
 
         // tile
         maploader = new TmxMapLoader();
         map = maploader.load("map/test.tmx");
-        renderer = new OrthoCachedTiledMapRenderer(map);
+        renderer = new OrthoCachedTiledMapRenderer(map, 1 / BabyTrader.PPM);
 
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 
         // box2d
-        world = new World(new Vector2(0, 0), true);
+        world = new World(new Vector2(0, -10), true);
         b2dr = new Box2DDebugRenderer();
 
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
+        new B2WorldCreator(world, map);
 
-
-        for (int i = 2; i < 6; i++) {
-            // index is from the order of layers of map editor
-            // the bottom one starts with 0
-            for (MapObject object: map.getLayers().get(i).getObjects().getByType(RectangleMapObject.class)) {
-                Rectangle rect = ((RectangleMapObject) object).getRectangle();
-
-                // three types of body
-                // dynamic body = moves around
-                // static body = don't move
-                // kinematic body
-                bdef.type = BodyDef.BodyType.StaticBody;
-                bdef.position.set(rect.getX() + rect.getWidth() / 2, rect.getY() + rect.getHeight() / 2);
-
-                body = world.createBody(bdef);
-
-                shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
-                fdef.shape = shape;
-                body.createFixture(fdef);
-            }
-        }
+        // sprite
+        player = new Player(world);
 
         // thread test
         bitmapFont = new BitmapFont();
@@ -169,6 +153,10 @@ public class PlayScreen implements Screen {
     public void update(float dt) {
         handleInput(dt);
 
+        // sprite
+        world.step(1/60f, 6, 2);
+        gamecam.position.x = player.b2body.getPosition().x;
+
         // update camera
         gamecam.update();
 
@@ -176,9 +164,25 @@ public class PlayScreen implements Screen {
     }
 
     private void handleInput(float dt) {
+        /*
         if(Gdx.input.isTouched()) {
             gamecam.position.x += 100 * dt;
         }
+        */
+
+        if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+            player.b2body.applyLinearImpulse(new Vector2(0, 4f), player.b2body.getWorldCenter(), true);
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2) {
+            player.b2body.applyLinearImpulse(new Vector2 (0.1f, 0), player.b2body.getWorldCenter(), true);
+        }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT) && player.b2body.getLinearVelocity().x >= -2) {
+            player.b2body.applyLinearImpulse(new Vector2 (-0.1f, 0), player.b2body.getWorldCenter(), true);
+        }
+
+
     }
 
     @Override
@@ -229,6 +233,10 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-
+        map.dispose();
+        renderer.dispose();
+        world.dispose();
+        b2dr.dispose();
+        hud.dispose();
     }
 }

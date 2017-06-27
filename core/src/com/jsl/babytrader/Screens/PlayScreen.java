@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthoCachedTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jsl.babytrader.BabyTrader;
@@ -28,6 +31,11 @@ public class PlayScreen implements Screen {
     // hud
     private Hud hud;
 
+    // tileset
+    private TmxMapLoader maploader;
+    private TiledMap map;
+    private OrthoCachedTiledMapRenderer renderer;
+
     Thread t = null;
 
     int test = 1;
@@ -42,6 +50,13 @@ public class PlayScreen implements Screen {
         gamePort = new FitViewport(BabyTrader.V_WIDTH, BabyTrader.V_HEIGHT, gamecam);
 
         hud = new Hud(game.batch);
+
+        // tile
+        maploader = new TmxMapLoader();
+        map = maploader.load("map/test.tmx");
+        renderer = new OrthoCachedTiledMapRenderer(map);
+
+        gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 
         bitmapFont = new BitmapFont();
 
@@ -104,10 +119,31 @@ public class PlayScreen implements Screen {
 
     }
 
+    // checking inputs
+    public void update(float dt) {
+        handleInput(dt);
+
+        // update camera
+        gamecam.update();
+
+        renderer.setView(gamecam);
+    }
+
+    private void handleInput(float dt) {
+        if(Gdx.input.isTouched()) {
+            gamecam.position.x += 100 * dt;
+        }
+    }
+
     @Override
     public void render(float delta) {
+        update (delta);
+
         Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        // should happen after clearing screen
+        renderer.render();
 
         //game.batch.setProjectionMatrix(gamecam.combined);
 

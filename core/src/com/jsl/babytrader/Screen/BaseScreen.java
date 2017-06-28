@@ -4,11 +4,14 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -34,7 +37,7 @@ public abstract class BaseScreen implements Screen {
 
     // commonly used assets
     protected Sound sound_buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/se_buttonClick.mp3"));
-    protected BitmapFont font = new BitmapFont(Gdx.files.internal("bitmapFonts/carrier_command.xml"), Gdx.files.internal("bitmapFonts/carrier_command.png"), false);
+    //protected BitmapFont font = new BitmapFont(Gdx.files.internal("bitmapFonts/5Computers-In-Love.fnt"));
 
     // view port code
     protected OrthographicCamera gamecam = null;
@@ -51,6 +54,20 @@ public abstract class BaseScreen implements Screen {
         this.stage = new Stage(gamePort);
     }
 
+    protected BitmapFont generateFont(String filepath, int size, Color color) {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(filepath));
+
+        FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+        parameter.size = size;
+        parameter.characters = ConstData.FONT_CHARACTERS;
+
+        BitmapFont result = generator.generateFont(parameter);
+        result.setColor(color);
+        generator.dispose();
+
+        return result;
+    }
+
     protected void switchScreen(BaseScreen screen) {
         this.game.setScreen(screen);
     }
@@ -62,7 +79,7 @@ public abstract class BaseScreen implements Screen {
         );
     }
 
-    protected void addActors(Button... buttons) {
+    protected void addButtonsToStage(Button... buttons) {
         for (Button button : buttons) {
             stage.addActor(button);
         }

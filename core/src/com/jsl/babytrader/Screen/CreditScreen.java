@@ -1,8 +1,9 @@
 package com.jsl.babytrader.Screen;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
@@ -23,8 +24,16 @@ public class CreditScreen extends BaseScreen {
 
     private ImageButton button_back = null;
 
+    // fonts
+    private BitmapFont font_nokia = null;
+    private String font_nokia_path = "fonts/nokiafc22.ttf";
+
     public CreditScreen(final BabyTrader game) {
         super(game);
+
+        // font setup
+        font_nokia = generateFont(font_nokia_path, 10, Color.valueOf("2F3A42"));
+        //font_nokia.getData().setScale(10);
 
         // bgm setup
         // TODO: switch the file extension to something cheap
@@ -44,7 +53,7 @@ public class CreditScreen extends BaseScreen {
             }
         });
 
-        addActors(button_back);
+        addButtonsToStage(button_back);
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
@@ -71,6 +80,8 @@ public class CreditScreen extends BaseScreen {
                 (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2),
                 ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50
         );
+
+        font_nokia.draw(game.batch, "test", 100, 100);
 
         // text
         //font.setColor(1.0f, 1.0f, 1.0f, 1.0f);

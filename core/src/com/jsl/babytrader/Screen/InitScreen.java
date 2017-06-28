@@ -1,9 +1,6 @@
 package com.jsl.babytrader.Screen;
 
-import com.badlogic.gdx.Audio;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -66,7 +63,7 @@ public class InitScreen extends BaseScreen {
             }
         });
 
-        addActors(button_start, button_credit);
+        addButtonsToStage(button_start, button_credit);
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);

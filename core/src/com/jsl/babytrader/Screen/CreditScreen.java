@@ -60,14 +60,11 @@ public class CreditScreen extends BaseScreen {
         clearingScreen();
         viewportRender();
 
-        game.batch.begin();
-
-        game.batch.draw(sprite_title, 100, ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
-
-        // perform ui logic
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
+        game.batch.begin();
+        game.batch.draw(sprite_title, 0, 0);
         game.batch.end();
     }
 

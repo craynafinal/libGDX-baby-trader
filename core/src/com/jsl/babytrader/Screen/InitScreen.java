@@ -82,16 +82,14 @@ public class InitScreen extends BaseScreen {
         clearingScreen();
         viewportRender();
 
-        game.batch.begin();
-
-        game.batch.draw(sprite_babyTrader, ConstData.SCREEN_WIDTH - sprite_babyTrader.getWidth(), 0);
-        game.batch.draw(sprite_title, MARGIN_LEFT, ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
-        game.batch.draw(sprite_copyright, 0, 0);
-
-        // perform ui logic
+        // stage.draw() must appear before game batch
         stage.act(Gdx.graphics.getDeltaTime());
         stage.draw();
 
+        game.batch.begin();
+        game.batch.draw(sprite_babyTrader, ConstData.SCREEN_WIDTH - sprite_babyTrader.getWidth(), 0);
+        game.batch.draw(sprite_title, MARGIN_LEFT, ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
+        game.batch.draw(sprite_copyright, 0, 0);
         game.batch.end();
     }
 

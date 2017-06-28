@@ -89,7 +89,7 @@ public class InitScreen extends BaseScreen {
         game.batch.begin();
         game.batch.draw(sprite_babyTrader, ConstData.SCREEN_WIDTH - sprite_babyTrader.getWidth(), 0);
         game.batch.draw(sprite_title, MARGIN_LEFT, ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
-        game.batch.draw(sprite_copyright, 0, 0);
+        game.batch.draw(sprite_copyright, MARGIN_LEFT + 55, 50);
         game.batch.end();
     }
 

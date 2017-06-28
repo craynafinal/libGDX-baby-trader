@@ -32,7 +32,7 @@ public class CreditScreen extends BaseScreen {
 
         // start button setup
         button_back = setupButton(sprite_button_back_up, sprite_button_back_down);
-        button_back.setPosition(100 + 60, 200);
+        button_back.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_back_up.getWidth() / 2), 60);
 
         button_back.addListener(new ChangeListener() {
             @Override
@@ -64,7 +64,7 @@ public class CreditScreen extends BaseScreen {
         stage.draw();
 
         game.batch.begin();
-        game.batch.draw(sprite_title, 0, 0);
+        game.batch.draw(sprite_title, (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2), ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
         game.batch.end();
     }
 

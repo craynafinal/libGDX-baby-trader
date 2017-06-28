@@ -38,12 +38,13 @@ public abstract class BaseScreen implements Screen {
 
     public BaseScreen(BabyTrader game) {
         this.game = game;
-        this.stage = new Stage(new FitViewport(ConstData.SCREEN_WIDTH, ConstData.SCREEN_HEIGHT));
 
         // view port setup
         gamecam = new OrthographicCamera();
         gamePort = new FitViewport(ConstData.SCREEN_WIDTH, ConstData.SCREEN_HEIGHT, gamecam);
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
+
+        this.stage = new Stage(gamePort);
     }
 
     protected void switchScreen(BaseScreen screen) {

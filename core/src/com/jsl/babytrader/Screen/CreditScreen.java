@@ -64,7 +64,18 @@ public class CreditScreen extends BaseScreen {
         stage.draw();
 
         game.batch.begin();
-        game.batch.draw(sprite_title, (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2), ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
+
+        // title
+        game.batch.draw(
+                sprite_title,
+                (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2),
+                ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50
+        );
+
+        // text
+        //font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
+        //font.getData().setScale(1f);
+        //font.draw(game.batch, "some string", 25, 160);
         game.batch.end();
     }
 

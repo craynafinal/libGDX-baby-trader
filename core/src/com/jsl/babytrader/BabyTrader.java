@@ -2,16 +2,15 @@ package com.jsl.babytrader;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.jsl.babytrader.Screens.PlayScreen;
+import com.jsl.babytrader.Screen.InitScreen;
 
 public class BabyTrader extends Game {
-
-	public SpriteBatch batch = null;
+    public SpriteBatch batch = null;
 
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new PlayScreen(this));
+		setScreen(new InitScreen(this));
 	}
 	
 	@Override

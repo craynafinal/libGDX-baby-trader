@@ -11,6 +11,8 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Data.ConstData;
+import com.sun.org.apache.bcel.internal.classfile.ConstantDouble;
 
 /**
  * Created by crayna on 6/26/17.
@@ -35,7 +37,7 @@ public class Hud implements Disposable {
         worldTimer = 300;
         timeCount = 0;
         score = 0;
-        viewport = new FitViewport(BabyTrader.V_WIDTH, BabyTrader.V_HEIGHT, new OrthographicCamera());
+        viewport = new FitViewport(ConstData.SCREEN_WIDTH, ConstData.SCREEN_HEIGHT, new OrthographicCamera());
         stage = new Stage(viewport, sb);
 
         Table table = new Table();

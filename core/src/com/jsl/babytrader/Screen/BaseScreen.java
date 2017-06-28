@@ -12,9 +12,14 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Slider;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.Widget;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -72,16 +77,25 @@ public abstract class BaseScreen implements Screen {
         this.game.setScreen(screen);
     }
 
-    protected static ImageButton setupButton(Texture button_up, Texture button_down) {
+    protected static Slider generateSlider(Texture bar, Texture knob, int min, int max, int stepSize, boolean vertical) {
+        Drawable drawable_bar = new TextureRegionDrawable(new TextureRegion(bar));
+        Drawable drawable_knob = new TextureRegionDrawable(new TextureRegion(knob));
+
+        Slider.SliderStyle sliderStyle = new Slider.SliderStyle(drawable_bar, drawable_knob);
+
+        return new Slider(min, max, stepSize, vertical, sliderStyle);
+    }
+
+    protected static ImageButton generateButton(Texture button_up, Texture button_down) {
         return new ImageButton (
                 new TextureRegionDrawable(new TextureRegion(button_up)),
                 new TextureRegionDrawable(new TextureRegion(button_down))
         );
     }
 
-    protected void addButtonsToStage(Button... buttons) {
-        for (Button button : buttons) {
-            stage.addActor(button);
+    protected void addElementsToStage(Actor... elements) {
+        for (Actor element : elements) {
+            stage.addActor(element);
         }
     }
 

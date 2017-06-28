@@ -37,7 +37,7 @@ public class InitScreen extends BaseScreen {
         setupMusic("music/bgm_usodarake.wav", true);
 
         // start button setup
-        button_start = setupButton(sprite_button_start_up, sprite_button_start_down);
+        button_start = generateButton(sprite_button_start_up, sprite_button_start_down);
         button_start.setPosition(MARGIN_LEFT + 60, 200);
 
         button_start.addListener(new ChangeListener() {
@@ -46,11 +46,12 @@ public class InitScreen extends BaseScreen {
                 Gdx.app.log("Clicking Start Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
+                switchScreen(new SliderPositiveScreen(game));
             }
         });
 
         // credit button setup
-        button_credit = setupButton(sprite_button_credit_up, sprite_button_credit_down);
+        button_credit = generateButton(sprite_button_credit_up, sprite_button_credit_down);
         button_credit.setPosition(MARGIN_LEFT + 60, 140);
 
         button_credit.addListener(new ChangeListener() {
@@ -63,7 +64,7 @@ public class InitScreen extends BaseScreen {
             }
         });
 
-        addButtonsToStage(button_start, button_credit);
+        addElementsToStage(button_start, button_credit);
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
@@ -108,9 +109,6 @@ public class InitScreen extends BaseScreen {
     @Override
     public void dispose() {
         super.dispose();
-
-        // sounds
-        sound_buttonClick.dispose();
 
         // sprites
         sprite_babyTrader.dispose();

@@ -40,7 +40,7 @@ public class CreditScreen extends BaseScreen {
         setupMusic("music/bgm_makkura.wav", true);
 
         // start button setup
-        button_back = setupButton(sprite_button_back_up, sprite_button_back_down);
+        button_back = generateButton(sprite_button_back_up, sprite_button_back_down);
         button_back.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_back_up.getWidth() / 2), 60);
 
         button_back.addListener(new ChangeListener() {
@@ -53,7 +53,7 @@ public class CreditScreen extends BaseScreen {
             }
         });
 
-        addButtonsToStage(button_back);
+        addElementsToStage(button_back);
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);

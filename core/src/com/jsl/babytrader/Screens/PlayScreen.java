@@ -9,8 +9,14 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
+import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Scenes.Hud;
 import com.jsl.babytrader.Tools.InitScreenCreator;
+
+import static com.jsl.babytrader.Data.SharedData.GameState.credit;
+import static com.jsl.babytrader.Data.SharedData.GameState.game;
+import static com.jsl.babytrader.Data.SharedData.GameState.logo;
+import static com.jsl.babytrader.Data.SharedData.GameState.start;
 
 /**
  * Created by crayna on 6/3/17.
@@ -143,13 +149,23 @@ public class PlayScreen implements Screen {
         // viewport
         game.batch.setProjectionMatrix(gamecam.combined);
 
-        game.batch.begin();
-        //game.batch.draw(texture, 0, 0);
-        InitScreenCreator.renderInitScreen(game);
-        //bitmapFont.draw(game.batch, Integer.toString(test), 500, 100);
+        switch (SharedData.getGameState()) {
+            case logo:
+                break;
+            case start:
+                game.batch.begin();
+                //game.batch.draw(texture, 0, 0);
+                InitScreenCreator.renderInitScreen(game);
+                //bitmapFont.draw(game.batch, Integer.toString(test), 500, 100);
 
-        game.batch.end();
-
+                game.batch.end();
+            case credit:
+                break;
+            case game:
+                break;
+            default:
+                break;
+        }
     }
 
     private static void clearingScreen() {

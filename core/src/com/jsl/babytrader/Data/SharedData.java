@@ -5,14 +5,20 @@ package com.jsl.babytrader.Data;
  */
 
 public class SharedData {
-    private static int gameState;
+    public enum GameState {
+        logo, start, credit, setup_slider, setup_baby, game, pause, game_over, score
+    }
+    private static GameState gameState;
 
     static {
-        gameState = 0;
+        gameState = GameState.start;
     }
 
-    public static int getGameState() {
+    synchronized public static GameState getGameState() {
         return gameState;
+    }
+    synchronized public static void setGameState(GameState state) {
+        gameState = state;
     }
 
 

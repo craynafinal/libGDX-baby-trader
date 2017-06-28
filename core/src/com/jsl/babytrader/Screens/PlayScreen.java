@@ -11,12 +11,8 @@ import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Scenes.Hud;
+import com.jsl.babytrader.Tools.CreditScreenCreator;
 import com.jsl.babytrader.Tools.InitScreenCreator;
-
-import static com.jsl.babytrader.Data.SharedData.GameState.credit;
-import static com.jsl.babytrader.Data.SharedData.GameState.game;
-import static com.jsl.babytrader.Data.SharedData.GameState.logo;
-import static com.jsl.babytrader.Data.SharedData.GameState.start;
 
 /**
  * Created by crayna on 6/3/17.
@@ -149,23 +145,28 @@ public class PlayScreen implements Screen {
         // viewport
         game.batch.setProjectionMatrix(gamecam.combined);
 
+        game.batch.begin();
+
         switch (SharedData.getGameState()) {
             case logo:
                 break;
             case start:
-                game.batch.begin();
-                //game.batch.draw(texture, 0, 0);
-                InitScreenCreator.renderInitScreen(game);
-                //bitmapFont.draw(game.batch, Integer.toString(test), 500, 100);
-
-                game.batch.end();
+                InitScreenCreator.render(game);
+                break;
             case credit:
+                CreditScreenCreator.render(game);
                 break;
             case game:
                 break;
             default:
                 break;
         }
+
+        game.batch.end();
+
+        // thread test
+        //game.batch.draw(texture, 0, 0);
+        //bitmapFont.draw(game.batch, Integer.toString(test), 500, 100);
     }
 
     private static void clearingScreen() {

@@ -8,12 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.Disposable;
+import com.jsl.babytrader.BabyTrader;
 
 /**
  * Created by crayna on 6/27/17.
  */
 
-public abstract class ScreenCreator {
+public abstract class ScreenCreator implements Disposable {
 
     // commonly used assets
     protected static Sound sound_buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/se_buttonClick.mp3"));
@@ -29,5 +31,10 @@ public abstract class ScreenCreator {
         for (Button button : buttons) {
             stage.addActor(button);
         }
+    }
+
+    @Override
+    public void dispose() {
+        sound_buttonClick.dispose();
     }
 }

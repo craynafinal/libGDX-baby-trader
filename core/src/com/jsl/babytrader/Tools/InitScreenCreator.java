@@ -1,7 +1,6 @@
 package com.jsl.babytrader.Tools;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -26,10 +25,10 @@ public class InitScreenCreator extends ScreenCreator implements Disposable {
     private static Texture sprite_copyright = new Texture("sprites/startPage_copyright_171x533.png");
 
     // buttons
-    private static Texture button_start_up = new Texture("sprites/startPage_startButton_191x357.png");
-    private static Texture button_start_down = new Texture("sprites/startPage_startButton_inv_191x357.png");
-    private static Texture button_credit_up = new Texture("sprites/startPage_creditsButton_191x463.png");
-    private static Texture button_credit_down = new Texture("sprites/startPage_creditsButton_inv_191x463.png");
+    private static Texture sprite_button_start_up = new Texture("sprites/startPage_startButton_191x357.png");
+    private static Texture sprite_button_start_down = new Texture("sprites/startPage_startButton_inv_191x357.png");
+    private static Texture sprite_button_credit_up = new Texture("sprites/startPage_creditsButton_191x463.png");
+    private static Texture sprite_button_credit_down = new Texture("sprites/startPage_creditsButton_inv_191x463.png");
 
     private static ImageButton button_start = null;
     private static ImageButton button_credit = null;
@@ -38,7 +37,7 @@ public class InitScreenCreator extends ScreenCreator implements Disposable {
 
     static {
         // start button setup
-        button_start = setupButton(button_start_up, button_start_down);
+        button_start = setupButton(sprite_button_start_up, sprite_button_start_down);
         button_start.setPosition(MARGIN_LEFT + 60, 200);
 
         button_start.addListener(new ChangeListener() {
@@ -50,7 +49,7 @@ public class InitScreenCreator extends ScreenCreator implements Disposable {
         });
 
         // credit button setup
-        button_credit = setupButton(button_credit_up, button_credit_down);
+        button_credit = setupButton(sprite_button_credit_up, sprite_button_credit_down);
         button_credit.setPosition(MARGIN_LEFT + 60, 140);
 
         button_credit.addListener(new ChangeListener() {
@@ -68,7 +67,7 @@ public class InitScreenCreator extends ScreenCreator implements Disposable {
         Gdx.input.setInputProcessor(stage);
     }
 
-    public static void renderInitScreen(BabyTrader game) {
+    public static void render(BabyTrader game) {
         game.batch.draw(sprite_babyTrader, ConstData.SCREEN_WIDTH - sprite_babyTrader.getWidth(), 0);
         game.batch.draw(sprite_title, MARGIN_LEFT, ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50);
         game.batch.draw(sprite_copyright, 0, 0);
@@ -80,6 +79,8 @@ public class InitScreenCreator extends ScreenCreator implements Disposable {
 
     @Override
     public void dispose() {
+        super.dispose();
+
         // sounds
         sound_buttonClick.dispose();
 
@@ -89,9 +90,9 @@ public class InitScreenCreator extends ScreenCreator implements Disposable {
         sprite_copyright.dispose();
 
         // buttons
-        button_start_up.dispose();
-        button_start_down.dispose();
-        button_credit_up.dispose();
-        button_credit_down.dispose();
+        sprite_button_start_up.dispose();
+        sprite_button_start_down.dispose();
+        sprite_button_credit_up.dispose();
+        sprite_button_credit_down.dispose();
     }
 }

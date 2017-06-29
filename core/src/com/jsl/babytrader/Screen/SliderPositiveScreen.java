@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Data.Attribute;
 
 /**
  * Created by crayna on 6/28/17.
@@ -24,22 +25,49 @@ public class SliderPositiveScreen extends BaseScreen {
 
     private ImageButton button_next = null;
 
-    // slider
+    // slider_smart_sell
     // TODO: sprites are place holders
     private Texture sprite_slider_bar = new Texture("sprites/startPage_creditsButton_inv_191x463.png");
     private Texture sprite_slider_knob = new Texture("sprites/temp_slider_knob.png");
-    private Slider slider = null;
-    Label count = null;
+    private Slider slider_smart_sell = null;
+    Label slider_smart_sell_value_display = null;
 
-    // TODO: change this to static data
-    Integer testInteger = 50;
+    /*
+    // positive
+    Smart(0, true),
+    Humorous(1, true),
+    Fast(2, true),
+    Self_Confidence(3, true),
+    Nice_Job(4, true),
+    Rich(5, true),
+    Handsome(6, true),
+    Tall(7, true),
+
+    // negative
+    Dumb(8, false),
+    Boring(9, false),
+    Slow(10, false),
+    Lazy(11, false),
+    Bad_Job(12, false),
+    Poor(13, false),
+    Ugly(14, false),
+    Short(15, false);
+     */
 
 
-    public Slider setupSlider(Texture bar, Texture knob, int min, int max, int step, boolean vertical, int connectedValue, float speed) {
-        Slider result = generateSlider(bar, knob, min, max, step, vertical);
+    private Slider setupSlider(Texture bar, Texture knob, int min, int max, int step, boolean vertical, int connectedValue, float speed, final Label textLabel, final Attribute attribute, boolean isSell) {
+        final Slider result = generateSlider(bar, knob, min, max, step, vertical);
         result.setValue(connectedValue); // initial value
         result.setAnimateDuration(speed);
         result.setWidth(bar.getWidth());
+
+        result.addListener(new ChangeListener() {
+            public void changed (ChangeEvent event, Actor actor) {
+                attribute.setSellValue((int) result.getValue());
+                textLabel.setText(((int) result.getValue()) + "");
+                Gdx.app.log("Slider", "slider_smart_sell: " + result.getValue() + " / internal value: " + attribute.getSellValue());
+            }
+        });
 
         return result;
     }
@@ -51,23 +79,26 @@ public class SliderPositiveScreen extends BaseScreen {
         setupMusic("music/bgm_rihujin.wav", true);
 
         // TODO: maybe make an array and find a way to easily add listener
-        // slider setup
-        slider = setupSlider(sprite_slider_bar, sprite_slider_knob, 0, 100, 10, false, testInteger, 0.3f);
+        // slider_smart_sell setup
 
-        slider.addListener(new ChangeListener() {
-            public void changed (ChangeEvent event, Actor actor) {
-                testInteger = (int) slider.getValue();
-                count.setText(testInteger.toString());
-                Gdx.app.log("Slider", "slider: " + slider.getValue() + " / internal value: " + testInteger);
-            }
-        });
-
-        // TODO: organize label and count
+        // TODO: organize label and slider_smart_sell_value_display
         // labels
         Label label = new Label(String.format("TIME"), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        count = new Label(String.format("%03d", testInteger), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        slider_smart_sell_value_display = new Label(String.format("%03d", Attribute.Smart.getSellValue()), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
 
-        Table table = generateTable(50, 4, label, count, slider);
+        slider_smart_sell = setupSlider(sprite_slider_bar, sprite_slider_knob, 0, 100, 1, false, Attribute.Smart.getSellValue(), 0.3f, slider_smart_sell_value_display, Attribute.Smart, true);
+
+        /*
+        slider_smart_sell.addListener(new ChangeListener() {
+            public void changed (ChangeEvent event, Actor actor) {
+                Attribute.Smart.setSellValue((int) slider_smart_sell.getValue());
+                slider_smart_sell_value_display.setText(((int) slider_smart_sell.getValue()) + "");
+                Gdx.app.log("Slider", "slider_smart_sell: " + slider_smart_sell.getValue() + " / internal value: " + Attribute.Smart.getSellValue());
+            }
+        });
+        */
+
+        Table table = generateTable(50, 4, label, slider_smart_sell_value_display, slider_smart_sell);
 
         // next button setup
         button_next = generateButton(sprite_button_next_up, sprite_button_next_down);
@@ -83,7 +114,7 @@ public class SliderPositiveScreen extends BaseScreen {
             }
         });
 
-        //addElementsToStage(button_next, slider);
+        //addElementsToStage(button_next, slider_smart_sell);
         addElementsToStage(button_next, table);
 
         // taking inputs from ui
@@ -106,8 +137,8 @@ public class SliderPositiveScreen extends BaseScreen {
 
         game.batch.begin();
 
-        // update slider value texts
-        //count.setText(testInteger.toString());
+        // update slider_smart_sell value texts
+        //slider_smart_sell_value_display.setText(testInteger.toString());
 
         game.batch.end();
     }

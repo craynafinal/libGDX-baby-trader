@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12339930-d13c-416e-b2c1-7d75316fad23" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/StaticData.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/desktop_desktop_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Utilities/CommonUtilities.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/StaticData.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/BaseScreen.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/BaseScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android.iml" afterPath="$PROJECT_DIR$/android/android.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/SliderPositiveScreen.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/SliderPositiveScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/desktop.iml" afterPath="$PROJECT_DIR$/desktop/desktop.iml" />
     </list>
     <ignored path="libGDX_baby-trader.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,12 +75,32 @@
       <file leaf-file-name="SharedData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+            <state relative-caret-position="345">
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
-                <marker date="1498631726871" expanded="false" signature="381:392" ph=" { " />
-                <marker date="1498631726871" expanded="false" signature="409:415" ph=" }" />
+                <marker date="1498718998034" expanded="false" signature="381:392" ph=" { " />
+                <marker date="1498718998034" expanded="false" signature="409:415" ph=" }" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Attribute.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="27" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommonUtilities.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Utilities/CommonUtilities.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -82,27 +108,12 @@
       <file leaf-file-name="SliderPositiveScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/SliderPositiveScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="57" column="66" selection-start-line="57" selection-start-column="66" selection-end-line="57" selection-end-column="66" />
+            <state relative-caret-position="245">
+              <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2118#2450#0" expanded="true" />
-                <element signature="e#2449#2450#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StaticData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/StaticData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding>
-                <element signature="e#436#437#0" expanded="true" />
-                <element signature="e#470#471#0" expanded="true" />
-                <element signature="e#503#504#0" expanded="true" />
-                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#2218#2596#0" expanded="true" />
+                <element signature="e#2595#2596#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,7 +134,7 @@
       <file leaf-file-name="BaseScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/BaseScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
+            <state relative-caret-position="1095">
               <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -135,7 +146,7 @@
       <file leaf-file-name="Hud.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Scenes/Hud.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-146">
+            <state relative-caret-position="390">
               <caret line="38" column="13" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="13" />
               <folding />
             </state>
@@ -145,7 +156,7 @@
       <file leaf-file-name="CreditScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/CreditScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="1545">
               <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -159,6 +170,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -2391,7 +2403,6 @@
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Tools/InitScreenCreator.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Tools/CreditScreenCreator.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Scree/CreditScreenCreator.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/BabyTrader.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreenCreator.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/CreditScreenCreator.java" />
@@ -2401,9 +2412,12 @@
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/CreditBaseScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/CreditScreen.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/BaseScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/StaticData.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Utilities/CommonUtilities.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/SliderPositiveScreen.java" />
       </list>
     </option>
@@ -2439,7 +2453,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2463,6 +2478,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="babytrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGDX_baby-trader" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.NonAndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="babytrader" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Utilities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2512,9 +2549,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2878,14 +2914,14 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3072" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3072" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22699799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2947,27 +2983,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <marker date="1498631726871" expanded="false" signature="381:392" ph=" { " />
-            <marker date="1498631726871" expanded="false" signature="409:415" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/BaseScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1215">
@@ -3026,8 +3041,8 @@
         <state relative-caret-position="225">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <marker date="1498631726871" expanded="false" signature="381:392" ph=" { " />
-            <marker date="1498631726871" expanded="false" signature="409:415" ph=" }" />
+            <marker date="1498718998034" expanded="false" signature="381:392" ph=" { " />
+            <marker date="1498718998034" expanded="false" signature="409:415" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -3080,8 +3095,8 @@
         <state relative-caret-position="225">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
-            <marker date="1498631726871" expanded="false" signature="381:392" ph=" { " />
-            <marker date="1498631726871" expanded="false" signature="409:415" ph=" }" />
+            <marker date="1498718998034" expanded="false" signature="381:392" ph=" { " />
+            <marker date="1498718998034" expanded="false" signature="409:415" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -3191,26 +3206,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/android/assets/bitmapFonts/5Computers-In-Love.fnt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/android/assets/bitmapFonts/5Computers-In-Love.fnt" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.6/7d903ecd6b0df2ec334814b8e70618e4c93fd37c/gdx-1.9.6-sources.jar!/com/badlogic/gdx/scenes/scene2d/ui/Widget.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3218,7 +3218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="43" column="37" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3226,16 +3225,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="544" column="16" selection-start-line="544" selection-start-column="16" selection-end-line="544" selection-end-column="16" />
-          <folding>
-            <element signature="e#21740#21741#0" expanded="false" />
-            <element signature="e#21767#21768#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/CreditScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="1545">
           <caret line="111" column="8" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3247,7 +3242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
           <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3255,31 +3249,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
           <caret line="47" column="11" selection-start-line="47" selection-start-column="11" selection-end-line="47" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Scenes/Hud.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
+        <state relative-caret-position="390">
           <caret line="38" column="13" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/StaticData.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state relative-caret-position="135">
+          <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1498718998034" expanded="false" signature="381:392" ph=" { " />
+            <marker date="1498718998034" expanded="false" signature="409:415" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/BaseScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
+        <state relative-caret-position="1095">
           <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -3287,38 +3290,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-          <folding>
-            <marker date="1498631726871" expanded="false" signature="381:392" ph=" { " />
-            <marker date="1498631726871" expanded="false" signature="409:415" ph=" }" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="27" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/StaticData.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Utilities/CommonUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/InitScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding>
-            <element signature="e#436#437#0" expanded="true" />
-            <element signature="e#470#471#0" expanded="true" />
-            <element signature="e#503#504#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screen/SliderPositiveScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="57" column="66" selection-start-line="57" selection-start-column="66" selection-end-line="57" selection-end-column="66" />
+        <state relative-caret-position="245">
+          <caret line="85" column="70" selection-start-line="85" selection-start-column="70" selection-end-line="85" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2118#2450#0" expanded="true" />
-            <element signature="e#2449#2450#0" expanded="true" />
+            <element signature="e#2218#2596#0" expanded="true" />
+            <element signature="e#2595#2596#0" expanded="true" />
           </folding>
         </state>
       </provider>

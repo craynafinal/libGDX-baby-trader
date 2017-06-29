@@ -77,6 +77,32 @@ public abstract class BaseScreen implements Screen {
         this.game.setScreen(screen);
     }
 
+    protected static Table generateTable(int pad, int column, Actor ... actors) {
+
+        Table table = new Table();
+        table.top();
+        table.setFillParent(true);
+
+        int i = 0;
+
+        // for top x elements
+        while ((i < column) && (i < actors.length)) {
+            table.add(actors[i]).expandX().padTop(pad);
+            i++;
+        }
+
+        // the rest of elements
+        while (i < actors.length) {
+            if (i % column == 0) {
+                table.row();
+            }
+            table.add(actors[i]).expandX();
+            i++;
+        }
+
+        return table;
+    }
+
     protected static Slider generateSlider(Texture bar, Texture knob, int min, int max, int stepSize, boolean vertical) {
         Drawable drawable_bar = new TextureRegionDrawable(new TextureRegion(bar));
         Drawable drawable_knob = new TextureRegionDrawable(new TextureRegion(knob));
@@ -139,6 +165,7 @@ public abstract class BaseScreen implements Screen {
 
     @Override
     public void dispose() {
+        stage.dispose();
         sound_buttonClick.dispose();
 
         if (bgm != null) {

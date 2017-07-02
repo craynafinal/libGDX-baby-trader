@@ -3,7 +3,7 @@ package com.jsl.babytrader.Data;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
 /**
- * Created by crayna on 6/28/17.
+ * This enum represents attributes of babies and they also save sales values.
  */
 
 public enum Attribute {
@@ -30,6 +30,7 @@ public enum Attribute {
     private int index = 0;
     private int sellValue = 0;
     private int buyValue = 0;
+    private boolean isPositive = false;
 
     private static final int DEFAULT_BUY_VALUE_POSITIVE = 50;
     private static final int DEFAULT_SELL_VALUE_POSITIVE = 75;
@@ -37,8 +38,10 @@ public enum Attribute {
     private static final int DEFAULT_SELL_VALUE_NEGATIVE = 50;
     private static final int DEFAULT_VARIATION = 20;
 
+    // depending on the type, it will assign default sale values
     Attribute(int index, boolean isPositive) {
         this.index = index;
+        this.isPositive = isPositive;
 
         if (isPositive) {
             sellValue = DEFAULT_SELL_VALUE_POSITIVE + CommonUtilities.getRandomNumber(-DEFAULT_VARIATION, DEFAULT_VARIATION);
@@ -73,6 +76,15 @@ public enum Attribute {
 
     public int getIndex() {
         return index;
+    }
+
+    public boolean isPositive() {
+        return isPositive;
+    }
+
+    // get max number of enum elements
+    public static int getMaxNum() {
+        return Attribute.values().length;
     }
 
 }

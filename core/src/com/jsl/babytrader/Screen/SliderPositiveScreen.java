@@ -73,7 +73,7 @@ public class SliderPositiveScreen extends BaseScreen {
                 int index = attribute.getIndex();
 
                 // create label
-                String name = attribute.name();
+                String name = attribute.getName();
                 Label label = new Label(String.format(name), new Label.LabelStyle(font, color_title));
                 labels.add(index, label);
 

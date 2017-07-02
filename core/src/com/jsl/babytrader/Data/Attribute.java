@@ -87,4 +87,9 @@ public enum Attribute {
         return Attribute.values().length;
     }
 
+    // this will return a name of instance but replaces underscore with blank space
+    public String getName() {
+        return this.name().replace("_", " ");
+    }
+
 }

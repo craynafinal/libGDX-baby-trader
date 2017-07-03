@@ -11,7 +11,7 @@ import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
 
 /**
- * Created by crayna on 6/27/17.
+ * Credit screen that shows the creator name and tools used for this project.
  */
 
 public class CreditScreen extends BaseScreen {
@@ -26,13 +26,14 @@ public class CreditScreen extends BaseScreen {
 
     // fonts
     private BitmapFont font_nokia = null;
-    private String font_nokia_path = "fonts/nokiafc22.ttf";
+    final private static int FONT_NOKIA_SIZE = 10;
+    final private static Color FONT_NOKIA_COLOR = Color.valueOf("2F3A42");
 
     public CreditScreen(final BabyTrader game) {
         super(game);
 
         // font setup
-        font_nokia = generateFont(font_nokia_path, 10, Color.valueOf("2F3A42"));
+        font_nokia = generateFont(FONT_NOKIA_PATH, FONT_NOKIA_SIZE, FONT_NOKIA_COLOR);
         //font_nokia.getData().setScale(10);
 
         // bgm setup

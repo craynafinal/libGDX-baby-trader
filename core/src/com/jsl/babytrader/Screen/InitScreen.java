@@ -10,7 +10,7 @@ import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.ConstData;
 
 /**
- * Created by crayna on 6/27/17.
+ * Game start up menu screen.
  */
 
 public class InitScreen extends BaseScreen {

@@ -31,7 +31,7 @@ import java.awt.Font;
 import java.util.List;
 
 /**
- * Created by crayna on 6/27/17.
+ * Base abstract screen class for all other screen classes.
  */
 
 public abstract class BaseScreen implements Screen {
@@ -44,7 +44,7 @@ public abstract class BaseScreen implements Screen {
 
     // commonly used assets
     protected Sound sound_buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/se_buttonClick.mp3"));
-    //protected BitmapFont font = new BitmapFont(Gdx.files.internal("bitmapFonts/5Computers-In-Love.fnt"));
+    final protected static String FONT_NOKIA_PATH = "fonts/nokiafc22.ttf";
 
     // view port code
     protected OrthographicCamera gamecam = null;
@@ -61,7 +61,7 @@ public abstract class BaseScreen implements Screen {
         this.stage = new Stage(gamePort);
     }
 
-    protected BitmapFont generateFont(String filepath, int size, Color color) {
+    protected static BitmapFont generateFont(String filepath, int size, Color color) {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(filepath));
 
         FreeTypeFontParameter parameter = new FreeTypeFontParameter();

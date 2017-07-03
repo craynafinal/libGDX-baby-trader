@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Contains common members and methods for slider screens
+ * Contains common members and methods for slider screens.
  */
 
 public abstract class SliderScreen extends BaseScreen {
@@ -27,11 +28,12 @@ public abstract class SliderScreen extends BaseScreen {
     // next button
     protected Texture sprite_button_next_up = new Texture("sprites/sliders_nextButton_234x45.png");
     protected Texture sprite_button_next_down = new Texture("sprites/sliders_nextButton_inv_234x45.png");
+    protected ImageButton button_next = null;
 
     // TODO: sprites are place holders
     // slider sprites
-    private Texture sprite_slider_bar = new Texture("sprites/startPage_creditsButton_inv_191x463.png");
-    private Texture sprite_slider_knob = new Texture("sprites/temp_slider_knob.png");
+    private Texture sprite_slider_bar = new Texture("sprites/slider_bar_141x8.png");
+    private Texture sprite_slider_knob = new Texture("sprites/slider_knob_24x24.png");
 
     // slider and label containers
     private List<Slider> sliders_sell = null;
@@ -45,47 +47,43 @@ public abstract class SliderScreen extends BaseScreen {
     // fonts
     // TODO: just move all fonts to base class?
     private BitmapFont font_nokia = null;
-    private String font_nokia_path = "fonts/nokiafc22.ttf";
-    private final static int font_nokia_size = 20;
+    private final static int FONT_NOKIA_SIZE = 20;
+    private final static Color FONT_NOKIA_COLOR = Color.valueOf("2F3A42");
 
-    // common properties for slider setup
-    private final static String DISPLAY_FORMAT = "%03d";
-    private final static Color COLOR_TITLE = Color.WHITE;
-    private final static Color COLOR_DISPLAY = Color.WHITE;
-    private final static int SLIDER_VALUE_MIN = 0;
-    private final static int SLIDER_VALUE_MAX = 100;
-    private final static int SLIDER_VALUE_STEP = 1;
-    private final static float SLIDER_VALUE_SPEED = 0.3f;
-    private final static boolean IS_VERTICAL = false;
-    private final static int TABLE_PAD_TOP = 90;
-    private final static int TITLE_PAD_TOP = 20;
-
-    public SliderScreen(BabyTrader game, String title_sprite) {
+    public SliderScreen(final BabyTrader game, String title_sprite, String bgm, boolean loop) {
         super(game);
 
         // setup title
         sprite_title = new Texture(title_sprite);
 
         // font setup
-        font_nokia = generateFont(font_nokia_path, font_nokia_size, Color.valueOf("2F3A42"));
+        font_nokia = generateFont(FONT_NOKIA_PATH, FONT_NOKIA_SIZE, FONT_NOKIA_COLOR);
+
+        // bgm setup
+        setupMusic(bgm, loop);
     }
 
     // create a slider using textures, attribute and integer variables needed for libgdx method
     private Slider createSlider(int attributeValue, final Label textLabel, final Attribute attribute, final boolean isSell) {
-        final Slider result = generateSlider(sprite_slider_bar, sprite_slider_knob, SLIDER_VALUE_MIN, SLIDER_VALUE_MAX, SLIDER_VALUE_STEP, IS_VERTICAL);
+        int slider_min = 0;
+        int slider_max = 100;
+        int slider_step = 1;
+        float slider_speed = 0.3f;
+
+        final Slider result = generateSlider(sprite_slider_bar, sprite_slider_knob, slider_min, slider_max, slider_step, false);
         result.setValue(attributeValue); // initial value
-        result.setAnimateDuration(SLIDER_VALUE_SPEED);
+        result.setAnimateDuration(slider_speed);
         result.setWidth(sprite_slider_bar.getWidth());
 
         result.addListener(new ChangeListener() {
             public void changed (ChangeEvent event, Actor actor) {
                 if (isSell) {
                     attribute.setSellValue((int) result.getValue());
-                    textLabel.setText(((int) result.getValue()) + "");
+                    textLabel.setText("$" + ((int) result.getValue()));
                     Gdx.app.log("Slider", textLabel.getText() + ": " + result.getValue() + " / internal value: " + attribute.getSellValue());
                 } else {
                     attribute.setBuyValue((int) result.getValue());
-                    textLabel.setText(((int) result.getValue()) + "");
+                    textLabel.setText("$" + ((int) result.getValue()));
                     Gdx.app.log("Slider", textLabel.getText() +  ": " + result.getValue() + " / internal value: " + attribute.getBuyValue());
                 }
             }
@@ -115,19 +113,25 @@ public abstract class SliderScreen extends BaseScreen {
                     - 1-3 = 2, subtract 2 from attribute index => 1
                  */
                 int index = attribute.getIndex() - (attribute.getIndex() - sliders_sell.size());
+                String format = "%03d";
+                Color color_title = Color.valueOf("2F3A42");
+                Color color_display = Color.WHITE;
 
                 // create label
                 String name = attribute.getName();
-                Label label = new Label(String.format(name), new Label.LabelStyle(font, COLOR_TITLE));
+                Label label = new Label(String.format(name), new Label.LabelStyle(font, color_title));
                 labels_title.add(index, label);
 
-                Label label_display_sell = new Label(String.format(DISPLAY_FORMAT, attribute.getSellValue()), new Label.LabelStyle(font, COLOR_DISPLAY));
-                label_display_sell.setText(attribute.getSellValue() + "");
+                Label label_display_sell = new Label("$" + String.format(format, attribute.getSellValue()), new Label.LabelStyle(font, color_display));
+                label_display_sell.setText("$" + attribute.getSellValue());
                 labels_display_sell.add(index, label_display_sell);
 
-                Label label_display_buy = new Label(String.format(DISPLAY_FORMAT, attribute.getBuyValue()), new Label.LabelStyle(font, COLOR_DISPLAY));
-                label_display_buy.setText(attribute.getBuyValue() + "");
+                Label label_display_buy = new Label("$" + String.format(format, attribute.getBuyValue()), new Label.LabelStyle(font, color_display));
+                label_display_buy.setText("$" + attribute.getBuyValue());
                 labels_display_buy.add(index, label_display_buy);
+
+                labels_sell.add(index, new Label(String.format("Sell"), new Label.LabelStyle(font, color_display)));
+                labels_buy.add(index, new Label(String.format("Buy"), new Label.LabelStyle(font, color_display)));
 
                 // create slider
                 sliders_sell.add(index, createSlider(attribute.getSellValue(), label_display_sell, attribute, true));
@@ -137,45 +141,38 @@ public abstract class SliderScreen extends BaseScreen {
     }
 
     // generate a table and insert a set of labels_title and sliders
-    private Table createTableSliderAndLabel() {
-        if ((labels_display_sell.size() != labels_display_buy.size()) || (sliders_sell.size() != sliders_buy.size()) || (labels_title.size() != labels_display_sell.size())) {
-            return null;
-        }
-
+    private Table addSlidersAndLabelsToTable() {
         Table table = new Table();
         table.top();
         table.setFillParent(true);
 
-        int spacing_title = (int) (ConstData.SCREEN_WIDTH * 0.15);
-        int spacing_slider = (int) (ConstData.SCREEN_WIDTH * 0.25);
-        int spacing_display = (int) (ConstData.SCREEN_WIDTH * 0.05);
+        int spacing_title = (int) (ConstData.SCREEN_WIDTH * 0.2);
+        int spacing_slider = (int) (ConstData.SCREEN_WIDTH * 0.2);
+        int spacing_display = (int) (ConstData.SCREEN_WIDTH * 0.075);
         int spacing_miniTitle = (int) (ConstData.SCREEN_WIDTH * 0.05);
 
         int margin_left = 10;
-        int margin_top = 5;
-
-        // TODO: fix this
-        Label label_sell = new Label(String.format("Sell"), new Label.LabelStyle(new BitmapFont(), COLOR_TITLE));
-        Label label_buy = new Label(String.format("Buy"), new Label.LabelStyle(new BitmapFont(), COLOR_TITLE));
+        int margin_top = 20;
+        int margin_table_top = 110;
 
         // for top x elements
-        table.add(labels_title.get(0)).width(spacing_title).padTop(TABLE_PAD_TOP).padLeft(margin_left);
-        table.add(label_sell).width(spacing_miniTitle).padTop(TABLE_PAD_TOP).padLeft(margin_left);
-        table.add(sliders_sell.get(0)).width(spacing_slider).padTop(TABLE_PAD_TOP).padLeft(margin_left);
-        table.add(labels_display_sell.get(0)).width(spacing_display).padTop(TABLE_PAD_TOP).padLeft(margin_left);
-        table.add(label_buy).width(spacing_miniTitle).padTop(TABLE_PAD_TOP).padLeft(margin_left);
-        table.add(sliders_buy.get(0)).width(spacing_slider).padTop(TABLE_PAD_TOP).padLeft(margin_left);
-        table.add(labels_display_buy.get(0)).width(spacing_display).padTop(TABLE_PAD_TOP).padLeft(margin_left);
+        table.add(labels_title.get(0)).width(spacing_title).padTop(margin_table_top).padLeft(margin_left);
+        table.add(labels_sell.get(0)).width(spacing_miniTitle).padTop(margin_table_top).padLeft(margin_left);
+        table.add(sliders_sell.get(0)).width(spacing_slider).padTop(margin_table_top).padLeft(margin_left);
+        table.add(labels_display_sell.get(0)).width(spacing_display).padTop(margin_table_top).padLeft(margin_left);
+        table.add(labels_buy.get(0)).width(spacing_miniTitle).padTop(margin_table_top).padLeft(margin_left);
+        table.add(sliders_buy.get(0)).width(spacing_slider).padTop(margin_table_top).padLeft(margin_left);
+        table.add(labels_display_buy.get(0)).width(spacing_display).padTop(margin_table_top).padLeft(margin_left);
 
         // the rest of elements
         for (int i = 1; i < labels_title.size(); i++) {
             table.row();
 
             table.add(labels_title.get(i)).width(spacing_title).padTop(margin_top).padLeft(margin_left);
-            table.add(label_sell).width(spacing_miniTitle).padTop(margin_top).padLeft(margin_left);
+            table.add(labels_sell.get(i)).width(spacing_miniTitle).padTop(margin_top).padLeft(margin_left);
             table.add(sliders_sell.get(i)).width(spacing_slider).padTop(margin_top).padLeft(margin_left);
             table.add(labels_display_sell.get(i)).width(spacing_display).padTop(margin_top).padLeft(margin_left);
-            table.add(label_buy).width(spacing_miniTitle).padTop(margin_top).padLeft(margin_left);
+            table.add(labels_buy.get(i)).width(spacing_miniTitle).padTop(margin_top).padLeft(margin_left);
             table.add(sliders_buy.get(i)).width(spacing_slider).padTop(margin_top).padLeft(margin_left);
             table.add(labels_display_buy.get(i)).width(spacing_display).padTop(margin_top).padLeft(margin_left);
         }
@@ -184,16 +181,19 @@ public abstract class SliderScreen extends BaseScreen {
     }
 
     // this will take care of complicated methods above at once
-    protected Table generateTable(boolean isPositive) {
+    protected Table generateSliderLabelTable(boolean isPositive) {
         // iterative way to initialize labels_title and sliders using Attribute enum
         labels_title = new ArrayList<Label>();
         labels_display_sell = new ArrayList<Label>();
         labels_display_buy = new ArrayList<Label>();
         sliders_sell = new ArrayList<Slider>();
         sliders_buy = new ArrayList<Slider>();
+        labels_buy = new ArrayList<Label>();
+        labels_sell = new ArrayList<Label>();
+
         createLabelsAndSliders(isPositive, font_nokia);
 
-        return createTableSliderAndLabel();
+        return addSlidersAndLabelsToTable();
     }
 
     @Override
@@ -205,7 +205,7 @@ public abstract class SliderScreen extends BaseScreen {
         stage.draw();
 
         game.batch.begin();
-        game.batch.draw(sprite_title, (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2), (ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - TITLE_PAD_TOP));
+        game.batch.draw(sprite_title, (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2), (ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 30));
         game.batch.end();
     }
 

@@ -13,21 +13,15 @@ import com.jsl.babytrader.Data.ConstData;
  */
 
 public class SliderNegativeScreen extends SliderScreen {
-    private ImageButton button_next = null;
-
     public SliderNegativeScreen(final BabyTrader game) {
-        super(game, "sprites/sliders_negTitle_591x52.png");
-
-        // bgm setup
-        setupMusic("music/bgm_rihujin.wav", true);
+        super(game, "sprites/sliders_negTitle_591x52.png", "music/bgm_rihujin.wav", true);
 
         // create a table that contains all sliders and labels
-        Table table = generateTable(false);
+        Table table = generateSliderLabelTable(false);
 
-        // TODO: refactor, at least next two lines can be in base class
         // next button setup
         button_next = generateButton(sprite_button_next_up, sprite_button_next_down);
-        button_next.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_next_up.getWidth() / 2), 20);
+        button_next.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_next_up.getWidth() / 2), 35);
 
         button_next.addListener(new ChangeListener() {
             @Override

@@ -26,17 +26,13 @@ public class SliderPositiveScreen extends SliderScreen {
     private ImageButton button_next = null;
 
     public SliderPositiveScreen(final BabyTrader game) {
-        super(game, "sprites/sliders_posTitle_573x52.png");
+        super(game, "sprites/sliders_posTitle_573x52.png", "music/bgm_rihujin.wav", true);
 
-        // bgm setup
-        setupMusic("music/bgm_rihujin.wav", true);
-
-        // create a table that contains all sliders and labels
-        Table table = generateTable(true);
+        Table table = generateSliderLabelTable(true);
 
         // next button setup
         button_next = generateButton(sprite_button_next_up, sprite_button_next_down);
-        button_next.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_next_up.getWidth() / 2), 20);
+        button_next.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_next_up.getWidth() / 2), 35);
 
         button_next.addListener(new ChangeListener() {
             @Override

@@ -1,39 +1,30 @@
 package com.jsl.babytrader.Screen;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.ConstData;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
- * This is a stage where it handles sliders for a user to save sales values for each positive attributes.
+ * This is a stage where it handles sliders for a user to save sales values for each negative attributes.
  */
 
-public class SliderPositiveScreen extends SliderScreen {
+public class SliderNegativeScreen extends SliderScreen {
     private ImageButton button_next = null;
 
-    public SliderPositiveScreen(final BabyTrader game) {
-        super(game, "sprites/sliders_posTitle_573x52.png");
+    public SliderNegativeScreen(final BabyTrader game) {
+        super(game, "sprites/sliders_negTitle_591x52.png");
 
         // bgm setup
         setupMusic("music/bgm_rihujin.wav", true);
 
         // create a table that contains all sliders and labels
-        Table table = generateTable(true);
+        Table table = generateTable(false);
 
+        // TODO: refactor, at least next two lines can be in base class
         // next button setup
         button_next = generateButton(sprite_button_next_up, sprite_button_next_down);
         button_next.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_next_up.getWidth() / 2), 20);
@@ -44,7 +35,7 @@ public class SliderPositiveScreen extends SliderScreen {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                switchScreen(new SliderNegativeScreen(game));
+                switchScreen(new InitScreen(game));
             }
         });
 

@@ -1,7 +1,7 @@
 package com.jsl.babytrader.Data;
 
 /**
- * Created by crayna on 6/27/17.
+ * Const data that is globally used.
  */
 
 public class ConstData {

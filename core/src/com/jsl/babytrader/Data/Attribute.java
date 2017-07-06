@@ -2,6 +2,11 @@ package com.jsl.babytrader.Data;
 
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * This enum represents attributes of babies and they also save sales values.
  */
@@ -92,4 +97,15 @@ public enum Attribute {
         return this.name().replace("_", " ");
     }
 
+    // this will return a set of attributes in list format
+    public static List<Attribute> getRandomAttributes(int max) {
+        Set<Attribute> attributes = new HashSet<Attribute>();
+
+        while (attributes.size() < max) {
+            int randomIndex = CommonUtilities.getRandomNumber(0, Attribute.values().length);
+            attributes.add(Attribute.values()[randomIndex]);
+        }
+
+        return new ArrayList<Attribute>(attributes);
+    }
 }

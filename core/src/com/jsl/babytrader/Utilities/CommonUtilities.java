@@ -8,4 +8,8 @@ public class CommonUtilities {
     public static int getRandomNumber(int min, int max) {
         return new Random().nextInt(max-min) + min;
     }
+
+    public static boolean getRandomBoolean() {
+        return new Random().nextBoolean();
+    }
 }

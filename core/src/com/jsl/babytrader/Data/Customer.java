@@ -23,7 +23,7 @@ public class Customer extends Person {
     private Baby baby = null;
 
     public Customer(boolean isSelling) {
-        super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX);
+        super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX, true);
 
         this.rate_sell = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
         this.rate_buy = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
@@ -56,6 +56,7 @@ public class Customer extends Person {
         return result;
     }
 
+    // TODO: take a baby as a param?
     @Override
     public int getBuyPrice() {
         return getSellPrice();

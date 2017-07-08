@@ -3,8 +3,8 @@ package com.jsl.babytrader.Data;
 import com.badlogic.gdx.Gdx;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Data shared by runnables.
@@ -16,9 +16,9 @@ public class SharedData {
     // TODO: timer
 
     // persons
-    private static List<Person> babies = new ArrayList<Person>();
-    private static List<Person> customers_selling = new ArrayList<Person>();
-    private static List<Person> customers_buying = new ArrayList<Person>();
+    private static List<Baby> babies = new ArrayList<Baby>();
+    private static List<Customer> customers_selling = new ArrayList<Customer>();
+    private static List<Customer> customers_buying = new ArrayList<Customer>();
 
     // static data for default setup
     final private static int DEFAULT_STARTING_money = 5000;
@@ -35,69 +35,91 @@ public class SharedData {
         return customers_buying.size();
     }
 
-    synchronized public static Baby getBaby() {
-        Gdx.app.log("getBaby", "baby taken");
-        return (Baby)getPerson(babies);
+    synchronized public static List<Baby> getBabies() {
+        return babies;
     }
 
-    synchronized public static Customer getCustomerBuying() {
+    public static Customer getCustomerBuying() {
         Gdx.app.log("getCustomerBuying", "customer taken");
-        return (Customer)getPerson(customers_buying);
+        return getCustomer(customers_buying);
     }
 
-    synchronized public static Customer getCustomerSelling() {
+    public static Customer getCustomerSelling() {
         Gdx.app.log("getCustomer", "customer taken");
-        return (Customer)getPerson(customers_selling);
+        return getCustomer(customers_selling);
     }
 
-    synchronized private static Person getPerson(List<Person> persons) {
-        Person person = persons.get(0);
-        persons.remove(person);
+    private static Customer getCustomer(List<Customer> customers) {
+        Customer customer = null;
 
-        return person;
-    }
-
-    synchronized public static void addBaby(Baby baby) {
-        babies.add(baby);
-        Gdx.app.log("addBaby", "baby added " + baby.getName());
-    }
-
-    synchronized public static void addCustomerSelling(Customer customer) {
-        customers_selling.add(customer);
-        Gdx.app.log("addCustomerSelling", "customer added " + customer.getName());
-    }
-
-    synchronized public static void addCustomerBuying(Customer customer) {
-        customers_buying.add(customer);
-        Gdx.app.log("addCustomerBuying", "customer added " + customer.getName());
-    }
-
-    synchronized public static int getMoney() {
-        Gdx.app.log("getMoney", "current balance - " + money);
-        return money;
-    }
-
-    synchronized public static void addMoney(int value) {
-        money += value;
-        Gdx.app.log("getMoney", "current balance - " + money);
-    }
-
-    synchronized public static Baby getBabyByAttribute(List<Attribute> attributes) {
-        Gdx.app.log("getBabyByAttribute", attributes.toString());
-        return (Baby)getPersonByAttribute(babies, attributes);
-    }
-
-    synchronized private static Person getPersonByAttribute(List<Person> persons, List<Attribute> attributes) {
-        Person result = null;
-
-        for (Person person : persons) {
-            if (person.getAttributes().containsAll(attributes)) {
-                result = person;
-            }
+        synchronized (SharedData.class) {
+            customer = customers.get(0);
+            customers.remove(customer);
         }
 
-        if (result != null) {
-            persons.remove(result);
+        return customer;
+    }
+
+    public static void addBaby(Baby baby) {
+        Gdx.app.log("addBaby", "started");
+
+        synchronized (SharedData.class) {
+            babies.add(baby);
+        }
+
+        Gdx.app.log("addBaby", "finished");
+    }
+
+    public static void addCustomerSelling(Customer customer) {
+        Gdx.app.log("addCustomerSelling", "started");
+
+        synchronized (SharedData.class) {
+            customers_selling.add(customer);
+        }
+
+        Gdx.app.log("addCustomerSelling", "finished");
+    }
+
+    public static void addCustomerBuying(Customer customer) {
+        Gdx.app.log("addCustomerBuying", "started");
+
+        synchronized (SharedData.class) {
+            customers_buying.add(customer);
+        }
+
+        Gdx.app.log("addCustomerBuying", "finished");
+    }
+
+    public static int getMoney() {
+        synchronized (SharedData.class) {
+            Gdx.app.log("getMoney", "current balance - " + money);
+            return money;
+        }
+    }
+
+    public static void addMoney(int value) {
+        synchronized (SharedData.class) {
+            money += value;
+            Gdx.app.log("getMoney", "current balance - " + money);
+        }
+    }
+
+    public static Baby getBabyByAttribute(Set<Attribute> attributes) {
+        Gdx.app.log("getBabyByAttribute", attributes.toString());
+
+        Baby result = null;
+
+        synchronized (SharedData.class) {
+            for (Baby baby : babies) {
+                if (baby.getAttributes().containsAll(attributes)) {
+                    result = baby;
+                }
+            }
+
+            // remove should happen outside for loop due to multi-threading issue
+            if (result != null) {
+                babies.remove(result);
+            }
         }
 
         return result;

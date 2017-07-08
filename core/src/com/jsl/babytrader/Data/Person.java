@@ -4,13 +4,14 @@ import com.jsl.babytrader.Utilities.CommonUtilities;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents a person.
  */
 
 public abstract class Person {
-    protected List<Attribute> attributes = null;
+    protected Set<Attribute> attributes = null;
     protected String name = null;
     protected int age = 0;
     protected boolean isMale = false;
@@ -18,9 +19,9 @@ public abstract class Person {
     final private static List<String> NAMES_MALE = new ArrayList<String>();
     final private static List<String> NAMES_FEMALE = new ArrayList<String>();
 
-    public Person(int age_min, int age_max, int attribute_max) {
+    public Person(int age_min, int age_max, int attribute_max, boolean isPositive) {
         this.age = CommonUtilities.getRandomNumber(age_min, age_max);
-        this.attributes = Attribute.getRandomAttributes(attribute_max);
+        this.attributes = isPositive ? Attribute.getRandomAttributesPositive(attribute_max) : Attribute.getRandomAttributesRandom(attribute_max);
         this.isMale = CommonUtilities.getRandomBoolean() ? true : false;
 
         // name should appear later than isMale
@@ -34,7 +35,7 @@ public abstract class Person {
         }
     }
 
-    public List<Attribute> getAttributes() {
+    public Set<Attribute> getAttributes() {
         return attributes;
     }
 

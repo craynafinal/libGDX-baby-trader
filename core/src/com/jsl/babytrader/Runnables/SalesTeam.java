@@ -10,6 +10,7 @@ import com.jsl.babytrader.Data.SharedData;
  */
 
 public class SalesTeam extends Team {
+    // TODO: sleep time must be a little more random?
     private static int sleepTime = 1000;
 
     @Override
@@ -31,7 +32,7 @@ public class SalesTeam extends Team {
                             Gdx.app.log("selling price comparision", "user " + baby.getSellPrice() + " customer " + customer.getSellPrice());
 
                             // sell if price range is good
-                            if (baby.getSellPrice() <= (customer.getSellPrice()+ 1000)) {
+                            if (baby.getSellPrice() <= customer.getSellPrice()) {
                                 SharedData.addMoney(baby.getSellPrice());
 
                                 Gdx.app.log("baby sold", "remaining babies " + SharedData.getBabySize());

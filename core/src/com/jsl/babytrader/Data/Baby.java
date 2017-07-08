@@ -17,7 +17,7 @@ public class Baby extends Person {
     final private static int AGE_MAX = 6;
 
     public Baby() {
-        super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX);
+        super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX, false);
     }
 
     @Override

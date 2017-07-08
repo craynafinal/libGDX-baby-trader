@@ -1,5 +1,6 @@
 package com.jsl.babytrader.Data;
 
+import com.badlogic.gdx.Gdx;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
 import java.util.ArrayList;
@@ -100,14 +101,37 @@ public enum Attribute {
     }
 
     // this will return a set of attributes in list format
-    public static List<Attribute> getRandomAttributes(int max) {
+    public static Set<Attribute> getRandomAttributesRandom(int max) {
+        return getRandomAttributes(max, false);
+    }
+
+    public static Set<Attribute> getRandomAttributesPositive(int max) {
+        return getRandomAttributes(max, true);
+    }
+
+    private static Set<Attribute> getRandomAttributes(int max, boolean getPositive) {
+        Gdx.app.log("getRandomAttributes started", "");
+
         Set<Attribute> attributes = new HashSet<Attribute>();
 
         while (attributes.size() < max) {
-            int randomIndex = CommonUtilities.getRandomNumber(0, Attribute.values().length);
-            attributes.add(Attribute.values()[randomIndex]);
+            Attribute elem = Attribute.values()[getRandomIndex()];
+
+            // if this is for positive attribute, make sure elem is positive attribute
+            while (getPositive && !elem.isPositive) {
+                elem = Attribute.values()[getRandomIndex()];
+                Gdx.app.log("getting positive attribute", elem.getName());
+            }
+
+            attributes.add(elem);
         }
 
-        return new ArrayList<Attribute>(attributes);
+        Gdx.app.log("getRandomAttributes finished", "");
+
+        return attributes;
+    }
+
+    private static int getRandomIndex() {
+        return CommonUtilities.getRandomNumber(0, Attribute.values().length);
     }
 }

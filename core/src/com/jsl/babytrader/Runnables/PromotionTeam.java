@@ -8,23 +8,20 @@ import com.jsl.babytrader.Data.SharedData;
  * Created by crayna on 7/7/17.
  */
 // TODO: maybe rename this to ad team (and implement its features)
-public class Customers implements Runnable {
-    private static int sleepTime = 5000;
+public class PromotionTeam extends Team {
+    private static int sleepTime = 3000;
 
     @Override
     public void run() {
         while (true) {
-            try {
-                Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            sleep(sleepTime);
 
             Gdx.app.postRunnable(new Runnable() {
                 @Override
                 public void run() {
                     addCustomer(true);
                     addCustomer(false);
+                    Gdx.app.log("test", "finished");
                 }
             });
         }

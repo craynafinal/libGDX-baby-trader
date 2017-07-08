@@ -9,7 +9,7 @@ import com.jsl.babytrader.Data.SharedData;
  */
 // TODO: maybe rename this to ad team (and implement its features)
 public class PromotionTeam extends Team {
-    private static int sleepTime = 3000;
+    private static int sleepTime = 500;
 
     @Override
     public void run() {

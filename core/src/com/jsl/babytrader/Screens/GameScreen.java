@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
+import com.jsl.babytrader.Runnables.ResearchTeam;
 import com.jsl.babytrader.Runnables.SalesTeam;
 
 /**
@@ -16,13 +17,17 @@ public class GameScreen extends BaseScreen {
     private PromotionTeam promotionTeam = new PromotionTeam();
     private SalesTeam salesTeam = new SalesTeam();
     private PurchaseTeam purchaseTeam = new PurchaseTeam();
+    private ResearchTeam researchTeam = new ResearchTeam();
 
     public GameScreen(BabyTrader game) {
         super(game);
 
+        // user may upgrade game to allow start additional threads
+        // for example, two sales team threads will provide faster sales
         new Thread(promotionTeam).start();
         new Thread(salesTeam).start();
         new Thread(purchaseTeam).start();
+        new Thread(researchTeam).start();
     }
 
     @Override

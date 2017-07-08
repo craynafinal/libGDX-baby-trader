@@ -1,7 +1,9 @@
-package com.jsl.babytrader.Screen;
+package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Runnables.Customers;
+import com.jsl.babytrader.Runnables.SalesTeam;
 
 /**
  * Actual game screen for play.
@@ -9,9 +11,15 @@ import com.jsl.babytrader.BabyTrader;
 
 public class GameScreen extends BaseScreen {
 
+    // runnables
+    private Customers customers = new Customers();
+    private SalesTeam salesTeam = new SalesTeam();
 
     public GameScreen(BabyTrader game) {
         super(game);
+
+        new Thread(customers).start();
+        new Thread(salesTeam).start();
     }
 
     @Override

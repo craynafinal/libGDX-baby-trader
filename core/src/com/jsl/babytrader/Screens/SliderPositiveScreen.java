@@ -1,4 +1,4 @@
-package com.jsl.babytrader.Screen;
+package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Actor;
@@ -9,15 +9,16 @@ import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
 
 /**
- * This is a stage where it handles sliders for a user to save sales values for each negative attributes.
+ * This is a stage where it handles sliders for a user to save sales values for each positive attributes.
  */
 
-public class SliderNegativeScreen extends SliderScreen {
-    public SliderNegativeScreen(final BabyTrader game) {
-        super(game, "sprites/sliders_negTitle_591x52.png", "music/bgm_rihujin.wav", true);
+public class SliderPositiveScreen extends SliderScreen {
+    private ImageButton button_next = null;
 
-        // create a table that contains all sliders and labels
-        Table table = generateSliderLabelTable(false);
+    public SliderPositiveScreen(final BabyTrader game) {
+        super(game, "sprites/sliders_posTitle_573x52.png", "music/bgm_rihujin.wav", true);
+
+        Table table = generateSliderLabelTable(true);
 
         // next button setup
         button_next = generateButton(sprite_button_next_up, sprite_button_next_down);
@@ -29,7 +30,7 @@ public class SliderNegativeScreen extends SliderScreen {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                switchScreen(new InitScreen(game));
+                switchScreen(new com.jsl.babytrader.Screens.SliderNegativeScreen(game));
             }
         });
 

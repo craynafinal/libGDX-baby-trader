@@ -1,4 +1,4 @@
-package com.jsl.babytrader.Screen;
+package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -6,7 +6,6 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.ConstData;
 
 /**
@@ -61,7 +60,9 @@ public class InitScreen extends BaseScreen {
                 Gdx.app.log("Clicking Credit Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                switchScreen(new CreditScreen(game));
+                // TODO: temporarily uses this button for gamescreen
+                //switchScreen(new CreditScreen(game));
+                switchScreen(new GameScreen(game));
             }
         });
 

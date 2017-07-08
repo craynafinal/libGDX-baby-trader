@@ -1,4 +1,4 @@
-package com.jsl.babytrader.Screen;
+package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

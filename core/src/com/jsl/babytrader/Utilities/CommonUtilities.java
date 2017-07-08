@@ -12,4 +12,8 @@ public class CommonUtilities {
     public static boolean getRandomBoolean() {
         return new Random().nextBoolean();
     }
+
+    public static float getRandomFloat(float min, float max) {
+        return new Random().nextFloat() * (max - min) + min;
+    }
 }

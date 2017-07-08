@@ -43,6 +43,8 @@ public enum Attribute {
     private static final int DEFAULT_SELL_VALUE_NEGATIVE = 50;
     private static final int DEFAULT_VARIATION = 20;
 
+    public static final int MAX = 100;
+
     // depending on the type, it will assign default sale values
     Attribute(int index, boolean isPositive) {
         this.index = index;

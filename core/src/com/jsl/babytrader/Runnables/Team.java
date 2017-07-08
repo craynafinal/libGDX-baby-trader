@@ -1,4 +1,4 @@
-package com.jsl.babytrader.StoreComponent;
+package com.jsl.babytrader.Runnables;
 
 /**
  * Created by crayna on 6/3/17.

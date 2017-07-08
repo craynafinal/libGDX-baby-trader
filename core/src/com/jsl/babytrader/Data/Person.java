@@ -44,7 +44,7 @@ public abstract class Person {
 
     public abstract int getSellPrice();
 
-    public abstract int getBuyValue();
+    public abstract int getBuyPrice();
 
     static {
         addNames(NAMES_MALE,

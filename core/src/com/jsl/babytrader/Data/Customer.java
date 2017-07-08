@@ -7,7 +7,8 @@ import com.jsl.babytrader.Utilities.CommonUtilities;
  */
 
 public class Customer extends Person {
-    final private static int ATTRIBUTE_MAX = 5;
+    // TODO: only produce positive attribute and make the attribute max random number
+    final private static int ATTRIBUTE_MAX = 1;
     final private static int AGE_MIN = 30;
     final private static int AGE_MAX = 60;
 
@@ -19,6 +20,8 @@ public class Customer extends Person {
 
     private boolean isSelling = false;
 
+    private Baby baby = null;
+
     public Customer(boolean isSelling) {
         super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX);
 
@@ -26,6 +29,15 @@ public class Customer extends Person {
         this.rate_buy = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
 
         this.isSelling = isSelling;
+
+        // if buying situation, keep a baby
+        if (!isSelling) {
+            baby = new Baby();
+        }
+    }
+
+    public Baby getBaby() {
+        return baby;
     }
 
     public boolean isSelling() {
@@ -45,7 +57,7 @@ public class Customer extends Person {
     }
 
     @Override
-    public int getBuyValue() {
+    public int getBuyPrice() {
         return getSellPrice();
     }
 }

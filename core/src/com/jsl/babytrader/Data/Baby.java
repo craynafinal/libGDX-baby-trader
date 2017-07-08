@@ -32,7 +32,7 @@ public class Baby extends Person {
     }
 
     @Override
-    public int getBuyValue() {
+    public int getBuyPrice() {
         int result = 0;
 
         for (Attribute attribute : attributes) {

@@ -5,4 +5,12 @@ package com.jsl.babytrader.Runnables;
  */
 
 public abstract class Team implements Runnable {
+
+    protected static void sleep(int sleepTime) {
+        try {
+            Thread.sleep(sleepTime);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }

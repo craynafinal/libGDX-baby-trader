@@ -7,9 +7,9 @@ import com.jsl.babytrader.Data.SharedData;
 /**
  * Created by crayna on 7/7/17.
  */
-
+// TODO: maybe rename this to ad team (and implement its features)
 public class Customers implements Runnable {
-    private static int sleepTime = 10000;
+    private static int sleepTime = 5000;
 
     @Override
     public void run() {

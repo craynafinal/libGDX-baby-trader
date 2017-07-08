@@ -82,18 +82,22 @@ public class SharedData {
         Gdx.app.log("getMoney", "current balance - " + money);
     }
 
-    synchronized public static Baby getBabyByAttribute(Attribute ... attributes) {
+    synchronized public static Baby getBabyByAttribute(List<Attribute> attributes) {
         Gdx.app.log("getBabyByAttribute", attributes.toString());
         return (Baby)getPersonByAttribute(babies, attributes);
     }
 
-    synchronized private static Person getPersonByAttribute(List<Person> persons, Attribute ... attributes) {
+    synchronized private static Person getPersonByAttribute(List<Person> persons, List<Attribute> attributes) {
         Person result = null;
 
         for (Person person : persons) {
-            if (person.getAttributes().containsAll(Arrays.asList(attributes))) {
+            if (person.getAttributes().containsAll(attributes)) {
                 result = person;
             }
+        }
+
+        if (result != null) {
+            persons.remove(result);
         }
 
         return result;

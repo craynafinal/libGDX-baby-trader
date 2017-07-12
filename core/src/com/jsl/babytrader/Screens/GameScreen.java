@@ -7,7 +7,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.SharedData;
@@ -46,10 +48,22 @@ public class GameScreen extends BaseScreen {
     private ImageButton button_upgrade_sell = null;
     private ImageButton button_upgrade_buy = null;
 
-    private BitmapFont font_nokia = null;
-    private final static int FONT_NOKIA_SIZE = 20;
-    private final static Color FONT_NOKIA_COLOR = Color.valueOf("2F3A42");
+    private Label label_money = null;
+    private Label label_time = null;
 
+    private Label label_count_babies = null;
+    private Label label_count_customers_sell = null;
+    private Label label_count_customers_buy = null;
+
+    private Label label_properties_title_baby = null;
+    private Label label_properties_list_baby = null;
+    private Label label_properties_title_sell = null;
+    private Label label_properties_list_sell = null;
+    private Label label_properties_title_buy = null;
+    private Label label_properties_list_buy = null;
+
+    private Label label_level_sell = null;
+    private Label label_level_buy = null;
 
     // runnables
     private PromotionTeam promotionTeam = new PromotionTeam();
@@ -59,9 +73,6 @@ public class GameScreen extends BaseScreen {
 
     public GameScreen(BabyTrader game) {
         super(game);
-
-        font_nokia = generateFont(FONT_NOKIA_PATH, FONT_NOKIA_SIZE, FONT_NOKIA_COLOR);
-
         // user may upgrade game to allow start additional threads
         // for example, two sales team threads will provide faster sales
         new Thread(promotionTeam).start();
@@ -73,18 +84,112 @@ public class GameScreen extends BaseScreen {
         // TODO: switch the file extension to something cheap
         setupMusic("music/bgm_usodarake.wav", true);
 
-        /**
-         * button_browse_left = null;
-         private ImageButton button_browse_right = null;
-         private ImageButton button_menu = null;
-         private ImageButton button_promotion = null;
-         private ImageButton button_research = null;
-         private ImageButton button_upgrade = null;
-         */
+        labelSetup();
+        buttonSetup();
 
-        // start button setup
+        addElementsToStage(
+                button_browse_left,
+                button_browse_right,
+                button_menu,
+                button_promotion,
+                button_research,
+                button_upgrade_sell,
+                button_upgrade_buy,
+                label_money,
+                label_time,
+                label_count_babies,
+                label_count_customers_sell,
+                label_count_customers_buy,
+                label_properties_title_baby,
+                label_properties_list_baby,
+                label_properties_title_sell,
+                label_properties_list_sell,
+                label_properties_title_buy,
+                label_properties_list_buy,
+                label_level_sell,
+                label_level_buy
+        );
+
+        // taking inputs from ui
+        Gdx.input.setInputProcessor(stage);
+    }
+
+    @Override
+    public void show() {
+
+    }
+
+    @Override
+    public void render(float delta) {
+        clearingScreen();
+        viewportRender();
+
+        // stage.draw() must appear before game batch
+        stage.act(Gdx.graphics.getDeltaTime());
+
+        stage.getBatch().begin();
+        stage.getBatch().draw(sprite_background, 0, 0);
+
+
+        label_money.setText("$" + SharedData.getMoney());
+        label_time.setText("00:00");
+        label_count_babies.setText(SharedData.getBabySize() + "");
+        label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
+        label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");
+
+        label_properties_title_baby.setText("John(5) $500");
+        label_properties_list_baby.setText(
+                "• will have a nice job\n" +
+                "• artistic\n" +
+                "• Will be a vegetarian\n" +
+                "• very kind\n" +
+                "• Will be Tall"
+        );
+        label_properties_title_sell.setText("Jenny(45)");
+        label_properties_list_sell.setText(
+                "Her dream baby:\n" +
+                "• will have a nice job\n" +
+                "• artistic\n" +
+                "• Will be a vegetarian\n" +
+                "• very kind\n" +
+                "• Will be Tall"
+        );
+        label_properties_title_buy.setText("Gale(56)");
+        label_properties_list_buy.setText(
+                "Her baby for sale:\n" +
+                "• will have a nice job\n" +
+                "• artistic\n" +
+                "• Will be a vegetarian\n" +
+                "• very kind\n" +
+                "• Will be Tall"
+        );
+
+        label_level_sell.setText("1");
+        label_level_buy.setText("1");
+
+        stage.getBatch().end();
+
+        stage.draw();
+
+        game.batch.begin();
+        game.batch.end();
+
+    }
+
+    protected static void clearingScreen() {
+        Gdx.gl.glClearColor(
+                ConstData.COLOR_BG_RED_GAME,
+                ConstData.COLOR_BG_BLUE_GAME,
+                ConstData.COLOR_BG_GREEN_GAME,
+                ConstData.COLOR_BG_ALPHA
+        );
+
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+    }
+
+    private void buttonSetup() {
         button_browse_left = generateButton(sprite_button_browse_left, sprite_button_browse_left_inv);
-        button_browse_left.setPosition(513, 526);
+        button_browse_left.setPosition(467, 528);
 
         button_browse_left.addListener(new ChangeListener() {
             @Override
@@ -95,7 +200,7 @@ public class GameScreen extends BaseScreen {
         });
 
         button_browse_right = generateButton(sprite_button_browse_right, sprite_button_browse_right_inv);
-        button_browse_right.setPosition(708, 526);
+        button_browse_right.setPosition(738, 528);
 
         button_browse_right.addListener(new ChangeListener() {
             @Override
@@ -139,7 +244,7 @@ public class GameScreen extends BaseScreen {
         });
 
         button_upgrade_sell = generateButton(sprite_button_upgrade, sprite_button_upgrade_inv);
-        button_upgrade_sell.setPosition(22, 193);
+        button_upgrade_sell.setPosition(13, 193);
 
         button_upgrade_sell.addListener(new ChangeListener() {
             @Override
@@ -150,7 +255,7 @@ public class GameScreen extends BaseScreen {
         });
 
         button_upgrade_buy = generateButton(sprite_button_upgrade, sprite_button_upgrade_inv);
-        button_upgrade_buy.setPosition(22, 484);
+        button_upgrade_buy.setPosition(13, 484);
 
         button_upgrade_buy.addListener(new ChangeListener() {
             @Override
@@ -159,53 +264,52 @@ public class GameScreen extends BaseScreen {
                 sound_buttonClick.play();
             }
         });
-
-
-        addElementsToStage(button_browse_left, button_browse_right, button_menu, button_promotion, button_research, button_upgrade_sell, button_upgrade_buy);
-
-        // taking inputs from ui
-        Gdx.input.setInputProcessor(stage);
     }
 
-    @Override
-    public void show() {
+    private void labelSetup() {
+        label_money = new Label("", new Label.LabelStyle(generateFont(FONT_SARPANCH_SEMI_BOLD, 28, FONT_COLOR_GREEN), FONT_COLOR_GREEN));
+        label_money.setAlignment(Align.right);
+        label_money.setPosition(994, 190);
 
-    }
+        label_time = new Label("", new Label.LabelStyle(generateFont(FONT_SARPANCH_SEMI_BOLD, 28, FONT_COLOR_GREEN), FONT_COLOR_GREEN));
+        label_time.setAlignment(Align.right);
+        label_time.setPosition(994, 260);
 
-    @Override
-    public void render(float delta) {
-        clearingScreen();
-        viewportRender();
+        label_count_babies = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_count_babies.setAlignment(Align.right);
+        label_count_babies.setPosition(607, 545);
 
-        // stage.draw() must appear before game batch
-        stage.act(Gdx.graphics.getDeltaTime());
+        label_count_customers_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_count_customers_sell.setAlignment(Align.right);
+        label_count_customers_sell.setPosition(290, 502);
 
-        stage.getBatch().begin();
-        stage.getBatch().draw(sprite_background, 0, 0);
-        stage.getBatch().end();
+        label_count_customers_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_count_customers_buy.setAlignment(Align.right);
+        label_count_customers_buy.setPosition(290, 209);
 
-        stage.draw();
+        label_properties_title_baby = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_title_baby.setPosition(505, 113);
 
-        game.batch.begin();
+        label_properties_list_baby = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_list_baby.setPosition(505, 55);
 
-        //game.batch.draw(sprite_background, 0, 0);
+        label_properties_title_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_title_sell.setPosition(193, 418);
 
-        font_nokia.draw(game.batch, "$" + SharedData.getMoney(), 100, 100);
-        font_nokia.draw(game.batch, "test", 200, 200);
+        label_properties_list_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_list_sell.setPosition(193, 354);
 
-        game.batch.end();
+        label_properties_title_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_title_buy.setPosition(193, 127);
 
-    }
+        label_properties_list_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_list_buy.setPosition(193, 63);
 
-    protected static void clearingScreen() {
-        Gdx.gl.glClearColor(
-                ConstData.COLOR_BG_RED_GAME,
-                ConstData.COLOR_BG_BLUE_GAME,
-                ConstData.COLOR_BG_GREEN_GAME,
-                ConstData.COLOR_BG_ALPHA
-        );
+        label_level_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE), Color.WHITE));
+        label_level_sell.setPosition(154, 549);
 
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        label_level_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE), Color.WHITE));
+        label_level_buy.setPosition(154, 258);
     }
 
     @Override

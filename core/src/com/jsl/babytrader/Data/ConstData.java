@@ -14,5 +14,5 @@ public class ConstData {
     public static final float COLOR_BG_RED_GAME = 0.3882f;
     public static final float COLOR_BG_BLUE_GAME = 0.4392f;
     public static final float COLOR_BG_GREEN_GAME = 0.4745f;
-    public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;,{}\"´`'<>";
+    public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;:,{}\"´`'<>";
 }

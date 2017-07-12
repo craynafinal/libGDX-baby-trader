@@ -92,7 +92,6 @@ public class SharedData {
 
     public static int getMoney() {
         synchronized (SharedData.class) {
-            Gdx.app.log("getMoney", "current balance - " + money);
             return money;
         }
     }

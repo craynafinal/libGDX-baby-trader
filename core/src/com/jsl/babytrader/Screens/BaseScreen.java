@@ -39,6 +39,13 @@ public abstract class BaseScreen implements Screen {
     // commonly used assets
     protected Sound sound_buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/se_buttonClick.mp3"));
     final protected static String FONT_NOKIA_PATH = "fonts/nokiafc22.ttf";
+    final protected static String FONT_5COMPUTERS_PATH = "fonts/5Computers-In-Love.ttf";
+    final protected static String FONT_CARRIER_PATH = "fonts/Carrier_Command.ttf";
+    final protected static String FONT_WORK_EXTRA_BOLD = "fonts/WorkSans-ExtraBold.ttf";
+    final protected static String FONT_SARPANCH_SEMI_BOLD = "fonts/Sarpanch-SemiBold.ttf";
+    final protected static Color FONT_COLOR_GREEN = Color.valueOf("35eb35");
+    final protected static Color FONT_COLOR_LIGHT_GRAY = Color.valueOf("d4dbe1");
+
 
     // view port code
     protected OrthographicCamera gamecam = null;

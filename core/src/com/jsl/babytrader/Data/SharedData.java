@@ -39,6 +39,18 @@ public class SharedData {
         return babies;
     }
 
+    synchronized public static Baby getBabyWithoutRemoval(int index) {
+        return babies.get(index);
+    }
+
+    synchronized public static Customer getCustomerSellWithoutRemoval(int index) {
+        return customers_selling.get(index);
+    }
+
+    synchronized public static Customer getCustomerBuyWithoutRemoval(int index) {
+        return customers_buying.get(index);
+    }
+
     public static Customer getCustomerBuying() {
         Gdx.app.log("getCustomerBuying", "customer taken");
         return getCustomer(customers_buying);

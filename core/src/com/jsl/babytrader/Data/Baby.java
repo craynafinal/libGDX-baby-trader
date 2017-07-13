@@ -21,6 +21,30 @@ public class Baby extends Person {
     }
 
     @Override
+    protected String getMaleTexture() {
+        String[] sprites = {
+                "sprites/baby_m_001_270x387.png",
+                "sprites/baby_m_002_270x387.png",
+                "sprites/baby_m_003_270x387.png",
+                "sprites/baby_m_004_270x387.png"
+        };
+
+        return CommonUtilities.getRandomString(sprites);
+    }
+
+    @Override
+    protected String getFemaleTexture() {
+        String[] sprites = {
+                "sprites/baby_f_001_270x387.png",
+                "sprites/baby_f_002_270x387.png",
+                "sprites/baby_f_003_270x387.png",
+                "sprites/baby_f_004_270x387.png"
+        };
+
+        return CommonUtilities.getRandomString(sprites);
+    }
+
+    @Override
     public int getSellPrice() {
         int result = 0;
 

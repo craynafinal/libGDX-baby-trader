@@ -3,9 +3,7 @@ package com.jsl.babytrader.Data;
 import com.badlogic.gdx.Gdx;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -52,11 +50,11 @@ public enum Attribute {
         this.isPositive = isPositive;
 
         if (isPositive) {
-            sellValue = DEFAULT_SELL_VALUE_POSITIVE + CommonUtilities.getRandomNumber(-DEFAULT_VARIATION, DEFAULT_VARIATION);
-            buyValue = DEFAULT_BUY_VALUE_POSITIVE + CommonUtilities.getRandomNumber(-DEFAULT_VARIATION, DEFAULT_VARIATION);
+            sellValue = DEFAULT_SELL_VALUE_POSITIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
+            buyValue = DEFAULT_BUY_VALUE_POSITIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
         } else {
-            sellValue = DEFAULT_SELL_VALUE_NEGATIVE + CommonUtilities.getRandomNumber(-DEFAULT_VARIATION, DEFAULT_VARIATION);
-            buyValue = DEFAULT_BUY_VALUE_NEGATIVE + CommonUtilities.getRandomNumber(-DEFAULT_VARIATION, DEFAULT_VARIATION);
+            sellValue = DEFAULT_SELL_VALUE_NEGATIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
+            buyValue = DEFAULT_BUY_VALUE_NEGATIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
         }
     }
 
@@ -132,6 +130,6 @@ public enum Attribute {
     }
 
     private static int getRandomIndex() {
-        return CommonUtilities.getRandomNumber(0, Attribute.values().length);
+        return CommonUtilities.getRandomInteger(0, Attribute.values().length);
     }
 }

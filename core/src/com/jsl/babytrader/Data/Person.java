@@ -1,5 +1,7 @@
 package com.jsl.babytrader.Data;
 
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.utils.Disposable;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
 import java.util.ArrayList;
@@ -10,23 +12,33 @@ import java.util.Set;
  * Represents a person.
  */
 
-public abstract class Person {
+public abstract class Person implements Disposable {
     protected Set<Attribute> attributes = null;
     protected String name = null;
     protected int age = 0;
     protected boolean isMale = false;
+    private Texture sprite = null;
 
     final private static List<String> NAMES_MALE = new ArrayList<String>();
     final private static List<String> NAMES_FEMALE = new ArrayList<String>();
 
     public Person(int age_min, int age_max, int attribute_max, boolean isPositive) {
-        this.age = CommonUtilities.getRandomNumber(age_min, age_max);
+        this.age = CommonUtilities.getRandomInteger(age_min, age_max);
         this.attributes = isPositive ? Attribute.getRandomAttributesPositive(attribute_max) : Attribute.getRandomAttributesRandom(attribute_max);
         this.isMale = CommonUtilities.getRandomBoolean() ? true : false;
 
         // name should appear later than isMale
-        this.name = isMale ? NAMES_MALE.get(CommonUtilities.getRandomNumber(0, NAMES_MALE.size()))
-                : NAMES_FEMALE.get(CommonUtilities.getRandomNumber(0, NAMES_FEMALE.size()));
+        this.name = isMale ? NAMES_MALE.get(CommonUtilities.getRandomInteger(0, NAMES_MALE.size()))
+                : NAMES_FEMALE.get(CommonUtilities.getRandomInteger(0, NAMES_FEMALE.size()));
+
+        sprite = isMale ? new Texture(getMaleTexture()) : new Texture(getFemaleTexture());
+    }
+
+    abstract protected String getMaleTexture();
+    abstract protected String getFemaleTexture();
+
+    public Texture getSprite() {
+        return sprite;
     }
 
     protected static void addNames(List<String> nameList, String ... names) {
@@ -46,6 +58,13 @@ public abstract class Person {
     public abstract int getSellPrice();
 
     public abstract int getBuyPrice();
+
+    @Override
+    public void dispose() {
+        if (sprite != null) {
+            sprite.dispose();
+        }
+    }
 
     static {
         addNames(NAMES_MALE,

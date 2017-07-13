@@ -71,6 +71,11 @@ public class GameScreen extends BaseScreen {
     private PurchaseTeam purchaseTeam = new PurchaseTeam();
     private ResearchTeam researchTeam = new ResearchTeam();
 
+    // meta data
+    private int currentBabyIndex = SharedData.getBabySize() - 1;
+    private int currentCustomerSellIndex = SharedData.getCustomerSellingSize() - 1;
+    private int currentCustomerBuyIndex = SharedData.getCustomerBuyingSize() - 1;
+
     public GameScreen(BabyTrader game) {
         super(game);
         // user may upgrade game to allow start additional threads
@@ -130,6 +135,16 @@ public class GameScreen extends BaseScreen {
         stage.getBatch().begin();
         stage.getBatch().draw(sprite_background, 0, 0);
 
+        // baby sprite
+        synchronized (this) {
+            if (currentBabyIndex >= SharedData.getBabySize()) {
+                currentBabyIndex = SharedData.getBabySize() - 1;
+            }
+            stage.getBatch().draw(SharedData.getBabyWithoutRemoval(currentBabyIndex).getSprite(), 484, 131);
+        }
+
+        // customer sprites
+        // this one should appear when customer is accepted by sales / purchase team
 
         label_money.setText("$" + SharedData.getMoney());
         label_time.setText("00:00");
@@ -330,5 +345,19 @@ public class GameScreen extends BaseScreen {
     @Override
     public void dispose() {
         super.dispose();
+
+        sprite_background.dispose();
+        sprite_button_browse_left.dispose();
+        sprite_button_browse_left_inv.dispose();
+        sprite_button_browse_right.dispose();
+        sprite_button_browse_right_inv.dispose();
+        sprite_button_menu.dispose();
+        sprite_button_menu_inv.dispose();
+        sprite_button_promotion.dispose();
+        sprite_button_promotion_inv.dispose();
+        sprite_button_research.dispose();
+        sprite_button_research_inv.dispose();
+        sprite_button_upgrade.dispose();
+        sprite_button_upgrade_inv.dispose();
     }
 }

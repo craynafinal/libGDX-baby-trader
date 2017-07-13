@@ -1,6 +1,10 @@
 package com.jsl.babytrader.Data;
 
+import com.badlogic.gdx.graphics.Texture;
 import com.jsl.babytrader.Utilities.CommonUtilities;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Represent customers.
@@ -44,13 +48,38 @@ public class Customer extends Person {
         return isSelling;
     }
 
+    @Override
+    protected String getMaleTexture() {
+        String[] sprites = {
+                "sprites/customer_m_001_163x170.png",
+                "sprites/customer_m_002_163x170.png",
+                "sprites/customer_m_003_163x170.png",
+                "sprites/customer_m_004_163x170.png",
+                "sprites/customer_m_005_163x170.png",
+                "sprites/customer_m_006_163x170.png"
+        };
+
+        return CommonUtilities.getRandomString(sprites);
+    }
+
+    @Override
+    protected String getFemaleTexture() {
+        String[] sprites = {
+                "sprites/customer_f_001_163x170.png",
+                "sprites/customer_f_002_163x170.png",
+                "sprites/customer_f_003_163x170.png"
+        };
+
+        return CommonUtilities.getRandomString(sprites);
+    }
+
     // TODO: think of a better number for customer instead of random number between 1 and 100
     @Override
     public int getSellPrice() {
         int result = 0;
 
         for (int i = 0; i < ATTRIBUTE_MAX; i++) {
-            result += CommonUtilities.getRandomNumber(1, Attribute.MAX);
+            result += CommonUtilities.getRandomInteger(1, Attribute.MAX);
         }
 
         return result;

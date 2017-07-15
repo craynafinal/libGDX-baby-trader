@@ -10,7 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.StringBuilder;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
@@ -125,6 +127,22 @@ public class GameScreen extends BaseScreen {
 
     }
 
+    private void renderCustomer(Customer customer, Label label_title, Label label_properties, int x, int y, String description) {
+        if (customer != null) {
+            stage.getBatch().draw(customer.getSprite(), x, y);
+
+            label_title.setText(customer.getName() + " (" + customer.getAge() + ")");
+
+            StringBuilder stringBuilder = new StringBuilder((customer.isMale() ? "His" : "Her") + " " + description + ":\n");
+
+            for (Attribute attribute : customer.getAttributes()) {
+                stringBuilder.append("• " + attribute.getName() + "\n");
+            }
+
+            label_properties.setText(stringBuilder);
+        }
+    }
+
     @Override
     public void render(float delta) {
         clearingScreen();
@@ -146,21 +164,8 @@ public class GameScreen extends BaseScreen {
 
         // customer sprites
         // this one should appear when customer is accepted by sales / purchase team
-        synchronized (this) {
-            Customer latestSellingCustomer = SharedData.getCustomerSellingLatest();
-
-            if (latestSellingCustomer != null) {
-                stage.getBatch().draw(latestSellingCustomer.getSprite(), 15, 306);
-            }
-        }
-
-        synchronized (this) {
-            Customer latestBuyingCustomer = SharedData.getCustomerBuyingLatest();
-
-            if (latestBuyingCustomer != null) {
-                stage.getBatch().draw(latestBuyingCustomer.getSprite(), 15, 15);
-            }
-        }
+        renderCustomer(SharedData.getCustomerSellingLatest(), label_properties_title_sell, label_properties_list_sell, 15, 306, "dream baby");
+        renderCustomer(SharedData.getCustomerBuyingLatest(), label_properties_title_buy, label_properties_list_buy, 15, 15, "baby for sale");
 
         label_money.setText("$" + SharedData.getMoney());
         label_time.setText("00:00");
@@ -171,29 +176,12 @@ public class GameScreen extends BaseScreen {
         label_properties_title_baby.setText("John(5) $500");
         label_properties_list_baby.setText(
                 "• will have a nice job\n" +
-                "• artistic\n" +
-                "• Will be a vegetarian\n" +
-                "• very kind\n" +
-                "• Will be Tall"
+                        "• artistic\n" +
+                        "• Will be a vegetarian\n" +
+                        "• very kind\n" +
+                        "• Will be Tall"
         );
-        label_properties_title_sell.setText("Jenny(45)");
-        label_properties_list_sell.setText(
-                "Her dream baby:\n" +
-                "• will have a nice job\n" +
-                "• artistic\n" +
-                "• Will be a vegetarian\n" +
-                "• very kind\n" +
-                "• Will be Tall"
-        );
-        label_properties_title_buy.setText("Gale(56)");
-        label_properties_list_buy.setText(
-                "Her baby for sale:\n" +
-                "• will have a nice job\n" +
-                "• artistic\n" +
-                "• Will be a vegetarian\n" +
-                "• very kind\n" +
-                "• Will be Tall"
-        );
+
 
         label_level_sell.setText("1");
         label_level_buy.setText("1");

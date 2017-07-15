@@ -10,8 +10,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" />
     </list>
     <ignored path="libGDX_baby-trader.iws" />
@@ -68,6 +68,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Baby.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -75,8 +87,6 @@
               <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#405#406#0" expanded="true" />
-                <element signature="e#466#467#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,14 +95,10 @@
       <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
+            <state relative-caret-position="375">
+              <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1517#1518#0" expanded="true" />
-                <element signature="e#1546#1547#0" expanded="true" />
-                <element signature="e#1753#1754#0" expanded="true" />
-                <element signature="e#1786#1787#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,21 +117,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Attribute.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
+      <file leaf-file-name="ConstData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1455">
-              <caret line="117" column="86" selection-start-line="117" selection-start-column="86" selection-end-line="117" selection-end-column="86" />
+            <state relative-caret-position="240">
+              <caret line="16" column="146" selection-start-line="16" selection-start-column="146" selection-end-line="16" selection-end-column="146" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConstData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java">
+      <file leaf-file-name="Attribute.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="135" selection-start-line="16" selection-start-column="135" selection-end-line="16" selection-end-column="135" />
+            <state relative-caret-position="37">
+              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -135,22 +141,22 @@
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="153" column="13" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
+              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
               <folding>
-                <element signature="e#8670#8919#0" expanded="true" />
-                <element signature="e#8918#8919#0" expanded="true" />
-                <element signature="e#9121#9371#0" expanded="true" />
-                <element signature="e#9370#9371#0" expanded="true" />
-                <element signature="e#9532#9774#0" expanded="true" />
-                <element signature="e#9773#9774#0" expanded="true" />
-                <element signature="e#9964#10211#0" expanded="true" />
-                <element signature="e#10210#10211#0" expanded="true" />
-                <element signature="e#10392#10638#0" expanded="true" />
-                <element signature="e#10637#10638#0" expanded="true" />
-                <element signature="e#10829#11079#0" expanded="true" />
-                <element signature="e#11078#11079#0" expanded="true" />
-                <element signature="e#11267#11516#0" expanded="true" />
-                <element signature="e#11515#11516#0" expanded="true" />
+                <element signature="e#8520#8769#0" expanded="true" />
+                <element signature="e#8768#8769#0" expanded="true" />
+                <element signature="e#8971#9221#0" expanded="true" />
+                <element signature="e#9220#9221#0" expanded="true" />
+                <element signature="e#9382#9624#0" expanded="true" />
+                <element signature="e#9623#9624#0" expanded="true" />
+                <element signature="e#9814#10061#0" expanded="true" />
+                <element signature="e#10060#10061#0" expanded="true" />
+                <element signature="e#10242#10488#0" expanded="true" />
+                <element signature="e#10487#10488#0" expanded="true" />
+                <element signature="e#10679#10929#0" expanded="true" />
+                <element signature="e#10928#10929#0" expanded="true" />
+                <element signature="e#11117#11366#0" expanded="true" />
+                <element signature="e#11365#11366#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,16 +170,6 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreditScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/CreditScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2441,14 +2437,14 @@
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/AdvertisementTeam.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/ResearchTeam.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/BaseScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Utilities/CommonUtilities.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" />
       </list>
     </option>
@@ -3312,22 +3308,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="135" selection-start-line="16" selection-start-column="135" selection-end-line="16" selection-end-column="135" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="117" column="86" selection-start-line="117" selection-start-column="86" selection-end-line="117" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/CreditScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -3347,56 +3327,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="24" column="81" selection-start-line="24" selection-start-column="81" selection-end-line="24" selection-end-column="81" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1517#1518#0" expanded="true" />
-            <element signature="e#1546#1547#0" expanded="true" />
-            <element signature="e#1753#1754#0" expanded="true" />
-            <element signature="e#1786#1787#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#466#467#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="25" column="66" selection-start-line="25" selection-start-column="66" selection-end-line="25" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -3413,25 +3347,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="51" column="45" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/ConstData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="146" selection-start-line="16" selection-start-column="146" selection-end-line="16" selection-end-column="146" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="153" column="13" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
+          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
           <folding>
-            <element signature="e#8670#8919#0" expanded="true" />
-            <element signature="e#8918#8919#0" expanded="true" />
-            <element signature="e#9121#9371#0" expanded="true" />
-            <element signature="e#9370#9371#0" expanded="true" />
-            <element signature="e#9532#9774#0" expanded="true" />
-            <element signature="e#9773#9774#0" expanded="true" />
-            <element signature="e#9964#10211#0" expanded="true" />
-            <element signature="e#10210#10211#0" expanded="true" />
-            <element signature="e#10392#10638#0" expanded="true" />
-            <element signature="e#10637#10638#0" expanded="true" />
-            <element signature="e#10829#11079#0" expanded="true" />
-            <element signature="e#11078#11079#0" expanded="true" />
-            <element signature="e#11267#11516#0" expanded="true" />
-            <element signature="e#11515#11516#0" expanded="true" />
+            <element signature="e#8520#8769#0" expanded="true" />
+            <element signature="e#8768#8769#0" expanded="true" />
+            <element signature="e#8971#9221#0" expanded="true" />
+            <element signature="e#9220#9221#0" expanded="true" />
+            <element signature="e#9382#9624#0" expanded="true" />
+            <element signature="e#9623#9624#0" expanded="true" />
+            <element signature="e#9814#10061#0" expanded="true" />
+            <element signature="e#10060#10061#0" expanded="true" />
+            <element signature="e#10242#10488#0" expanded="true" />
+            <element signature="e#10487#10488#0" expanded="true" />
+            <element signature="e#10679#10929#0" expanded="true" />
+            <element signature="e#10928#10929#0" expanded="true" />
+            <element signature="e#11117#11366#0" expanded="true" />
+            <element signature="e#11365#11366#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -47,6 +47,10 @@ public abstract class Person implements Disposable {
         }
     }
 
+    public int getAge() { return age; }
+
+    public boolean isMale() { return isMale; }
+
     public Set<Attribute> getAttributes() {
         return attributes;
     }

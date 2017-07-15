@@ -20,6 +20,10 @@ public class SharedData {
     private static List<Customer> customers_selling = new ArrayList<Customer>();
     private static List<Customer> customers_buying = new ArrayList<Customer>();
 
+    // latest persons
+    private static Customer customer_selling_latest = null;
+    private static Customer customer_buying_latest = null;
+
     // static data for default setup
     final private static int DEFAULT_STARTING_money = 5000;
 
@@ -43,6 +47,9 @@ public class SharedData {
         return babies.get(index);
     }
 
+    synchronized public static Customer getCustomerSellingLatest() { return customer_selling_latest; }
+    synchronized public static Customer getCustomerBuyingLatest() { return customer_buying_latest; }
+
     synchronized public static Customer getCustomerSellWithoutRemoval(int index) {
         return customers_selling.get(index);
     }
@@ -53,20 +60,27 @@ public class SharedData {
 
     public static Customer getCustomerBuying() {
         Gdx.app.log("getCustomerBuying", "customer taken");
-        return getCustomer(customers_buying);
+        return getCustomer(false);
     }
 
     public static Customer getCustomerSelling() {
         Gdx.app.log("getCustomer", "customer taken");
-        return getCustomer(customers_selling);
+        return getCustomer(true);
     }
 
-    private static Customer getCustomer(List<Customer> customers) {
+    private static Customer getCustomer(boolean isSelling) {
         Customer customer = null;
 
         synchronized (SharedData.class) {
-            customer = customers.get(0);
-            customers.remove(customer);
+            if (isSelling) {
+                customer = customers_selling.get(0);
+                customers_selling.remove(customer);
+                customer_selling_latest = customer;
+            } else {
+                customer = customers_buying.get(0);
+                customers_buying.remove(customer);
+                customer_buying_latest = customer;
+            }
         }
 
         return customer;

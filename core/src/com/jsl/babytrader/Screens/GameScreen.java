@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
+import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
@@ -145,6 +146,21 @@ public class GameScreen extends BaseScreen {
 
         // customer sprites
         // this one should appear when customer is accepted by sales / purchase team
+        synchronized (this) {
+            Customer latestSellingCustomer = SharedData.getCustomerSellingLatest();
+
+            if (latestSellingCustomer != null) {
+                stage.getBatch().draw(latestSellingCustomer.getSprite(), 15, 306);
+            }
+        }
+
+        synchronized (this) {
+            Customer latestBuyingCustomer = SharedData.getCustomerBuyingLatest();
+
+            if (latestBuyingCustomer != null) {
+                stage.getBatch().draw(latestBuyingCustomer.getSprite(), 15, 15);
+            }
+        }
 
         label_money.setText("$" + SharedData.getMoney());
         label_time.setText("00:00");

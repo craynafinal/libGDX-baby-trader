@@ -34,7 +34,6 @@ public class PromotionTeam extends Team {
         if(isSelling) {
             SharedData.addCustomerSelling(customer);
             size = SharedData.getCustomerSellingSize();
-
         } else {
             SharedData.addCustomerBuying(customer);
             size = SharedData.getCustomerBuyingSize();

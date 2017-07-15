@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.StringBuilder;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.Attribute;
+import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
@@ -75,9 +76,7 @@ public class GameScreen extends BaseScreen {
     private ResearchTeam researchTeam = new ResearchTeam();
 
     // meta data
-    private int currentBabyIndex = SharedData.getBabySize() - 1;
-    private int currentCustomerSellIndex = SharedData.getCustomerSellingSize() - 1;
-    private int currentCustomerBuyIndex = SharedData.getCustomerBuyingSize() - 1;
+    private int currentBabyIndex = 0;
 
     public GameScreen(BabyTrader game) {
         super(game);
@@ -136,11 +135,41 @@ public class GameScreen extends BaseScreen {
             StringBuilder stringBuilder = new StringBuilder((customer.isMale() ? "His" : "Her") + " " + description + ":\n");
 
             for (Attribute attribute : customer.getAttributes()) {
-                stringBuilder.append("• " + attribute.getName() + "\n");
+                stringBuilder.append(propertyFormat(attribute.getName()));
             }
 
             label_properties.setText(stringBuilder);
         }
+    }
+
+    private void renderBaby() {
+        Baby baby = null;
+
+        synchronized (this) {
+            if (currentBabyIndex >= SharedData.getBabySize()) {
+                currentBabyIndex = SharedData.getBabySize() - 1;
+            } else if (currentBabyIndex < 0) {
+                currentBabyIndex = 0;
+            }
+            baby = SharedData.getBabyWithoutRemoval(currentBabyIndex);
+        }
+
+        stage.getBatch().draw(baby.getSprite(), 484, 131);
+
+        label_properties_title_baby.setText(baby.getName() + " (" + baby.getAge() + ") $"+ baby.getSellPrice());
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (Attribute attribute : baby.getAttributes()) {
+            stringBuilder.append(propertyFormat(attribute.getName()));
+        }
+
+        label_properties_list_baby.setText(stringBuilder);
+    }
+
+    // returns an attribute in a formatted string
+    private static String propertyFormat(String attribute) {
+        return "• " + attribute + "\n";
     }
 
     @Override
@@ -155,12 +184,7 @@ public class GameScreen extends BaseScreen {
         stage.getBatch().draw(sprite_background, 0, 0);
 
         // baby sprite
-        synchronized (this) {
-            if (currentBabyIndex >= SharedData.getBabySize()) {
-                currentBabyIndex = SharedData.getBabySize() - 1;
-            }
-            stage.getBatch().draw(SharedData.getBabyWithoutRemoval(currentBabyIndex).getSprite(), 484, 131);
-        }
+        renderBaby();
 
         // customer sprites
         // this one should appear when customer is accepted by sales / purchase team
@@ -172,16 +196,6 @@ public class GameScreen extends BaseScreen {
         label_count_babies.setText(SharedData.getBabySize() + "");
         label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
         label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");
-
-        label_properties_title_baby.setText("John(5) $500");
-        label_properties_list_baby.setText(
-                "• will have a nice job\n" +
-                        "• artistic\n" +
-                        "• Will be a vegetarian\n" +
-                        "• very kind\n" +
-                        "• Will be Tall"
-        );
-
 
         label_level_sell.setText("1");
         label_level_buy.setText("1");
@@ -214,6 +228,7 @@ public class GameScreen extends BaseScreen {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Browse Left button", "Activated");
+                currentBabyIndex--;
                 sound_buttonClick.play();
             }
         });
@@ -225,6 +240,7 @@ public class GameScreen extends BaseScreen {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Browse Right button", "Activated");
+                currentBabyIndex++;
                 sound_buttonClick.play();
             }
         });

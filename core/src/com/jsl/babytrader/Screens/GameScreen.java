@@ -11,12 +11,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.StringBuilder;
+import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
+import com.jsl.babytrader.Data.Time;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
 import com.jsl.babytrader.Runnables.ResearchTeam;
@@ -75,6 +77,9 @@ public class GameScreen extends BaseScreen {
     private PurchaseTeam purchaseTeam = new PurchaseTeam();
     private ResearchTeam researchTeam = new ResearchTeam();
 
+    // timer
+    private Time time = new Time();
+
     // meta data
     private int currentBabyIndex = 0;
 
@@ -86,6 +91,14 @@ public class GameScreen extends BaseScreen {
         new Thread(salesTeam).start();
         new Thread(purchaseTeam).start();
         new Thread(researchTeam).start();
+
+        // timer test
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                time.countDown();
+            }
+        }, 0, 1);
 
         // bgm setup
         // TODO: switch the file extension to something cheap
@@ -192,7 +205,7 @@ public class GameScreen extends BaseScreen {
         renderCustomer(SharedData.getCustomerBuyingLatest(), label_properties_title_buy, label_properties_list_buy, 15, 15, "baby for sale");
 
         label_money.setText("$" + SharedData.getMoney());
-        label_time.setText("00:00");
+        label_time.setText(time.getTime());
         label_count_babies.setText(SharedData.getBabySize() + "");
         label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
         label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");

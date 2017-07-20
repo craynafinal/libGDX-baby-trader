@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.Baby;
+import com.jsl.babytrader.Data.Configuration;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
@@ -72,10 +73,14 @@ public class GameScreen extends BaseScreen {
     private Label label_level_buy = null;
 
     // runnables
+    /*
     private PromotionTeam promotionTeam = new PromotionTeam();
     private SalesTeam salesTeam = new SalesTeam();
     private PurchaseTeam purchaseTeam = new PurchaseTeam();
     private ResearchTeam researchTeam = new ResearchTeam();
+    */
+
+    Configuration config = null;
 
     // timer
     private Time time = new Time();
@@ -87,10 +92,13 @@ public class GameScreen extends BaseScreen {
         super(game);
         // user may upgrade game to allow start additional threads
         // for example, two sales team threads will provide faster sales
+        /*
         new Thread(promotionTeam).start();
         new Thread(salesTeam).start();
         new Thread(purchaseTeam).start();
         new Thread(researchTeam).start();
+        */
+        config = new Configuration();
 
         // timer test
         Timer.schedule(new Timer.Task() {
@@ -210,8 +218,8 @@ public class GameScreen extends BaseScreen {
         label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
         label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");
 
-        label_level_sell.setText("1");
-        label_level_buy.setText("1");
+        label_level_sell.setText(config.getLevelSeller() + "");
+        label_level_buy.setText(config.getLevelBuyer() + "");
 
         stage.getBatch().end();
 
@@ -292,24 +300,30 @@ public class GameScreen extends BaseScreen {
         });
 
         button_upgrade_sell = generateButton(sprite_button_upgrade, sprite_button_upgrade_inv);
-        button_upgrade_sell.setPosition(13, 193);
+        button_upgrade_sell.setPosition(13, 484);
 
         button_upgrade_sell.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Sell Upgrade button", "Activated");
                 sound_buttonClick.play();
+
+                // need more configuration such as popup window
+                config.levelUpSeller();
             }
         });
 
         button_upgrade_buy = generateButton(sprite_button_upgrade, sprite_button_upgrade_inv);
-        button_upgrade_buy.setPosition(13, 484);
+        button_upgrade_buy.setPosition(13, 193);
 
         button_upgrade_buy.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Buy Upgrade button", "Activated");
                 sound_buttonClick.play();
+
+                // need more configuration such as popup window
+                config.levelUpBuyer();
             }
         });
     }

@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.StringBuilder;
@@ -67,7 +69,7 @@ public class GameScreen extends BaseScreen {
     private Label label_level_buy = null;
 
     // popup windows
-    private Dialog dialog = null;
+    private Table table_dialog = null;
 
     // runnables
     /*
@@ -99,6 +101,27 @@ public class GameScreen extends BaseScreen {
         // TODO: switch the file extension to something cheap
         setupMusic("music/bgm_usodarake.wav", true);
 
+        // TODO: dialog test
+        table_dialog = new Table();
+
+        ImageButton testButton = generateButton(sprite_button_browse_left, sprite_button_browse_left_inv);
+        testButton.setPosition(467, 528);
+
+        testButton.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Test button", "Activated");
+                sound_buttonClick.play();
+                table_dialog.setVisible(false);
+            }
+        });
+
+        table_dialog.add(testButton);
+
+        table_dialog.setVisible(false);
+
+        // dialog test end
+
         labelSetup();
         buttonSetup();
 
@@ -122,7 +145,8 @@ public class GameScreen extends BaseScreen {
                 label_properties_title_buy,
                 label_properties_list_buy,
                 label_level_sell,
-                label_level_buy
+                label_level_buy,
+                table_dialog
         );
 
         // taking inputs from ui
@@ -261,6 +285,9 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Menu button", "Activated");
                 sound_buttonClick.play();
+
+                // TODO: currently this is here for testing purpose
+                table_dialog.setVisible(true);
             }
         });
 
@@ -288,6 +315,8 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Research button", "Activated");
                 sound_buttonClick.play();
+
+                // TODO: currently this is here for testing purpose
                 config.resume();
             }
         });
@@ -301,6 +330,7 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Sell Upgrade button", "Activated");
                 sound_buttonClick.play();
 
+                // TODO: currently this is here for testing purpose
                 // need more configuration such as popup window
                 config.levelUpSeller();
             }

@@ -7,23 +7,24 @@ import com.jsl.babytrader.Data.SharedData;
 /**
  * Created by crayna on 7/7/17.
  */
-// TODO: maybe rename this to ad team (and implement its features)
 public class PromotionTeam extends Team {
     private static int sleepTime = 500;
 
     @Override
     public void run() {
         while (true) {
-            sleep(sleepTime);
+            if (!isPaused()) {
+                sleep(sleepTime);
 
-            Gdx.app.postRunnable(new Runnable() {
-                @Override
-                public void run() {
-                    addCustomer(true);
-                    addCustomer(false);
-                    Gdx.app.log("test", "finished");
-                }
-            });
+                Gdx.app.postRunnable(new Runnable() {
+                    @Override
+                    public void run() {
+                        addCustomer(true);
+                        addCustomer(false);
+                        Gdx.app.log("test", "finished");
+                    }
+                });
+            }
         }
     }
 

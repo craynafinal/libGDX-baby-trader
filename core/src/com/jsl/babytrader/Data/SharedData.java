@@ -11,9 +11,11 @@ import java.util.Set;
  */
 
 public class SharedData {
+    // static data for default setup
+    final private static int DEFAULT_STARTING_MONEY = 5000;
+
     // data for hud
-    private static int money = 0;
-    // TODO: timer
+    private static int money = DEFAULT_STARTING_MONEY;
 
     // persons
     private static List<Baby> babies = new ArrayList<Baby>();
@@ -24,8 +26,20 @@ public class SharedData {
     private static Customer customer_selling_latest = null;
     private static Customer customer_buying_latest = null;
 
-    // static data for default setup
-    final private static int DEFAULT_STARTING_money = 5000;
+    // pause state
+    private static boolean isPaused = false;
+
+    synchronized public static boolean isPaused() {
+        return isPaused;
+    }
+
+    synchronized public static void pause() {
+        isPaused = true;
+    }
+
+    synchronized public static void resume() {
+        isPaused = false;
+    }
 
     synchronized public static int getBabySize() {
         return babies.size();
@@ -152,11 +166,11 @@ public class SharedData {
 
     // initialize
     static {
-        money = DEFAULT_STARTING_money;
-
+        // money = DEFAULT_STARTING_MONEY;
+        /*
         // TODO: temporarily adding some babies to list
         for (int i = 0; i < 5; i++) {
             babies.add(new Baby());
-        }
+        }*/
     }
 }

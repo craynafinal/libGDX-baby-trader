@@ -4,26 +4,20 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.StringBuilder;
-import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.Baby;
-import com.jsl.babytrader.Data.Configuration;
+import com.jsl.babytrader.Control.Configuration;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
-import com.jsl.babytrader.Data.Time;
-import com.jsl.babytrader.Runnables.PromotionTeam;
-import com.jsl.babytrader.Runnables.PurchaseTeam;
-import com.jsl.babytrader.Runnables.ResearchTeam;
-import com.jsl.babytrader.Runnables.SalesTeam;
 
 /**
  * Actual game screen for play.
@@ -72,6 +66,9 @@ public class GameScreen extends BaseScreen {
     private Label label_level_sell = null;
     private Label label_level_buy = null;
 
+    // popup windows
+    private Dialog dialog = null;
+
     // runnables
     /*
     private PromotionTeam promotionTeam = new PromotionTeam();
@@ -80,10 +77,8 @@ public class GameScreen extends BaseScreen {
     private ResearchTeam researchTeam = new ResearchTeam();
     */
 
+    // controls threads and timer
     Configuration config = null;
-
-    // timer
-    private Time time = new Time();
 
     // meta data
     private int currentBabyIndex = 0;
@@ -99,14 +94,6 @@ public class GameScreen extends BaseScreen {
         new Thread(researchTeam).start();
         */
         config = new Configuration();
-
-        // timer test
-        Timer.schedule(new Timer.Task() {
-            @Override
-            public void run() {
-                time.countDown();
-            }
-        }, 0, 1);
 
         // bgm setup
         // TODO: switch the file extension to something cheap
@@ -213,7 +200,7 @@ public class GameScreen extends BaseScreen {
         renderCustomer(SharedData.getCustomerBuyingLatest(), label_properties_title_buy, label_properties_list_buy, 15, 15, "baby for sale");
 
         label_money.setText("$" + SharedData.getMoney());
-        label_time.setText(time.getTime());
+        label_time.setText(config.getTime());
         label_count_babies.setText(SharedData.getBabySize() + "");
         label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
         label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");
@@ -280,11 +267,16 @@ public class GameScreen extends BaseScreen {
         button_promotion = generateButton(sprite_button_promotion, sprite_button_promotion_inv);
         button_promotion.setPosition(817, 118);
 
-        button_browse_right.addListener(new ChangeListener() {
+        button_promotion.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Promotion button", "Activated");
                 sound_buttonClick.play();
+                try {
+                    config.pause();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -296,6 +288,7 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Research button", "Activated");
                 sound_buttonClick.play();
+                config.resume();
             }
         });
 

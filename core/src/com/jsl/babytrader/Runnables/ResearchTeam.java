@@ -19,46 +19,48 @@ public class ResearchTeam extends Team {
     @Override
     public void run() {
         while (true) {
-            sleep(sleepTime);
+            if (!isPaused()) {
+                sleep(sleepTime);
 
-            Gdx.app.postRunnable(new Runnable() {
-                @Override
-                public void run() {
-                    Gdx.app.log("converting baby attributes", "started");
+                Gdx.app.postRunnable(new Runnable() {
+                    @Override
+                    public void run() {
+                        Gdx.app.log("converting baby attributes", "started");
 
-                    synchronized (this) {
-                        List<Baby> babies = SharedData.getBabies();
+                        synchronized (this) {
+                            List<Baby> babies = SharedData.getBabies();
 
-                        // find attributes for each baby
-                        for (Baby baby : babies) {
-                            Set<Attribute> attributes = baby.getAttributes();
+                            // find attributes for each baby
+                            for (Baby baby : babies) {
+                                Set<Attribute> attributes = baby.getAttributes();
 
-                            // save size for later
-                            int size = attributes.size();
+                                // save size for later
+                                int size = attributes.size();
 
-                            Set<Attribute> negativeAttribute = new HashSet<Attribute>();
+                                Set<Attribute> negativeAttribute = new HashSet<Attribute>();
 
-                            // search for negative attributes and change them to positive
-                            for (Attribute attribute : attributes) {
-                                if (!attribute.isPositive()) {
-                                    negativeAttribute.add(attribute);
+                                // search for negative attributes and change them to positive
+                                for (Attribute attribute : attributes) {
+                                    if (!attribute.isPositive()) {
+                                        negativeAttribute.add(attribute);
+                                    }
+                                }
+
+                                // remove all negative ones
+                                attributes.removeAll(negativeAttribute);
+
+                                // add positive ones
+                                // TODO: this is going to convert all negative ones to positive ones, maybe need to make a better logic
+                                while (attributes.size() < size) {
+                                    attributes.addAll(Attribute.getRandomAttributesPositive(1));
                                 }
                             }
-
-                            // remove all negative ones
-                            attributes.removeAll(negativeAttribute);
-
-                            // add positive ones
-                            // TODO: this is going to convert all negative ones to positive ones, maybe need to make a better logic
-                            while (attributes.size() < size) {
-                                attributes.addAll(Attribute.getRandomAttributesPositive(1));
-                            }
                         }
-                    }
 
-                    Gdx.app.log("converting baby attributes", "finished");
-                }
-            });
+                        Gdx.app.log("converting baby attributes", "finished");
+                    }
+                });
+            }
         }
     }
 }

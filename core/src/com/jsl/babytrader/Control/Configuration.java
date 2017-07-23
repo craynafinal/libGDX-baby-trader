@@ -1,5 +1,9 @@
-package com.jsl.babytrader.Data;
+package com.jsl.babytrader.Control;
 
+import com.badlogic.gdx.utils.Timer;
+import com.jsl.babytrader.Data.Baby;
+import com.jsl.babytrader.Data.SharedData;
+import com.jsl.babytrader.Data.Time;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
 import com.jsl.babytrader.Runnables.ResearchTeam;
@@ -13,6 +17,8 @@ import java.util.List;
  */
 
 public class Configuration {
+    private Time time = new Time();
+
     private int level_seller = 1;
     private int level_buyer = 1;
     private int level_promotion = 1;
@@ -34,6 +40,10 @@ public class Configuration {
     private int team_buyer_count = 0;
 
     public Configuration() {
+        for (int i = 0; i < 5; i++) {
+            SharedData.addBaby(new Baby());
+        }
+
         team_seller = new ArrayList<Thread>();
         team_buyer = new ArrayList<Thread>();
 
@@ -48,10 +58,32 @@ public class Configuration {
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
 
+        // timer start
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                time.countDown();
+            }
+        }, 0, 1);
+
         startSeller();
         startBuyer();
         team_promotion.start();
         team_research.start();
+    }
+
+    public void pause() throws InterruptedException {
+        Timer.instance().stop();
+        SharedData.pause();
+    }
+
+    public void resume() {
+        Timer.instance().start();
+        SharedData.resume();
+    }
+
+    public String getTime() {
+        return time.getTime();
     }
 
     private void startSeller() {

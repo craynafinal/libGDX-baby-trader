@@ -34,7 +34,8 @@ public class SliderPositiveScreen extends SliderScreen {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                switchScreen(new com.jsl.babytrader.Screens.SliderNegativeScreen(game));
+                //switchScreen(new com.jsl.babytrader.Screens.SliderNegativeScreen(game));\
+                switchScreen(new SliderPositiveScreen(game));
             }
         });
 

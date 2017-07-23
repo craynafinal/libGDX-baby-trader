@@ -4,13 +4,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.StringBuilder;
 import com.jsl.babytrader.BabyTrader;
@@ -20,6 +24,7 @@ import com.jsl.babytrader.Control.Configuration;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
+import com.jsl.babytrader.Popups.PopupPause;
 
 /**
  * Actual game screen for play.
@@ -69,59 +74,34 @@ public class GameScreen extends BaseScreen {
     private Label label_level_buy = null;
 
     // popup windows
-    private Table table_dialog = null;
+    private PopupPause popup_pause = null;
+    private Texture sprite_popup_paused = new Texture("sprites/popup_pause_305x240.png");
+    private Texture sprite_button_continue = new Texture("sprites/popup_pause_button_continue_186x45.png");
+    private Texture sprite_button_continue_inv = new Texture("sprites/popup_pause_button_continue_186x45.png");
+    private Texture sprite_button_mainMenu = new Texture("sprites/popup_pause_button_mainMenu_186x45.png");
+    private Texture sprite_button_mainMenu_inv = new Texture("sprites/popup_pause_button_mainMenu_inv_186x45.png");
 
-    // runnables
-    /*
-    private PromotionTeam promotionTeam = new PromotionTeam();
-    private SalesTeam salesTeam = new SalesTeam();
-    private PurchaseTeam purchaseTeam = new PurchaseTeam();
-    private ResearchTeam researchTeam = new ResearchTeam();
-    */
+    private ImageButton button_continue = null;
+    private ImageButton button_mainMenu = null;
 
     // controls threads and timer
-    Configuration config = null;
+    private Configuration config = null;
 
     // meta data
     private int currentBabyIndex = 0;
 
     public GameScreen(BabyTrader game) {
         super(game);
-        // user may upgrade game to allow start additional threads
-        // for example, two sales team threads will provide faster sales
-        /*
-        new Thread(promotionTeam).start();
-        new Thread(salesTeam).start();
-        new Thread(purchaseTeam).start();
-        new Thread(researchTeam).start();
-        */
+        //config.initialize();
         config = new Configuration();
+        config.start();
+        //config.start();
 
         // bgm setup
         // TODO: switch the file extension to something cheap
         setupMusic("music/bgm_usodarake.wav", true);
 
-        // TODO: dialog test
-        table_dialog = new Table();
-
-        ImageButton testButton = generateButton(sprite_button_browse_left, sprite_button_browse_left_inv);
-        testButton.setPosition(467, 528);
-
-        testButton.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Test button", "Activated");
-                sound_buttonClick.play();
-                table_dialog.setVisible(false);
-            }
-        });
-
-        table_dialog.add(testButton);
-
-        table_dialog.setVisible(false);
-
-        // dialog test end
-
+        popupSetup();
         labelSetup();
         buttonSetup();
 
@@ -146,11 +126,44 @@ public class GameScreen extends BaseScreen {
                 label_properties_list_buy,
                 label_level_sell,
                 label_level_buy,
-                table_dialog
+                popup_pause.getTable()
         );
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
+
+    }
+
+    private void popupSetup() {
+        popup_pause = new PopupPause(sprite_popup_paused);
+
+        button_continue = generateButton(sprite_button_continue, sprite_button_continue_inv);
+        button_continue.setPosition(0, 0);
+
+        button_continue.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Continue button", "Activated");
+                sound_buttonClick.play();
+                popup_pause.getTable().setVisible(false);
+                config.resume();
+            }
+        });
+
+        button_mainMenu = generateButton(sprite_button_mainMenu, sprite_button_mainMenu_inv);
+        button_mainMenu.setPosition(0, 0);
+
+        button_mainMenu.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Main Menu button", "Activated");
+                sound_buttonClick.play();
+
+                switchScreen(new InitScreen(game));
+            }
+        });
+
+        popup_pause.addElements(button_continue, button_mainMenu);
     }
 
     @Override
@@ -287,7 +300,8 @@ public class GameScreen extends BaseScreen {
                 sound_buttonClick.play();
 
                 // TODO: currently this is here for testing purpose
-                table_dialog.setVisible(true);
+                pause();
+                popup_pause.setVisible(true);
             }
         });
 
@@ -299,11 +313,7 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Promotion button", "Activated");
                 sound_buttonClick.play();
-                try {
-                    config.pause();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                pause();
             }
         });
 
@@ -317,7 +327,7 @@ public class GameScreen extends BaseScreen {
                 sound_buttonClick.play();
 
                 // TODO: currently this is here for testing purpose
-                config.resume();
+                pause();
             }
         });
 
@@ -399,17 +409,27 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public void pause() {
-
+        try {
+            config.pause();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void resume() {
-
+        config.resume();
     }
 
     @Override
     public void hide() {
 
+    }
+
+    public void start() {
+        System.out.println("***************************************here");
+        //config.initialize();
+        //config.start();
     }
 
     @Override
@@ -429,5 +449,11 @@ public class GameScreen extends BaseScreen {
         sprite_button_research_inv.dispose();
         sprite_button_upgrade.dispose();
         sprite_button_upgrade_inv.dispose();
+
+        sprite_popup_paused.dispose();
+        sprite_button_continue.dispose();
+        sprite_button_continue_inv.dispose();
+        sprite_button_mainMenu.dispose();
+        sprite_button_mainMenu_inv.dispose();
     }
 }

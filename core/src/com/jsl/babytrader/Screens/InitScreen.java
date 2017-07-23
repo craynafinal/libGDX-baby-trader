@@ -62,7 +62,13 @@ public class InitScreen extends BaseScreen {
                 stopMusic();
                 // TODO: temporarily uses this button for gamescreen
                 //switchScreen(new CreditScreen(game));
-                switchScreen(new GameScreen(game));
+                //gameScreen.restart();
+                //BabyTrader.gameScreen.start();
+
+                GameScreen gameScreen = new GameScreen(game);
+                //gameScreen.start();
+
+                switchScreen(gameScreen);
             }
         });
 

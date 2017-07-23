@@ -29,6 +29,16 @@ public class SharedData {
     // pause state
     private static boolean isPaused = false;
 
+    synchronized public static void initialize() {
+        money = DEFAULT_STARTING_MONEY;
+        babies = new ArrayList<Baby>();
+        customers_selling = new ArrayList<Customer>();
+        customers_buying = new ArrayList<Customer>();
+        customer_selling_latest = null;
+        customer_buying_latest = null;
+        isPaused = false;
+    }
+
     synchronized public static boolean isPaused() {
         return isPaused;
     }

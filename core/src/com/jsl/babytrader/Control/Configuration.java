@@ -40,6 +40,42 @@ public class Configuration {
     private int team_buyer_count = 0;
 
     public Configuration() {
+        initialize();
+    }
+
+    public void start() {
+        // timer start
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                time.countDown();
+            }
+        }, 0, 1);
+
+        startSeller();
+        startBuyer();
+        team_promotion.start();
+        team_research.start();
+    }
+    public void initialize() {
+        SharedData.initialize();
+
+        time = new Time();
+
+        level_seller = 1;
+        level_buyer = 1;
+        level_promotion = 1;
+        level_research = 1;
+
+        team_seller = null;
+        team_buyer = null;
+
+        team_promotion = null;
+        team_research = null;
+
+        team_seller_count = 0;
+        team_buyer_count = 0;
+
         for (int i = 0; i < 5; i++) {
             SharedData.addBaby(new Baby());
         }
@@ -57,19 +93,6 @@ public class Configuration {
 
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
-
-        // timer start
-        Timer.schedule(new Timer.Task() {
-            @Override
-            public void run() {
-                time.countDown();
-            }
-        }, 0, 1);
-
-        startSeller();
-        startBuyer();
-        team_promotion.start();
-        team_research.start();
     }
 
     public void pause() throws InterruptedException {

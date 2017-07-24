@@ -71,7 +71,7 @@ task run(type: Exec) {
     }
 
     def adb = path + "/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.jsl.babytrader/com.jsl.babytrader.AndroidLauncher'
+    commandLine "$adb", 'shell', 'am', 'startThreadsAndTimer', '-n', 'com.jsl.babytrader/com.jsl.babytrader.AndroidLauncher'
 }
 
 // sets up the Android Eclipse project, using the old Ant based build.

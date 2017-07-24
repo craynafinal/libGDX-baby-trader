@@ -9,6 +9,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import static com.jsl.babytrader.Data.SharedData.isEnded;
+
 /**
  * Created by crayna on 7/8/17.
  */
@@ -18,7 +20,7 @@ public class ResearchTeam extends Team {
 
     @Override
     public void run() {
-        while (true) {
+        while (!isEnded()) {
             if (!isPaused()) {
                 sleep(sleepTime);
 

@@ -1,28 +1,19 @@
 package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.scenes.scene2d.utils.SpriteDrawable;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.StringBuilder;
 import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.Baby;
-import com.jsl.babytrader.Control.Configuration;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
@@ -41,168 +32,6 @@ import java.util.List;
  */
 
 public class GameScreen extends BaseScreen {
-    private Time time = new Time();
-
-    private int level_seller = 1;
-    private int level_buyer = 1;
-    private int level_promotion = 1;
-    private int level_research = 1;
-
-    final public static int MAX_LEVEL = 3;
-    final public static int UPGRADE_INTERVAL_MONEY = 3000;
-
-    final public static int MAX_SELLER_THREADS = 5;
-    final public static int MAX_BUYER_THREADS = 5;
-
-    private List<Thread> team_seller = null;
-    private List<Thread> team_buyer = null;
-
-    private Thread team_promotion = null;
-    private Thread team_research = null;
-
-    private int team_seller_count = 0;
-    private int team_buyer_count = 0;
-
-
-    public void start() {
-        // timer start
-        startSeller();
-        startBuyer();
-        team_promotion.start();
-        team_research.start();
-
-        Timer.instance().start();
-    }
-    public void initialize() {
-        Timer.schedule(new Timer.Task() {
-            @Override
-            public void run() {
-                time.countDown();
-            }
-        }, 0, 1);
-
-        SharedData.initialize();
-
-        time = new Time();
-
-        level_seller = 1;
-        level_buyer = 1;
-        level_promotion = 1;
-        level_research = 1;
-
-        team_seller = null;
-        team_buyer = null;
-
-        team_promotion = null;
-        team_research = null;
-
-        team_seller_count = 0;
-        team_buyer_count = 0;
-
-        for (int i = 0; i < 5; i++) {
-            SharedData.addBaby(new Baby());
-        }
-
-        team_seller = new ArrayList<Thread>();
-        team_buyer = new ArrayList<Thread>();
-
-        for (int i = 0; i < MAX_SELLER_THREADS; i++) {
-            team_seller.add(new Thread(new SalesTeam()));
-            System.out.println(i);
-        }
-
-        for (int i = 0; i < MAX_BUYER_THREADS; i++) {
-            team_buyer.add(new Thread(new PurchaseTeam()));
-        }
-
-        team_promotion = new Thread(new PromotionTeam());
-        team_research = new Thread(new ResearchTeam());
-        /*
-        for (int i = 0; i < MAX_SELLER_THREADS; i++) {
-            System.out.println((team_seller == null) ? "null" : "not null");
-            team_seller.get(i).interrupt();
-        }
-
-        for (int i = 0; i < MAX_BUYER_THREADS; i++) {
-            team_buyer.get(i).interrupt();
-        }
-        */
-
-        //start();
-    }
-
-    public void pause2() throws InterruptedException {
-        Timer.instance().stop();
-        SharedData.pause();
-    }
-
-    public void resume2() {
-        Timer.instance().start();
-        SharedData.resume();
-    }
-
-    public String getTime() {
-        return time.getTime();
-    }
-
-    private void startSeller() {
-        if (team_seller_count < MAX_SELLER_THREADS) {
-            team_seller.get(team_seller_count).start();
-            team_seller_count++;
-        }
-    }
-
-    private void startBuyer() {
-        if (team_buyer_count < MAX_BUYER_THREADS) {
-            team_buyer.get(team_buyer_count).start();
-            team_buyer_count++;
-        }
-    }
-
-    public void levelUpSeller() {
-        if (level_seller < MAX_LEVEL) {
-            level_seller++;
-            startSeller();
-        }
-    }
-
-    public void levelUpBuyer() {
-        if (level_buyer < MAX_LEVEL) {
-            level_buyer++;
-            startBuyer();
-        }
-    }
-
-    public void levelUpPromotion() {
-        if (level_promotion < MAX_LEVEL) {
-            level_promotion++;
-        }
-    }
-
-    public void levelUpResearch() {
-        if (level_research < MAX_LEVEL) {
-            level_research++;
-        }
-    }
-
-    public int getLevelSeller() {
-        return level_seller;
-    }
-
-    public int getLevelBuyer() {
-        return level_buyer;
-    }
-
-    public int getLevelPromotion() {
-        return level_promotion;
-    }
-
-    public int getLevelResearch() {
-        return level_research;
-    }
-
-
-
     // background graphic
     private Texture sprite_background = new Texture("sprites/gameScreen_background_1024x576.png");
 
@@ -256,38 +85,40 @@ public class GameScreen extends BaseScreen {
     private ImageButton button_continue = null;
     private ImageButton button_mainMenu = null;
 
-    // controls threads and timer
-    //private Configuration config = null;
-
     // meta data
     private int currentBabyIndex = 0;
+    private Time time = new Time();
 
-    private static int test = 0;
+    // const default values
+    final public static int MAX_LEVEL = 3;
+    final public static int UPGRADE_INTERVAL_MONEY = 3000;
+    final public static int DEFAULT_STARTING_BABY = 5;
 
-    public static void incrTest() {
-        new Thread() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    System.out.println(test++);
-                }
-            }
-        }.start();
-    }
+    final public static int MAX_SELLER_THREADS = 5;
+    final public static int MAX_BUYER_THREADS = 5;
+
+    // levels
+    private int level_seller = 1;
+    private int level_buyer = 1;
+    private int level_promotion = 1;
+    private int level_research = 1;
+
+    // thread related
+    private List<Thread> team_seller = null;
+    private List<Thread> team_buyer = null;
+
+    private Thread team_promotion = null;
+    private Thread team_research = null;
+
+    private int team_seller_count = 0;
+    private int team_buyer_count = 0;
 
     public GameScreen(BabyTrader game) {
         super(game);
-        //config = new Configuration();
-        initialize();
-        start();
 
-
-        incrTest();
+        //initialize();
+        timerSetup();
+        //startThreadsAndTimer();
 
         // bgm setup
         // TODO: switch the file extension to something cheap
@@ -323,7 +154,103 @@ public class GameScreen extends BaseScreen {
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
+    }
 
+    private void startSeller() {
+        if (team_seller_count < MAX_SELLER_THREADS) {
+            team_seller.get(team_seller_count).start();
+            team_seller_count++;
+        }
+    }
+
+    private void startBuyer() {
+        if (team_buyer_count < MAX_BUYER_THREADS) {
+            team_buyer.get(team_buyer_count).start();
+            team_buyer_count++;
+        }
+    }
+
+    private void levelUpSeller() {
+        if (level_seller < MAX_LEVEL) {
+            level_seller++;
+            startSeller();
+        }
+    }
+
+    private void levelUpBuyer() {
+        if (level_buyer < MAX_LEVEL) {
+            level_buyer++;
+            startBuyer();
+        }
+    }
+
+    private void levelUpPromotion() {
+        if (level_promotion < MAX_LEVEL) {
+            level_promotion++;
+        }
+    }
+
+    private void levelUpResearch() {
+        if (level_research < MAX_LEVEL) {
+            level_research++;
+        }
+    }
+
+    private void startThreadsAndTimer() {
+        startSeller();
+        startBuyer();
+        team_promotion.start();
+        team_research.start();
+
+        Timer.instance().start();
+    }
+
+    private void timerSetup() {
+        Timer.schedule(new Timer.Task() {
+            @Override
+            public void run() {
+                time.countDown();
+            }
+        }, 0, 1);
+    }
+
+    private void initialize() {
+        SharedData.initialize();
+
+        time = new Time();
+
+        level_seller = 1;
+        level_buyer = 1;
+        level_promotion = 1;
+        level_research = 1;
+
+        team_seller = null;
+        team_buyer = null;
+
+        team_promotion = null;
+        team_research = null;
+
+        team_seller_count = 0;
+        team_buyer_count = 0;
+
+        for (int i = 0; i < DEFAULT_STARTING_BABY; i++) {
+            SharedData.addBaby(new Baby());
+        }
+
+        team_seller = new ArrayList<Thread>();
+        team_buyer = new ArrayList<Thread>();
+
+        for (int i = 0; i < MAX_SELLER_THREADS; i++) {
+            team_seller.add(new Thread(new SalesTeam()));
+            System.out.println(i);
+        }
+
+        for (int i = 0; i < MAX_BUYER_THREADS; i++) {
+            team_buyer.add(new Thread(new PurchaseTeam()));
+        }
+
+        team_promotion = new Thread(new PromotionTeam());
+        team_research = new Thread(new ResearchTeam());
     }
 
     private void popupSetup() {
@@ -338,7 +265,7 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Continue button", "Activated");
                 sound_buttonClick.play();
                 popup_pause.getTable().setVisible(false);
-                resume2();
+                resume();
             }
         });
 
@@ -424,13 +351,13 @@ public class GameScreen extends BaseScreen {
         renderCustomer(SharedData.getCustomerBuyingLatest(), label_properties_title_buy, label_properties_list_buy, 15, 15, "baby for sale");
 
         label_money.setText("$" + SharedData.getMoney());
-        label_time.setText(getTime());
+        label_time.setText(time.getTime());
         label_count_babies.setText(SharedData.getBabySize() + "");
         label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
         label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");
 
-        label_level_sell.setText(getLevelSeller() + "");
-        label_level_buy.setText(getLevelBuyer() + "");
+        label_level_sell.setText(level_seller + "");
+        label_level_buy.setText(level_buyer + "");
 
         stage.getBatch().end();
 
@@ -596,28 +523,60 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public void pause() {
-        try {
-            pause2();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Timer.instance().stop();
+        SharedData.pause();
     }
 
     @Override
     public void resume() {
-        resume2();
+        Timer.instance().start();
+        SharedData.resume();
     }
 
     @Override
     public void hide() {
+        System.out.println("hide called");
 
+        SharedData.endThreads();
+
+        for (int i = 0; i < team_seller_count; i++) {
+            try {
+                team_seller.get(i).interrupt();
+                team_seller.get(i).join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(team_seller.get(i).isAlive());
+        }
+
+        for (int i = 0; i < team_buyer_count; i++) {
+            try {
+                team_buyer.get(i).interrupt();
+                team_buyer.get(i).join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(team_buyer.get(i).isAlive());
+        }
+
+        team_seller = null;
+        team_buyer = null;
+
+        team_seller_count = 0;
+        team_buyer_count = 0;
+
+        team_promotion.interrupt();
+        team_research.interrupt();
+
+        System.gc();
     }
 
     @Override
     public void show() {
         super.show();
         initialize();
-        //config.start();
+        startThreadsAndTimer();
+        //config.startThreadsAndTimer();
         popup_pause.setVisible(false);
     }
 
@@ -644,7 +603,5 @@ public class GameScreen extends BaseScreen {
         sprite_button_continue_inv.dispose();
         sprite_button_mainMenu.dispose();
         sprite_button_mainMenu_inv.dispose();
-
-        //config = null;
     }
 }

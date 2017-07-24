@@ -26,8 +26,9 @@ public class SharedData {
     private static Customer customer_selling_latest = null;
     private static Customer customer_buying_latest = null;
 
-    // pause state
+    // thread state
     private static boolean isPaused = false;
+    private static boolean isEnded = false;
 
     synchronized public static void initialize() {
         money = DEFAULT_STARTING_MONEY;
@@ -37,7 +38,12 @@ public class SharedData {
         customer_selling_latest = null;
         customer_buying_latest = null;
         isPaused = false;
+        isEnded = false;
     }
+
+    synchronized public static boolean isEnded() { return isEnded; }
+
+    synchronized public static void endThreads() { isEnded = true; }
 
     synchronized public static boolean isPaused() {
         return isPaused;

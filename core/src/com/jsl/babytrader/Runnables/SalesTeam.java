@@ -5,6 +5,8 @@ import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
 
+import static com.jsl.babytrader.Data.SharedData.isEnded;
+
 /**
  * Created by crayna on 6/3/17.
  */
@@ -15,7 +17,7 @@ public class SalesTeam extends Team {
 
     @Override
     public void run() {
-        while (true) {
+        while (!isEnded()) {
             if (!isPaused()) {
                 sleep(sleepTime);
 

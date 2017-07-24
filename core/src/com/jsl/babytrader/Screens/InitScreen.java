@@ -9,7 +9,7 @@ import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
 
 /**
- * Game start up menu screen.
+ * Game startThreadsAndTimer up menu screen.
  */
 
 public class InitScreen extends BaseScreen {
@@ -36,7 +36,7 @@ public class InitScreen extends BaseScreen {
         // TODO: switch the file extension to something cheap
         setupMusic("music/bgm_usodarake.wav", true);
 
-        // start button setup
+        // startThreadsAndTimer button setup
         button_start = generateButton(sprite_button_start_up, sprite_button_start_down);
         button_start.setPosition(MARGIN_LEFT + 60, 200);
 
@@ -63,7 +63,7 @@ public class InitScreen extends BaseScreen {
                 // TODO: temporarily uses this button for gamescreen
                 //switchScreen(new CreditScreen(game));
                 //gameScreen.restart();
-                //BabyTrader.gameScreen.start();
+                //BabyTrader.gameScreen.startThreadsAndTimer();
 
                 switchScreen(BabyTrader.gameScreen);
             }

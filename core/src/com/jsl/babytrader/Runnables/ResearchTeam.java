@@ -25,8 +25,6 @@ public class ResearchTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                        Gdx.app.log("converting baby attributes", "started");
-
                         synchronized (this) {
                             List<Baby> babies = SharedData.getBabies();
 
@@ -56,8 +54,6 @@ public class ResearchTeam extends Team {
                                 }
                             }
                         }
-
-                        Gdx.app.log("converting baby attributes", "finished");
                     }
                 });
             }

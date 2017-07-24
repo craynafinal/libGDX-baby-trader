@@ -9,13 +9,24 @@ import com.jsl.babytrader.Screens.SliderNegativeScreen;
 import com.jsl.babytrader.Screens.SliderPositiveScreen;
 
 public class BabyTrader extends Game {
+	public static InitScreen initScreen = null;
+	public static SliderPositiveScreen sliderPositiveScreen = null;
+	public static SliderNegativeScreen sliderNegativeScreen = null;
+	public static CreditScreen creditScreen = null;
+	public static GameScreen gameScreen = null;
 
     public SpriteBatch batch = null;
 
 	@Override
 	public void create () {
+		initScreen = new InitScreen(this);
+		sliderPositiveScreen = new SliderPositiveScreen(this);
+		sliderNegativeScreen = new SliderNegativeScreen(this);
+		creditScreen = new CreditScreen(this);
+		gameScreen = new GameScreen(this);
+
 		batch = new SpriteBatch();
-		setScreen(new InitScreen(this));
+		setScreen(initScreen);
 	}
 	
 	@Override

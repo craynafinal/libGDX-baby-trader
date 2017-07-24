@@ -31,7 +31,7 @@ public class SliderNegativeScreen extends SliderScreen {
                 sound_buttonClick.play();
                 stopMusic();
                 //switchScreen(new InitScreen(game));
-                switchScreen(new InitScreen(game));
+                switchScreen(BabyTrader.initScreen);
             }
         });
 
@@ -40,11 +40,6 @@ public class SliderNegativeScreen extends SliderScreen {
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
-    }
-
-    @Override
-    public void show() {
-
     }
 
     @Override

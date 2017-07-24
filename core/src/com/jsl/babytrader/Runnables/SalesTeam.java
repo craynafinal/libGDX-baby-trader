@@ -25,30 +25,17 @@ public class SalesTeam extends Team {
                         // proceed if there is any customer
                         if (SharedData.getCustomerSellingSize() > 0) {
                             Customer customer = SharedData.getCustomerSelling();
-                            Gdx.app.log("getting a selling customer", customer.getName());
 
                             Baby baby = SharedData.getBabyByAttribute(customer.getAttributes());
 
                             if (baby != null) {
-                                Gdx.app.log("selling price comparision", "user " + baby.getSellPrice() + " customer " + customer.getSellPrice());
-
                                 // sell if price range is good
                                 if (baby.getSellPrice() <= customer.getSellPrice()) {
                                     SharedData.addMoney(baby.getSellPrice());
-
-                                    Gdx.app.log("baby sold", "remaining babies " + SharedData.getBabySize());
                                 } else {
                                     SharedData.addBaby(baby);
-
-                                    Gdx.app.log("baby is too expensive", "user wants " + (baby.getSellPrice() - customer.getSellPrice()) + " more");
                                 }
-                            } else {
-                                Gdx.app.log("trying to find a baby to sell", "not found");
                             }
-
-
-                        } else {
-                            // Gdx.app.log("getting a selling customer", "not found");
                         }
                     }
                 });

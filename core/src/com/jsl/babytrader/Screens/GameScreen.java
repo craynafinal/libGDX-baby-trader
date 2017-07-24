@@ -1,6 +1,7 @@
 package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.loaders.AssetLoader;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
@@ -92,10 +93,7 @@ public class GameScreen extends BaseScreen {
 
     public GameScreen(BabyTrader game) {
         super(game);
-        //config.initialize();
         config = new Configuration();
-        config.start();
-        //config.start();
 
         // bgm setup
         // TODO: switch the file extension to something cheap
@@ -106,27 +104,27 @@ public class GameScreen extends BaseScreen {
         buttonSetup();
 
         addElementsToStage(
-                button_browse_left,
-                button_browse_right,
-                button_menu,
-                button_promotion,
-                button_research,
-                button_upgrade_sell,
-                button_upgrade_buy,
-                label_money,
-                label_time,
-                label_count_babies,
-                label_count_customers_sell,
-                label_count_customers_buy,
-                label_properties_title_baby,
-                label_properties_list_baby,
-                label_properties_title_sell,
-                label_properties_list_sell,
-                label_properties_title_buy,
-                label_properties_list_buy,
-                label_level_sell,
-                label_level_buy,
-                popup_pause.getTable()
+            button_browse_left,
+            button_browse_right,
+            button_menu,
+            button_promotion,
+            button_research,
+            button_upgrade_sell,
+            button_upgrade_buy,
+            label_money,
+            label_time,
+            label_count_babies,
+            label_count_customers_sell,
+            label_count_customers_buy,
+            label_properties_title_baby,
+            label_properties_list_baby,
+            label_properties_title_sell,
+            label_properties_list_sell,
+            label_properties_title_buy,
+            label_properties_list_buy,
+            label_level_sell,
+            label_level_buy,
+            popup_pause.getTable()
         );
 
         // taking inputs from ui
@@ -159,16 +157,11 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Main Menu button", "Activated");
                 sound_buttonClick.play();
 
-                switchScreen(new InitScreen(game));
+                switchScreen(BabyTrader.initScreen);
             }
         });
 
         popup_pause.addElements(button_continue, button_mainMenu);
-    }
-
-    @Override
-    public void show() {
-
     }
 
     private void renderCustomer(Customer customer, Label label_title, Label label_properties, int x, int y, String description) {
@@ -426,10 +419,12 @@ public class GameScreen extends BaseScreen {
 
     }
 
-    public void start() {
-        System.out.println("***************************************here");
-        //config.initialize();
-        //config.start();
+    @Override
+    public void show() {
+        super.show();
+        config.initialize();
+        config.start();
+        popup_pause.setVisible(false);
     }
 
     @Override
@@ -455,5 +450,7 @@ public class GameScreen extends BaseScreen {
         sprite_button_continue_inv.dispose();
         sprite_button_mainMenu.dispose();
         sprite_button_mainMenu_inv.dispose();
+
+        config = null;
     }
 }

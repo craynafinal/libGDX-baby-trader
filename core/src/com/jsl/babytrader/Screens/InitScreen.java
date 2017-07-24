@@ -46,7 +46,7 @@ public class InitScreen extends BaseScreen {
                 Gdx.app.log("Clicking Start Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                switchScreen(new SliderPositiveScreen(game));
+                switchScreen(BabyTrader.sliderPositiveScreen);
             }
         });
 
@@ -65,10 +65,7 @@ public class InitScreen extends BaseScreen {
                 //gameScreen.restart();
                 //BabyTrader.gameScreen.start();
 
-                GameScreen gameScreen = new GameScreen(game);
-                //gameScreen.start();
-
-                switchScreen(gameScreen);
+                switchScreen(BabyTrader.gameScreen);
             }
         });
 
@@ -76,11 +73,6 @@ public class InitScreen extends BaseScreen {
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
-    }
-
-    @Override
-    public void show() {
-
     }
 
     @Override
@@ -111,7 +103,6 @@ public class InitScreen extends BaseScreen {
 
     @Override
     public void hide() {
-
     }
 
     @Override

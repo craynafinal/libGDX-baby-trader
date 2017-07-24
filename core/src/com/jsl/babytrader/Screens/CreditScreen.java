@@ -50,7 +50,7 @@ public class CreditScreen extends BaseScreen {
                 Gdx.app.log("Clicking Back Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                switchScreen(new InitScreen(game));
+                switchScreen(BabyTrader.initScreen);
             }
         });
 

@@ -108,8 +108,6 @@ public enum Attribute {
     }
 
     private static Set<Attribute> getRandomAttributes(int max, boolean getPositive) {
-        Gdx.app.log("getRandomAttributes started", "");
-
         Set<Attribute> attributes = new HashSet<Attribute>();
 
         while (attributes.size() < max) {
@@ -118,13 +116,10 @@ public enum Attribute {
             // if this is for positive attribute, make sure elem is positive attribute
             while (getPositive && !elem.isPositive) {
                 elem = Attribute.values()[getRandomIndex()];
-                Gdx.app.log("getting positive attribute", elem.getName());
             }
 
             attributes.add(elem);
         }
-
-        Gdx.app.log("getRandomAttributes finished", "");
 
         return attributes;
     }

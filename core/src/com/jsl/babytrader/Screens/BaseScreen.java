@@ -175,4 +175,9 @@ public abstract class BaseScreen implements Screen {
             bgm.dispose();
         }
     }
+
+    @Override
+    public void show() {
+        Gdx.input.setInputProcessor(stage);
+    }
 }

@@ -21,7 +21,6 @@ public class PromotionTeam extends Team {
                     public void run() {
                         addCustomer(true);
                         addCustomer(false);
-                        Gdx.app.log("test", "finished");
                     }
                 });
             }
@@ -39,7 +38,5 @@ public class PromotionTeam extends Team {
             SharedData.addCustomerBuying(customer);
             size = SharedData.getCustomerBuyingSize();
         }
-
-        Gdx.app.log("adding a customer", "customer added " + customer.getName() + " size = " + size);
     }
 }

@@ -30,8 +30,8 @@ public class Configuration {
     final public static int MAX_SELLER_THREADS = 5;
     final public static int MAX_BUYER_THREADS = 5;
 
-    private List<Thread> team_seller = null;
-    private List<Thread> team_buyer = null;
+    private List<Thread> team_seller = new ArrayList<Thread>();;
+    private List<Thread> team_buyer = new ArrayList<Thread>();;
 
     private Thread team_promotion = null;
     private Thread team_research = null;
@@ -40,11 +40,6 @@ public class Configuration {
     private int team_buyer_count = 0;
 
     public Configuration() {
-        initialize();
-    }
-
-    public void start() {
-        // timer start
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
@@ -52,10 +47,21 @@ public class Configuration {
             }
         }, 0, 1);
 
+        //team_seller = new ArrayList<Thread>();
+        //team_buyer = new ArrayList<Thread>();
+
+        //initialize();
+    }
+
+    public void start() {
+        // timer start
         startSeller();
         startBuyer();
         team_promotion.start();
         team_research.start();
+
+
+        Timer.instance().start();
     }
     public void initialize() {
         SharedData.initialize();
@@ -80,11 +86,10 @@ public class Configuration {
             SharedData.addBaby(new Baby());
         }
 
-        team_seller = new ArrayList<Thread>();
-        team_buyer = new ArrayList<Thread>();
 
         for (int i = 0; i < MAX_SELLER_THREADS; i++) {
             team_seller.add(new Thread(new SalesTeam()));
+            System.out.println(i);
         }
 
         for (int i = 0; i < MAX_BUYER_THREADS; i++) {
@@ -93,6 +98,37 @@ public class Configuration {
 
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
+        /*
+        for (int i = 0; i < MAX_SELLER_THREADS; i++) {
+            System.out.println((team_seller == null) ? "null" : "not null");
+            team_seller.get(i).interrupt();
+        }
+
+        for (int i = 0; i < MAX_BUYER_THREADS; i++) {
+            team_buyer.get(i).interrupt();
+        }
+        */
+    }
+
+    public void interrupt() {
+        for (int i = 0; i < team_seller_count; i++) {
+            team_seller.get(i).interrupt();
+        }
+
+        for (int i = 0; i < team_buyer_count; i++) {
+            team_buyer.get(i).interrupt();
+        }
+
+        team_seller = null;
+        team_buyer = null;
+
+        team_seller_count = 0;
+        team_buyer_count = 0;
+
+        team_promotion.interrupt();
+        team_research.interrupt();
+
+        System.gc();
     }
 
     public void pause() throws InterruptedException {

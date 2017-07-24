@@ -83,12 +83,10 @@ public class SharedData {
     }
 
     public static Customer getCustomerBuying() {
-        Gdx.app.log("getCustomerBuying", "customer taken");
         return getCustomer(false);
     }
 
     public static Customer getCustomerSelling() {
-        Gdx.app.log("getCustomer", "customer taken");
         return getCustomer(true);
     }
 
@@ -110,51 +108,27 @@ public class SharedData {
         return customer;
     }
 
-    public static void addBaby(Baby baby) {
-        Gdx.app.log("addBaby", "started");
-
-        synchronized (SharedData.class) {
-            babies.add(baby);
-        }
-
-        Gdx.app.log("addBaby", "finished");
+    synchronized public static void addBaby(Baby baby) {
+        babies.add(baby);
     }
 
-    public static void addCustomerSelling(Customer customer) {
-        Gdx.app.log("addCustomerSelling", "started");
-
-        synchronized (SharedData.class) {
-            customers_selling.add(customer);
-        }
-
-        Gdx.app.log("addCustomerSelling", "finished");
+    synchronized public static void addCustomerSelling(Customer customer) {
+        customers_selling.add(customer);
     }
 
-    public static void addCustomerBuying(Customer customer) {
-        Gdx.app.log("addCustomerBuying", "started");
-
-        synchronized (SharedData.class) {
-            customers_buying.add(customer);
-        }
-
-        Gdx.app.log("addCustomerBuying", "finished");
+    synchronized public static void addCustomerBuying(Customer customer) {
+        customers_buying.add(customer);
     }
 
-    public static int getMoney() {
-        synchronized (SharedData.class) {
-            return money;
-        }
+    synchronized public static int getMoney() {
+        return money;
     }
 
-    public static void addMoney(int value) {
-        synchronized (SharedData.class) {
-            money += value;
-            Gdx.app.log("getMoney", "current balance - " + money);
-        }
+    synchronized public static void addMoney(int value) {
+        money += value;
     }
 
     public static Baby getBabyByAttribute(Set<Attribute> attributes) {
-        Gdx.app.log("getBabyByAttribute", attributes.toString());
 
         Baby result = null;
 
@@ -172,15 +146,5 @@ public class SharedData {
         }
 
         return result;
-    }
-
-    // initialize
-    static {
-        // money = DEFAULT_STARTING_MONEY;
-        /*
-        // TODO: temporarily adding some babies to list
-        for (int i = 0; i < 5; i++) {
-            babies.add(new Baby());
-        }*/
     }
 }

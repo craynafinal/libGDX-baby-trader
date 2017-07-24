@@ -30,8 +30,8 @@ public class Configuration {
     final public static int MAX_SELLER_THREADS = 5;
     final public static int MAX_BUYER_THREADS = 5;
 
-    private List<Thread> team_seller = new ArrayList<Thread>();;
-    private List<Thread> team_buyer = new ArrayList<Thread>();;
+    private List<Thread> team_seller = null;
+    private List<Thread> team_buyer = null;
 
     private Thread team_promotion = null;
     private Thread team_research = null;
@@ -60,7 +60,6 @@ public class Configuration {
         team_promotion.start();
         team_research.start();
 
-
         Timer.instance().start();
     }
     public void initialize() {
@@ -86,6 +85,8 @@ public class Configuration {
             SharedData.addBaby(new Baby());
         }
 
+        team_seller = new ArrayList<Thread>();
+        team_buyer = new ArrayList<Thread>();
 
         for (int i = 0; i < MAX_SELLER_THREADS; i++) {
             team_seller.add(new Thread(new SalesTeam()));
@@ -108,6 +109,8 @@ public class Configuration {
             team_buyer.get(i).interrupt();
         }
         */
+
+        //start();
     }
 
     public void interrupt() {

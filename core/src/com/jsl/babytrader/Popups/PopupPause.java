@@ -1,6 +1,8 @@
 package com.jsl.babytrader.Popups;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -43,6 +45,16 @@ public class PopupPause {
     }
 
     public Table getTable() {
+//        Table grayout = new Table();
+//        grayout.setWidth(ConstData.SCREEN_WIDTH);
+//        grayout.setHeight(ConstData.SCREEN_HEIGHT);
+//
+//        Pixmap bgColor = new Pixmap(ConstData.SCREEN_WIDTH, ConstData.SCREEN_HEIGHT, Pixmap.Format.RGB888);
+//        bgColor.setBlending(Pixmap.Blending.None);
+//        bgColor.setColor(Color.BLACK);
+//        bgColor.fill();
+//
+//        grayout.setBackground(new Image(new Texture(bgColor)).getDrawable());
         return table_dialog;
     }
 }

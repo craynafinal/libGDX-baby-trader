@@ -406,12 +406,28 @@ public class GameScreen extends BaseScreen {
     public void pause() {
         Timer.instance().stop();
         SharedData.pause();
+
+        button_browse_left.setDisabled(true);
+        button_browse_right.setDisabled(true);
+        button_menu.setDisabled(true);
+        button_promotion.setDisabled(true);
+        button_research.setDisabled(true);
+        button_upgrade_sell.setDisabled(true);
+        button_upgrade_buy.setDisabled(true);
     }
 
     @Override
     public void resume() {
         Timer.instance().start();
         SharedData.resume();
+
+        button_browse_left.setDisabled(false);
+        button_browse_right.setDisabled(false);
+        button_menu.setDisabled(false);
+        button_promotion.setDisabled(false);
+        button_research.setDisabled(false);
+        button_upgrade_sell.setDisabled(false);
+        button_upgrade_buy.setDisabled(false);
     }
 
     @Override

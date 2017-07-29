@@ -34,8 +34,10 @@ public class PopupPause {
     }
 
     public void addElements(Actor ... actors) {
+        table_dialog.padTop(45);
+
         for (Actor actor : actors) {
-            table_dialog.add(actor);
+            table_dialog.add(actor).padTop(8);
             table_dialog.row();
         }
     }

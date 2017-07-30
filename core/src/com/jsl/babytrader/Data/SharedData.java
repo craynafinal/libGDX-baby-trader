@@ -130,6 +130,10 @@ public class SharedData {
         return money;
     }
 
+    synchronized public static void spendMoney(int value) {
+        money -= value;
+    }
+
     synchronized public static void addMoney(int value) {
         money += value;
     }

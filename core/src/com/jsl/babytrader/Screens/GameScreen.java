@@ -213,6 +213,7 @@ public class GameScreen extends BaseScreen {
 
         if (type.equals(PopupUpgrade.TYPE_SELLER)) {
             if (SharedData.getMoney() >= config.getUpgradeCostSeller()) {
+                SharedData.spendMoney(config.getUpgradeCostSeller());
                 config.levelUpSeller();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -221,6 +222,7 @@ public class GameScreen extends BaseScreen {
             }
         } else if (type.equals(PopupUpgrade.TYPE_BUYER)){
             if (SharedData.getMoney() >= config.getUpgradeCostBuyer()) {
+                SharedData.spendMoney(config.getUpgradeCostBuyer());
                 config.levelUpBuyer();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -229,6 +231,7 @@ public class GameScreen extends BaseScreen {
             }
         } else if (type.equals(PopupUpgrade.TYPE_PROMOTION)) {
             if (SharedData.getMoney() >= config.getUpgradeCostPromotion()) {
+                SharedData.spendMoney(config.getUpgradeCostPromotion());
                 config.levelUpPromotion();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -237,6 +240,7 @@ public class GameScreen extends BaseScreen {
             }
         } else if (type.equals(PopupUpgrade.TYPE_RESEARCH)) {
             if (SharedData.getMoney() >= config.getUpgradeCostResearch()) {
+                SharedData.spendMoney(config.getUpgradeCostResearch());
                 config.levelUpResearch();
                 resume();
                 popup_upgrade.setVisible(false);

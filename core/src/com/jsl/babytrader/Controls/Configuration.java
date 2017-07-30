@@ -22,7 +22,7 @@ public class Configuration {
 
     // const default values
     final public static int MAX_LEVEL = 3;
-    final public static int UPGRADE_INTERVAL_MONEY = 3000;
+    final public static int UPGRADE_INTERVAL_MONEY = 5000;
     final public static int DEFAULT_STARTING_BABY = 5;
 
     final public static int MAX_SELLER_THREADS = 5;
@@ -50,6 +50,46 @@ public class Configuration {
 
     public int getLevelBuyer() {
         return level_buyer;
+    }
+
+    public int getLevelPromotion() {
+        return level_promotion;
+    }
+
+    public int getLevelResearch() {
+        return level_research;
+    }
+
+    public boolean isNextMaxSeller() {
+        return level_seller + 1 == MAX_LEVEL;
+    }
+
+    public boolean isNextMaxBuyer() {
+        return level_buyer + 1 == MAX_LEVEL;
+    }
+
+    public boolean isNextMaxPromotion() {
+        return level_promotion + 1 == MAX_LEVEL;
+    }
+
+    public boolean isNextMaxResearch() {
+        return level_research + 1 == MAX_LEVEL;
+    }
+
+    public int getUpgradeCostSeller() {
+        return level_seller * UPGRADE_INTERVAL_MONEY;
+    }
+
+    public int getUpgradeCostBuyer() {
+        return level_buyer * UPGRADE_INTERVAL_MONEY;
+    }
+
+    public int getUpgradeCostPromotion() {
+        return level_promotion * UPGRADE_INTERVAL_MONEY;
+    }
+
+    public int getUpgradeCostResearch() {
+        return level_research * UPGRADE_INTERVAL_MONEY;
     }
 
     public String getTime() {

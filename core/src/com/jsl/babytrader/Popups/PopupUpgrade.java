@@ -16,10 +16,44 @@ public class PopupUpgrade extends Popup {
     private Label cost = null;
     private Label description = null;
 
+    // text data for each upgrade
+    final public static String TYPE_SELLER = "Seller";
+    final public static String TYPE_BUYER = "Buyer";
+    final public static String TYPE_PROMOTION = "Promotion";
+    final public static String TYPE_RESEARCH = "Research";
+
+    final public static String DESCRIPTION_SELLER =
+        "Seller upgrade will add\n" +
+        "another sales agent\n" +
+        "so you can sell babies faster.";
+
+    // TODO: change text for each team below
+    final public static String DESCRIPTION_BUYER =
+        "Seller upgrade will add\n" +
+        "another sales agent\n" +
+        "so you can sell babies faster.";
+
+    final public static String DESCRIPTION_PROMOTION =
+        "Seller upgrade will add\n" +
+        "another sales agent\n" +
+        "so you can sell babies faster.";
+    final public static String DESCRIPTION_RESEARCH =
+        "Seller upgrade will add\n" +
+        "another sales agent\n" +
+        "so you can sell babies faster.";
+
     public PopupUpgrade(Texture background, Label.LabelStyle labelStyle) {
         super(background);
         table_dialog.align(Align.top);
         labelSetup(labelStyle);
+    }
+
+    public static String getLevelText(int prevLevel, int nextLevel, boolean isMax) {
+        return prevLevel + " -> " + nextLevel + (isMax ? "(MAX)" : "");
+    }
+
+    public static String getMoneyText(int money) {
+        return "$" + money;
     }
 
     private void labelSetup(Label.LabelStyle labelStyle) {
@@ -56,6 +90,10 @@ public class PopupUpgrade extends Popup {
 
     public void setTextDescription(String text) {
         description.setText(text);
+    }
+
+    public String getTextType() {
+        return type.getText().toString();
     }
 
     @Override

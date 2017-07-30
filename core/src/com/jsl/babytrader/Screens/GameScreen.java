@@ -18,15 +18,8 @@ import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
-import com.jsl.babytrader.Data.Time;
 import com.jsl.babytrader.Popups.PopupPause;
-import com.jsl.babytrader.Runnables.PromotionTeam;
-import com.jsl.babytrader.Runnables.PurchaseTeam;
-import com.jsl.babytrader.Runnables.ResearchTeam;
-import com.jsl.babytrader.Runnables.SalesTeam;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.jsl.babytrader.Popups.PopupUpgrade;
 
 /**
  * Actual game screen for play.
@@ -75,16 +68,27 @@ public class GameScreen extends BaseScreen {
     private Label label_level_sell = null;
     private Label label_level_buy = null;
 
-    // popup windows
+    // pause popup windows
     private PopupPause popup_pause = null;
     private Texture sprite_popup_paused = new Texture("sprites/popup_pause_305x240.png");
-    private Texture sprite_button_continue = new Texture("sprites/popup_pause_button_continue_186x45.png");
-    private Texture sprite_button_continue_inv = new Texture("sprites/popup_pause_button_continue_186x45.png");
-    private Texture sprite_button_mainMenu = new Texture("sprites/popup_pause_button_mainMenu_186x45.png");
-    private Texture sprite_button_mainMenu_inv = new Texture("sprites/popup_pause_button_mainMenu_inv_186x45.png");
+    private Texture sprite_button_popup_continue = new Texture("sprites/popup_pause_button_continue_186x45.png");
+    private Texture sprite_button_popup_continue_inv = new Texture("sprites/popup_pause_button_continue_186x45.png");
+    private Texture sprite_button_popup_mainMenu = new Texture("sprites/popup_pause_button_mainMenu_186x45.png");
+    private Texture sprite_button_popup_mainMenu_inv = new Texture("sprites/popup_pause_button_mainMenu_inv_186x45.png");
 
-    private ImageButton button_continue = null;
-    private ImageButton button_mainMenu = null;
+    private ImageButton button_popup_continue = null;
+    private ImageButton button_popup_mainMenu = null;
+
+    // upgrade popup windows
+    private PopupUpgrade popup_upgrade = null;
+    private Texture sprite_popup_upgrade = new Texture("sprites/popup_upgrade_background_525x390.png");
+    private Texture sprite_button_popup_cancel = new Texture("sprites/button_popup_cancel_186x45.png");
+    private Texture sprite_button_popup_cancel_inv = new Texture("sprites/button_popup_cancel_inv_186x45.png");
+    private Texture sprite_button_popup_upgrade = new Texture("sprites/button_popup_upgrade_186x45.png");
+    private Texture sprite_button_popup_upgrade_inv = new Texture("sprites/button_popup_upgrade_inv_186x45.png");
+
+    private ImageButton button_popup_cancel = null;
+    private ImageButton button_popup_upgrade = null;
 
     // meta data
     private int currentBabyIndex = 0;
@@ -127,7 +131,8 @@ public class GameScreen extends BaseScreen {
             label_properties_list_buy,
             label_level_sell,
             label_level_buy,
-            popup_pause.getTable()
+            popup_pause.getTable(),
+            popup_upgrade.getTable()
         );
 
         // taking inputs from ui
@@ -135,12 +140,13 @@ public class GameScreen extends BaseScreen {
     }
 
     private void popupSetup() {
+        // popup pause
         popup_pause = new PopupPause(sprite_popup_paused);
 
-        button_continue = generateButton(sprite_button_continue, sprite_button_continue_inv);
-        button_continue.setPosition(0, 0);
+        button_popup_continue = generateButton(sprite_button_popup_continue, sprite_button_popup_continue_inv);
+        button_popup_continue.setPosition(0, 0);
 
-        button_continue.addListener(new ChangeListener() {
+        button_popup_continue.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Continue button", "Activated");
@@ -150,10 +156,10 @@ public class GameScreen extends BaseScreen {
             }
         });
 
-        button_mainMenu = generateButton(sprite_button_mainMenu, sprite_button_mainMenu_inv);
-        button_mainMenu.setPosition(0, 0);
+        button_popup_mainMenu = generateButton(sprite_button_popup_mainMenu, sprite_button_popup_mainMenu_inv);
+        button_popup_mainMenu.setPosition(0, 0);
 
-        button_mainMenu.addListener(new ChangeListener() {
+        button_popup_mainMenu.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Main Menu button", "Activated");
@@ -163,7 +169,41 @@ public class GameScreen extends BaseScreen {
             }
         });
 
-        popup_pause.addElements(button_continue, button_mainMenu);
+        popup_pause.addElements(button_popup_continue, button_popup_mainMenu);
+
+        // popup upgrade
+        popup_upgrade = new PopupUpgrade(
+                sprite_popup_upgrade,
+                getLabelStyle(FONT_WORK_EXTRA_BOLD, 29, Color.WHITE)
+        );
+
+        button_popup_cancel = generateButton(sprite_button_popup_cancel, sprite_button_popup_cancel_inv);
+        button_popup_cancel.setPosition(0, 0);
+
+        button_popup_cancel.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Cancel Button", "Activated");
+                sound_buttonClick.play();
+                resume();
+                popup_upgrade.setVisible(false);
+            }
+        });
+
+        button_popup_upgrade = generateButton(sprite_button_popup_upgrade, sprite_button_popup_upgrade_inv);
+        button_popup_upgrade.setPosition(0, 0);
+
+        button_popup_upgrade.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Upgrade Button", "Activated");
+                sound_buttonClick.play();
+                resume();
+                popup_upgrade.setVisible(false);
+            }
+        });
+
+        popup_upgrade.addElements(button_popup_cancel, button_popup_upgrade);
     }
 
     private void renderCustomer(Customer customer, Label label_title, Label label_properties, int x, int y, String description) {
@@ -337,7 +377,11 @@ public class GameScreen extends BaseScreen {
 
                 // TODO: currently this is here for testing purpose
                 // need more configuration such as popup window
-                config.levelUpSeller();
+
+                pause();
+                popup_upgrade.setVisible(true);
+
+                // config.levelUpSeller();
             }
         });
 
@@ -440,7 +484,6 @@ public class GameScreen extends BaseScreen {
         super.show();
         config.initialize();
         config.startThreadsAndTimer();
-        //config.startThreadsAndTimer();
         popup_pause.setVisible(false);
     }
 
@@ -463,9 +506,15 @@ public class GameScreen extends BaseScreen {
         sprite_button_upgrade_inv.dispose();
 
         sprite_popup_paused.dispose();
-        sprite_button_continue.dispose();
-        sprite_button_continue_inv.dispose();
-        sprite_button_mainMenu.dispose();
-        sprite_button_mainMenu_inv.dispose();
+        sprite_button_popup_continue.dispose();
+        sprite_button_popup_continue_inv.dispose();
+        sprite_button_popup_mainMenu.dispose();
+        sprite_button_popup_mainMenu_inv.dispose();
+
+        sprite_popup_upgrade.dispose();
+        sprite_button_popup_cancel.dispose();
+        sprite_button_popup_cancel_inv.dispose();
+        sprite_button_popup_upgrade.dispose();
+        sprite_button_popup_upgrade_inv.dispose();
     }
 }

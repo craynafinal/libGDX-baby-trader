@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
@@ -60,6 +61,10 @@ public abstract class BaseScreen implements Screen {
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 
         this.stage = new Stage(gamePort);
+    }
+
+    protected static Label.LabelStyle getLabelStyle(String filepath, int size, Color color) {
+        return new Label.LabelStyle(generateFont(filepath, size, color), color);
     }
 
     protected static BitmapFont generateFont(String filepath, int size, Color color) {

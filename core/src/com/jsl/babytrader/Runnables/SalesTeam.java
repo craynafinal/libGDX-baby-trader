@@ -1,6 +1,7 @@
 package com.jsl.babytrader.Runnables;
 
 import com.badlogic.gdx.Gdx;
+import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
@@ -12,14 +13,14 @@ import static com.jsl.babytrader.Data.SharedData.isEnded;
  */
 
 public class SalesTeam extends Team {
-    // TODO: sleep time must be a little more random?
-    private static int sleepTime = 1000;
+    final private static int SLEEP_TIME_MIN = 500;
+    final private static int SLEEP_TIME_MAX = 1000;
 
     @Override
     public void run() {
         while (!isEnded()) {
             if (!isPaused()) {
-                sleep(sleepTime);
+                sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelSeller()));
 
                 Gdx.app.postRunnable(new Runnable() {
                     @Override

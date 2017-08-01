@@ -1,6 +1,7 @@
 package com.jsl.babytrader.Runnables;
 
 import com.badlogic.gdx.Gdx;
+import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.SharedData;
@@ -16,13 +17,14 @@ import static com.jsl.babytrader.Data.SharedData.isEnded;
  */
 
 public class ResearchTeam extends Team {
-    private static int sleepTime = 2000;
+    final private static int SLEEP_TIME_MIN = 1000;
+    final private static int SLEEP_TIME_MAX = 2000;
 
     @Override
     public void run() {
         while (!isEnded()) {
             if (!isPaused()) {
-                sleep(sleepTime);
+                sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelResearch()));
 
                 Gdx.app.postRunnable(new Runnable() {
                     @Override

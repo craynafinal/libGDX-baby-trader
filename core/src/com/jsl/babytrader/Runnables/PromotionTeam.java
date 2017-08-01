@@ -1,22 +1,24 @@
 package com.jsl.babytrader.Runnables;
 
 import com.badlogic.gdx.Gdx;
+import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
 
 import static com.jsl.babytrader.Data.SharedData.isEnded;
 
 /**
- * Created by crayna on 7/7/17.
+ * Team that brings customers over.
  */
 public class PromotionTeam extends Team {
-    private static int sleepTime = 500;
+    final private static int SLEEP_TIME_MIN = 300;
+    final private static int SLEEP_TIME_MAX = 800;
 
     @Override
     public void run() {
         while (!isEnded()) {
             if (!isPaused()) {
-                sleep(sleepTime);
+                sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelPromotion()));
 
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
@@ -30,15 +32,12 @@ public class PromotionTeam extends Team {
     }
 
     private static void addCustomer(boolean isSelling) {
-        int size = 0;
         Customer customer = new Customer(isSelling);
 
         if(isSelling) {
             SharedData.addCustomerSelling(customer);
-            size = SharedData.getCustomerSellingSize();
         } else {
             SharedData.addCustomerBuying(customer);
-            size = SharedData.getCustomerBuyingSize();
         }
     }
 }

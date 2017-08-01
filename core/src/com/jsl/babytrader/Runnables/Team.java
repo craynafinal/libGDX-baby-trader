@@ -1,9 +1,11 @@
 package com.jsl.babytrader.Runnables;
 
+import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.SharedData;
+import com.jsl.babytrader.Utilities.CommonUtilities;
 
 /**
- * Created by crayna on 6/3/17.
+ * Base class for team components.
  */
 
 public abstract class Team implements Runnable {
@@ -18,5 +20,11 @@ public abstract class Team implements Runnable {
 
     protected static boolean isPaused() {
         return SharedData.isPaused();
+    }
+
+    protected static int getWaitTime(int min, int max, int level) {
+        int modifier = Configuration.MAX_LEVEL - level + 1;
+
+        return CommonUtilities.getRandomInteger(min, max) * modifier;
     }
 }

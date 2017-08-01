@@ -29,10 +29,10 @@ public class Configuration {
     final public static int MAX_BUYER_THREADS = 5;
 
     // levels
-    private int level_seller = 1;
-    private int level_buyer = 1;
-    private int level_promotion = 1;
-    private int level_research = 1;
+    private static int level_seller = 1;
+    private static int level_buyer = 1;
+    private static int level_promotion = 1;
+    private static int level_research = 1;
 
     // thread related
     private List<Thread> team_seller = null;
@@ -44,51 +44,51 @@ public class Configuration {
     private int team_seller_count = 0;
     private int team_buyer_count = 0;
 
-    public int getLevelSeller() {
+    public static int getLevelSeller() {
         return level_seller;
     }
 
-    public int getLevelBuyer() {
+    public static int getLevelBuyer() {
         return level_buyer;
     }
 
-    public int getLevelPromotion() {
+    public static int getLevelPromotion() {
         return level_promotion;
     }
 
-    public int getLevelResearch() {
+    public static int getLevelResearch() {
         return level_research;
     }
 
-    public boolean isNextMaxSeller() {
+    public static boolean isNextMaxSeller() {
         return level_seller + 1 == MAX_LEVEL;
     }
 
-    public boolean isNextMaxBuyer() {
+    public static boolean isNextMaxBuyer() {
         return level_buyer + 1 == MAX_LEVEL;
     }
 
-    public boolean isNextMaxPromotion() {
+    public static boolean isNextMaxPromotion() {
         return level_promotion + 1 == MAX_LEVEL;
     }
 
-    public boolean isNextMaxResearch() {
+    public static boolean isNextMaxResearch() {
         return level_research + 1 == MAX_LEVEL;
     }
 
-    public int getUpgradeCostSeller() {
+    public static int getUpgradeCostSeller() {
         return level_seller * UPGRADE_INTERVAL_MONEY;
     }
 
-    public int getUpgradeCostBuyer() {
+    public static int getUpgradeCostBuyer() {
         return level_buyer * UPGRADE_INTERVAL_MONEY;
     }
 
-    public int getUpgradeCostPromotion() {
+    public static int getUpgradeCostPromotion() {
         return level_promotion * UPGRADE_INTERVAL_MONEY;
     }
 
-    public int getUpgradeCostResearch() {
+    public static int getUpgradeCostResearch() {
         return level_research * UPGRADE_INTERVAL_MONEY;
     }
 

@@ -21,6 +21,9 @@ import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Popups.PopupPause;
 import com.jsl.babytrader.Popups.PopupUpgrade;
 
+import java.util.List;
+import java.util.Set;
+
 /**
  * Actual game screen for play.
  */
@@ -212,8 +215,8 @@ public class GameScreen extends BaseScreen {
         String type = popup_upgrade.getTextType();
 
         if (type.equals(PopupUpgrade.TYPE_SELLER)) {
-            if (SharedData.getMoney() >= config.getUpgradeCostSeller()) {
-                SharedData.spendMoney(config.getUpgradeCostSeller());
+            if (SharedData.getMoney() >= Configuration.getUpgradeCostSeller()) {
+                SharedData.spendMoney(Configuration.getUpgradeCostSeller());
                 config.levelUpSeller();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -221,8 +224,8 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setTextDescription(warningMsg);
             }
         } else if (type.equals(PopupUpgrade.TYPE_BUYER)){
-            if (SharedData.getMoney() >= config.getUpgradeCostBuyer()) {
-                SharedData.spendMoney(config.getUpgradeCostBuyer());
+            if (SharedData.getMoney() >= Configuration.getUpgradeCostBuyer()) {
+                SharedData.spendMoney(Configuration.getUpgradeCostBuyer());
                 config.levelUpBuyer();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -230,8 +233,8 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setTextDescription(warningMsg);
             }
         } else if (type.equals(PopupUpgrade.TYPE_PROMOTION)) {
-            if (SharedData.getMoney() >= config.getUpgradeCostPromotion()) {
-                SharedData.spendMoney(config.getUpgradeCostPromotion());
+            if (SharedData.getMoney() >= Configuration.getUpgradeCostPromotion()) {
+                SharedData.spendMoney(Configuration.getUpgradeCostPromotion());
                 config.levelUpPromotion();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -239,8 +242,8 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setTextDescription(warningMsg);
             }
         } else if (type.equals(PopupUpgrade.TYPE_RESEARCH)) {
-            if (SharedData.getMoney() >= config.getUpgradeCostResearch()) {
-                SharedData.spendMoney(config.getUpgradeCostResearch());
+            if (SharedData.getMoney() >= Configuration.getUpgradeCostResearch()) {
+                SharedData.spendMoney(Configuration.getUpgradeCostResearch());
                 config.levelUpResearch();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -258,7 +261,9 @@ public class GameScreen extends BaseScreen {
 
             StringBuilder stringBuilder = new StringBuilder((customer.isMale() ? "His" : "Her") + " " + description + ":\n");
 
-            for (Attribute attribute : customer.getAttributes()) {
+            Set<Attribute> attributes = customer.isSelling() ? customer.getAttributes() : customer.getBaby().getAttributes();
+
+            for (Attribute attribute : attributes) {
                 stringBuilder.append(propertyFormat(attribute.getName()));
             }
 
@@ -321,8 +326,8 @@ public class GameScreen extends BaseScreen {
         label_count_customers_sell.setText(SharedData.getCustomerSellingSize() + "");
         label_count_customers_buy.setText(SharedData.getCustomerBuyingSize() + "");
 
-        label_level_sell.setText(config.getLevelSeller() + "");
-        label_level_buy.setText(config.getLevelBuyer() + "");
+        label_level_sell.setText(Configuration.getLevelSeller() + "");
+        label_level_buy.setText(Configuration.getLevelBuyer() + "");
 
         stage.getBatch().end();
 
@@ -391,7 +396,7 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Promotion button", "Activated");
                 sound_buttonClick.play();
                 pause();
-                popupUpgradeOpen(PopupUpgrade.TYPE_PROMOTION, config.getLevelPromotion(), config.isNextMaxPromotion(), config.getUpgradeCostPromotion(), PopupUpgrade.DESCRIPTION_PROMOTION);
+                popupUpgradeOpen(PopupUpgrade.TYPE_PROMOTION, Configuration.getLevelPromotion(), Configuration.isNextMaxPromotion(), Configuration.getUpgradeCostPromotion(), PopupUpgrade.DESCRIPTION_PROMOTION);
             }
         });
 
@@ -404,7 +409,7 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Research button", "Activated");
                 sound_buttonClick.play();
                 pause();
-                popupUpgradeOpen(PopupUpgrade.TYPE_RESEARCH, config.getLevelResearch(), config.isNextMaxResearch(), config.getUpgradeCostResearch(), PopupUpgrade.DESCRIPTION_RESEARCH);
+                popupUpgradeOpen(PopupUpgrade.TYPE_RESEARCH, Configuration.getLevelResearch(), Configuration.isNextMaxResearch(), Configuration.getUpgradeCostResearch(), PopupUpgrade.DESCRIPTION_RESEARCH);
             }
         });
 
@@ -417,7 +422,7 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Sell Upgrade button", "Activated");
                 sound_buttonClick.play();
                 pause();
-                popupUpgradeOpen(PopupUpgrade.TYPE_SELLER, config.getLevelSeller(), config.isNextMaxSeller(), config.getUpgradeCostSeller(), PopupUpgrade.DESCRIPTION_SELLER);
+                popupUpgradeOpen(PopupUpgrade.TYPE_SELLER, Configuration.getLevelSeller(), Configuration.isNextMaxSeller(), Configuration.getUpgradeCostSeller(), PopupUpgrade.DESCRIPTION_SELLER);
                 // config.levelUpSeller();
             }
         });
@@ -431,7 +436,7 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Buy Upgrade button", "Activated");
                 sound_buttonClick.play();
                 pause();
-                popupUpgradeOpen(PopupUpgrade.TYPE_BUYER, config.getLevelBuyer(), config.isNextMaxBuyer(), config.getUpgradeCostBuyer(), PopupUpgrade.DESCRIPTION_BUYER);
+                popupUpgradeOpen(PopupUpgrade.TYPE_BUYER, Configuration.getLevelBuyer(), Configuration.isNextMaxBuyer(), Configuration.getUpgradeCostBuyer(), PopupUpgrade.DESCRIPTION_BUYER);
                 //config.levelUpBuyer();
             }
         });

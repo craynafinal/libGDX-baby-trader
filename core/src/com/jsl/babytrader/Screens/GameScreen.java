@@ -451,48 +451,48 @@ public class GameScreen extends BaseScreen {
     }
 
     private void labelSetup() {
-        label_money = new Label("", new Label.LabelStyle(generateFont(FONT_SARPANCH_SEMI_BOLD, 28, FONT_COLOR_GREEN), FONT_COLOR_GREEN));
+        label_money = new Label("", getLabelStyle(FONT_SARPANCH_SEMI_BOLD, 28, FONT_COLOR_GREEN));
         label_money.setAlignment(Align.right);
         label_money.setPosition(994, 190);
 
-        label_time = new Label("", new Label.LabelStyle(generateFont(FONT_SARPANCH_SEMI_BOLD, 28, FONT_COLOR_GREEN), FONT_COLOR_GREEN));
+        label_time = new Label("", getLabelStyle(FONT_SARPANCH_SEMI_BOLD, 28, FONT_COLOR_GREEN));
         label_time.setAlignment(Align.right);
         label_time.setPosition(994, 260);
 
-        label_count_babies = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_count_babies = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY));
         label_count_babies.setAlignment(Align.right);
         label_count_babies.setPosition(607, 545);
 
-        label_count_customers_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_count_customers_sell = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY));
         label_count_customers_sell.setAlignment(Align.right);
         label_count_customers_sell.setPosition(290, 502);
 
-        label_count_customers_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_count_customers_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 43, FONT_COLOR_LIGHT_GRAY));
         label_count_customers_buy.setAlignment(Align.right);
         label_count_customers_buy.setPosition(290, 209);
 
-        label_properties_title_baby = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_title_baby = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY));
         label_properties_title_baby.setPosition(505, 113);
 
-        label_properties_list_baby = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_list_baby = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY));
         label_properties_list_baby.setPosition(505, 55);
 
-        label_properties_title_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_title_sell = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY));
         label_properties_title_sell.setPosition(193, 418);
 
-        label_properties_list_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_list_sell = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY));
         label_properties_list_sell.setPosition(193, 354);
 
-        label_properties_title_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_title_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY));
         label_properties_title_buy.setPosition(193, 127);
 
-        label_properties_list_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY), FONT_COLOR_LIGHT_GRAY));
+        label_properties_list_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY));
         label_properties_list_buy.setPosition(193, 63);
 
-        label_level_sell = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE), Color.WHITE));
+        label_level_sell = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE));
         label_level_sell.setPosition(154, 549);
 
-        label_level_buy = new Label("", new Label.LabelStyle(generateFont(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE), Color.WHITE));
+        label_level_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE));
         label_level_buy.setPosition(154, 258);
     }
 

@@ -65,7 +65,7 @@ public class InitScreen extends BaseScreen {
                 //gameScreen.restart();
                 //BabyTrader.gameScreen.startThreadsAndTimer();
 
-                switchScreen(BabyTrader.gameScreen);
+                switchScreen(BabyTrader.gameOverScreen);
             }
         });
 

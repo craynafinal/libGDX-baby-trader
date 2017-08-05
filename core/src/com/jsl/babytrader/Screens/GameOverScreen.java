@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Data.SaveData;
 import com.jsl.babytrader.Data.SharedData;
 
 /**
@@ -70,13 +71,16 @@ public class GameOverScreen extends BaseScreen {
         addElementsToStage(button_main_menu, button_exit_game, table, label_message);
     }
 
+    private int currentScore = 0;
+    private int highScore = 0;
+
     private void labelSetup() {
         // TODO: get highscore here and save highscore too
-        label_highScore = new Label("$1000000000", getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
+        label_highScore = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
         label_highScore.setAlignment(Align.center);
         label_highScore.setPosition(0, 0);
 
-        label_currentScore = new Label("$" + SharedData.getMoney(), getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
+        label_currentScore = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
         label_currentScore.setAlignment(Align.center);
         label_currentScore.setPosition(0, 0);
 
@@ -121,12 +125,21 @@ public class GameOverScreen extends BaseScreen {
 
         stage.getBatch().begin();
         stage.getBatch().draw(sprite_background, 0, 0);
+
+        label_currentScore.setText("$" + currentScore + "");
+        label_highScore.setText("$" + highScore + "");
+
         stage.getBatch().end();
 
         stage.draw();
 
         game.batch.begin();
         game.batch.end();
+    }
+
+    private void scoreSetup() {
+        currentScore = SharedData.getMoney();
+        highScore = SaveData.saveHighScore(currentScore);
     }
 
     @Override
@@ -136,7 +149,12 @@ public class GameOverScreen extends BaseScreen {
 
     @Override
     public void resume() {
+    }
 
+    @Override
+    public void show() {
+        super.show();
+        scoreSetup();
     }
 
     @Override

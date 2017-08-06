@@ -303,6 +303,10 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public void render(float delta) {
+        if (SharedData.getMoney() < 0 || config.isTimeOver()) {
+            switchScreen(BabyTrader.gameOverScreen);
+        }
+
         clearingScreen();
         viewportRender();
 

@@ -89,6 +89,18 @@ public class GameOverScreen extends BaseScreen {
         label_message.setPosition(120, 70);
     }
 
+    private String getMessage() {
+        String message = null;
+
+        if (currentScore > 0) {
+            message = MESSAGE_POSITIVE;
+        } else {
+            message = MESSAGE_NEGATIVE;
+        }
+
+        return message;
+    }
+
     private void buttonSetup() {
         button_main_menu = generateButton(sprite_button_main_menu, sprite_button_main_menu_inv);
         button_main_menu.setPosition(598, 29);
@@ -126,9 +138,6 @@ public class GameOverScreen extends BaseScreen {
         stage.getBatch().begin();
         stage.getBatch().draw(sprite_background, 0, 0);
 
-        label_currentScore.setText("$" + currentScore + "");
-        label_highScore.setText("$" + highScore + "");
-
         stage.getBatch().end();
 
         stage.draw();
@@ -155,6 +164,9 @@ public class GameOverScreen extends BaseScreen {
     public void show() {
         super.show();
         scoreSetup();
+        label_message.setText(getMessage());
+        label_currentScore.setText("$" + currentScore + "");
+        label_highScore.setText("$" + highScore + "");
     }
 
     @Override

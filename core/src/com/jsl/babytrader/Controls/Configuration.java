@@ -96,6 +96,10 @@ public class Configuration {
         return time.getTime();
     }
 
+    public boolean isTimeOver() {
+        return time.isTimeOver();
+    }
+
     public void startSeller() {
         if (team_seller_count < MAX_SELLER_THREADS) {
             team_seller.get(team_seller_count).start();

@@ -96,7 +96,6 @@ public class GameScreen extends BaseScreen {
     // baby trader faces
     private Texture sprite_babyTrader_face_normal = new Texture("sprites/babyTraderFaceUi_normal_163x190.png");
     private Texture sprite_babyTrader_face_crazy = new Texture("sprites/babyTraderFaceUi_crazy_163x190.png");
-    private static Boolean babyTrader_isNormal = true;
 
     // meta data
     private int currentBabyIndex = 0;
@@ -285,6 +284,7 @@ public class GameScreen extends BaseScreen {
             } else if (currentBabyIndex < 0) {
                 currentBabyIndex = 0;
             }
+
             baby = SharedData.getBabyWithoutRemoval(currentBabyIndex);
         }
 
@@ -321,7 +321,7 @@ public class GameScreen extends BaseScreen {
 
         stage.getBatch().begin();
         stage.getBatch().draw(sprite_background, 0, 0);
-        stage.getBatch().draw(babyTrader_isNormal ? sprite_babyTrader_face_normal : sprite_babyTrader_face_crazy, 831, 319);
+        stage.getBatch().draw(Configuration.isBabyTraderFaceNormal() ? sprite_babyTrader_face_normal : sprite_babyTrader_face_crazy, 831, 319);
 
         // baby sprite
         renderBaby();
@@ -512,13 +512,7 @@ public class GameScreen extends BaseScreen {
         Timer.instance().stop();
         SharedData.pause();
 
-        button_browse_left.setDisabled(true);
-        button_browse_right.setDisabled(true);
-        button_menu.setDisabled(true);
-        button_promotion.setDisabled(true);
-        button_research.setDisabled(true);
-        button_upgrade_sell.setDisabled(true);
-        button_upgrade_buy.setDisabled(true);
+        setButtonDisabled(true);
     }
 
     @Override
@@ -526,13 +520,17 @@ public class GameScreen extends BaseScreen {
         Timer.instance().start();
         SharedData.resume();
 
-        button_browse_left.setDisabled(false);
-        button_browse_right.setDisabled(false);
-        button_menu.setDisabled(false);
-        button_promotion.setDisabled(false);
-        button_research.setDisabled(false);
-        button_upgrade_sell.setDisabled(false);
-        button_upgrade_buy.setDisabled(false);
+        setButtonDisabled(false);
+    }
+
+    private void setButtonDisabled(boolean isDisabled) {
+        button_browse_left.setDisabled(isDisabled);
+        button_browse_right.setDisabled(isDisabled);
+        button_menu.setDisabled(isDisabled);
+        button_promotion.setDisabled(isDisabled);
+        button_research.setDisabled(isDisabled);
+        button_upgrade_sell.setDisabled(isDisabled);
+        button_upgrade_buy.setDisabled(isDisabled);
     }
 
     @Override
@@ -546,6 +544,7 @@ public class GameScreen extends BaseScreen {
         config.initialize();
         config.startThreadsAndTimer();
         popup_pause.setVisible(false);
+        setButtonDisabled(false);
     }
 
     @Override

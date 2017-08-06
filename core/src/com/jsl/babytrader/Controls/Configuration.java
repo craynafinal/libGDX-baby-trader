@@ -4,6 +4,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Data.Time;
+import com.jsl.babytrader.Runnables.FaceTracker;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
 import com.jsl.babytrader.Runnables.ResearchTeam;
@@ -43,6 +44,10 @@ public class Configuration {
 
     private int team_seller_count = 0;
     private int team_buyer_count = 0;
+
+    // baby trader face ui
+    private static boolean babyTrader_isNormal = true;
+    private Thread faceTracker = null;
 
     public static int getLevelSeller() {
         return level_seller;
@@ -146,6 +151,8 @@ public class Configuration {
         team_promotion.start();
         team_research.start();
 
+        faceTracker.start();
+
         Timer.instance().start();
     }
 
@@ -186,7 +193,6 @@ public class Configuration {
 
         for (int i = 0; i < MAX_SELLER_THREADS; i++) {
             team_seller.add(new Thread(new SalesTeam()));
-            System.out.println(i);
         }
 
         for (int i = 0; i < MAX_BUYER_THREADS; i++) {
@@ -195,6 +201,8 @@ public class Configuration {
 
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
+
+        faceTracker = new Thread(new FaceTracker());
     }
 
     public void killThreads() {
@@ -207,7 +215,6 @@ public class Configuration {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(team_seller.get(i).isAlive());
         }
 
         for (int i = 0; i < team_buyer_count; i++) {
@@ -217,7 +224,6 @@ public class Configuration {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println(team_buyer.get(i).isAlive());
         }
 
         team_seller = null;
@@ -226,9 +232,27 @@ public class Configuration {
         team_seller_count = 0;
         team_buyer_count = 0;
 
-        team_promotion.interrupt();
-        team_research.interrupt();
+        try {
+            team_promotion.interrupt();
+            team_promotion.join();
+
+            team_research.interrupt();
+            team_research.join();
+
+            faceTracker.interrupt();
+            faceTracker.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.gc();
+    }
+
+    public static boolean isBabyTraderFaceNormal() {
+        return babyTrader_isNormal;
+    }
+
+    public static void setBabyTraderFace(boolean isNormal) {
+        babyTrader_isNormal = isNormal;
     }
 }

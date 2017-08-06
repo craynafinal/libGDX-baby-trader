@@ -69,6 +69,9 @@ public class GameOverScreen extends BaseScreen {
         table.add(label_currentScore).padTop(115);
 
         addElementsToStage(button_main_menu, button_exit_game, table, label_message);
+
+        // taking inputs from ui
+        Gdx.input.setInputProcessor(stage);
     }
 
     private int currentScore = 0;

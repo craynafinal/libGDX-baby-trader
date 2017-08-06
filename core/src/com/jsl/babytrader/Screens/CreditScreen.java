@@ -6,7 +6,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.ConstData;
 
@@ -24,17 +27,8 @@ public class CreditScreen extends BaseScreen {
 
     private ImageButton button_back = null;
 
-    // fonts
-    private BitmapFont font_nokia = null;
-    final private static int FONT_NOKIA_SIZE = 10;
-    final private static Color FONT_NOKIA_COLOR = Color.valueOf("2F3A42");
-
     public CreditScreen(final BabyTrader game) {
         super(game);
-
-        // font setup
-        font_nokia = generateFont(FONT_NOKIA_PATH, FONT_NOKIA_SIZE, FONT_NOKIA_COLOR);
-        //font_nokia.getData().setScale(10);
 
         // bgm setup
         // TODO: switch the file extension to something cheap
@@ -54,7 +48,7 @@ public class CreditScreen extends BaseScreen {
             }
         });
 
-        addElementsToStage(button_back);
+        addElementsToStage(getLabelTable(), button_back);
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
@@ -62,7 +56,7 @@ public class CreditScreen extends BaseScreen {
 
     @Override
     public void show() {
-
+        super.show();
     }
 
     @Override
@@ -71,23 +65,17 @@ public class CreditScreen extends BaseScreen {
         viewportRender();
 
         stage.act(Gdx.graphics.getDeltaTime());
+        stage.getBatch().begin();
+        stage.getBatch().draw(
+            sprite_title,
+            (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2),
+            ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50
+        );
+        stage.getBatch().end();
+
         stage.draw();
 
         game.batch.begin();
-
-        // title
-        game.batch.draw(
-                sprite_title,
-                (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2),
-                ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50
-        );
-
-        font_nokia.draw(game.batch, "test", 100, 100);
-
-        // text
-        //font.setColor(1.0f, 1.0f, 1.0f, 1.0f);
-        //font.getData().setScale(1f);
-        //font.draw(game.batch, "some string", 25, 160);
         game.batch.end();
     }
 
@@ -116,5 +104,63 @@ public class CreditScreen extends BaseScreen {
         // buttons
         sprite_button_back_up.dispose();
         sprite_button_back_down.dispose();
+    }
+
+    private Label getLabel(String text, Label.LabelStyle style) {
+        Label label = new Label(text.toUpperCase(), style);
+        label.setAlignment(Align.center);
+        label.setPosition(0, 0);
+
+        return label;
+    }
+
+    public Table getLabelTable() {
+        Table result = new Table();
+
+        Label.LabelStyle style_small = getLabelStyle(FONT_WORK_EXTRA_BOLD, 26, FONT_COLOR_DARK_BLUE);
+        Label.LabelStyle style_big = getLabelStyle(FONT_WORK_EXTRA_BOLD, 40, FONT_COLOR_DARK_BLUE);
+
+        Label label_developedBy = getLabel("Developed by", style_small);
+
+        Label label_developer = getLabel("Chaos Depot", style_big);
+
+        Label label_developerWebsite = getLabel("chaosdepot.com", style_small);
+
+        Label label_toolBy = getLabel("Game framework engine", style_small);
+
+        Label label_tool = getLabel("LibGDX", style_big);
+
+        Label label_toolWebsite = getLabel("libgdx.badlogicgames.com", style_small);
+
+        Label label_musicBy = getLabel("Background music", style_small);
+
+        Label label_music = getLabel("Rengoku Teien", style_big);
+
+        Label label_musicWebsite = getLabel("rengoku-reien.com", style_small);
+
+        float padBottom = 20;
+        float padTop = -6;
+
+        result.add(label_developedBy);
+        result.row();
+        result.add(label_developer).padTop(padTop);
+        result.row();
+        result.add(label_developerWebsite).padTop(padTop).padBottom(padBottom);
+        result.row();
+        result.add(label_toolBy);
+        result.row();
+        result.add(label_tool).padTop(padTop);
+        result.row();
+        result.add(label_toolWebsite).padTop(padTop).padBottom(padBottom);
+        result.row();
+        result.add(label_musicBy);
+        result.row();
+        result.add(label_music).padTop(padTop);
+        result.row();
+        result.add(label_musicWebsite).padTop(padTop);
+
+        result.setPosition((ConstData.SCREEN_WIDTH / 2) - result.getWidth(), 290);
+
+        return result;
     }
 }

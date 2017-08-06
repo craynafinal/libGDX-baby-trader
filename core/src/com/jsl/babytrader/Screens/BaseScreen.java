@@ -46,7 +46,7 @@ public abstract class BaseScreen implements Screen {
     final protected static String FONT_SARPANCH_SEMI_BOLD = "fonts/Sarpanch-SemiBold.ttf";
     final protected static Color FONT_COLOR_GREEN = Color.valueOf("35eb35");
     final protected static Color FONT_COLOR_LIGHT_GRAY = Color.valueOf("d4dbe1");
-
+    final protected static Color FONT_COLOR_DARK_BLUE = Color.valueOf("2f3a42");
 
     // view port code
     protected OrthographicCamera gamecam = null;

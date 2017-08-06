@@ -60,12 +60,7 @@ public class InitScreen extends BaseScreen {
                 Gdx.app.log("Clicking Credit Button", "Activated");
                 sound_buttonClick.play();
                 stopMusic();
-                // TODO: temporarily uses this button for gamescreen
-                //switchScreen(new CreditScreen(game));
-                //gameScreen.restart();
-                //BabyTrader.gameScreen.startThreadsAndTimer();
-
-                switchScreen(BabyTrader.gameOverScreen);
+                switchScreen(BabyTrader.creditScreen);
             }
         });
 

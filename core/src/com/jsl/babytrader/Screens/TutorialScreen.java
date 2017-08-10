@@ -1,12 +1,14 @@
 package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.ConstData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,9 +42,13 @@ public class TutorialScreen extends BaseScreen {
     private Texture sprite_button_next_inv = new Texture("sprites/tutorial_button_next_inv_186x45.png");
     private ImageButton button_next = null;
 
+    // label
+    private Label label_textbox = null;
+
     // meta data
     private int step = 0;
-    private List<Texture> texture_screens = null;
+    private List<Texture> screenshots = null;
+    private List<String> texts = null;
 
 
     public TutorialScreen(BabyTrader game) {
@@ -52,26 +58,43 @@ public class TutorialScreen extends BaseScreen {
         // TODO: switch the file extension to something cheap
         setupMusic("music/bgm_makkura.wav", true);
 
-        // do same for label
-        texture_screens = new ArrayList<Texture>();
-        texture_screens.add(sprite_screen_setting);
-        texture_screens.add(sprite_screen_hud);
-        texture_screens.add(sprite_screen_babies);
-        texture_screens.add(sprite_screen_seller);
-        texture_screens.add(sprite_screen_buyer);
-        texture_screens.add(sprite_screen_upgrade);
-        texture_screens.add(sprite_screen_gameover);
+        screenshots = new ArrayList<Texture>();
+        screenshots.add(sprite_screen_setting);
+        screenshots.add(sprite_screen_hud);
+        screenshots.add(sprite_screen_babies);
+        screenshots.add(sprite_screen_seller);
+        screenshots.add(sprite_screen_buyer);
+        screenshots.add(sprite_screen_upgrade);
+        screenshots.add(sprite_screen_gameover);
 
+        texts = new ArrayList<String>();
+        texts.add("Setting");
+        texts.add("Hud");
+        texts.add("Babies");
+        texts.add("Seller");
+        texts.add("Buyer");
+        texts.add("Upgrade");
+        texts.add("Game Over");
+
+        labelSetup();
         buttonSetup();
 
-        addElementsToStage(button_back, button_mainMenu, button_next);
+        addElementsToStage(button_back, button_mainMenu, button_next, label_textbox);
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
     }
 
+    private void labelSetup() {
+        label_textbox = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 30, Color.WHITE));
+        label_textbox.setAlignment(Align.topLeft);
+        label_textbox.setWidth(381);
+        label_textbox.setHeight(367);
+        label_textbox.setPosition(598, 99);
+    }
+
     private void increaseStep() {
-        if (step < texture_screens.size() -1) {
+        if (step < screenshots.size() -1) {
             step++;
         }
     }
@@ -91,7 +114,6 @@ public class TutorialScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Back Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 decreaseStep();
             }
         });
@@ -117,7 +139,6 @@ public class TutorialScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 increaseStep();
             }
         });
@@ -126,6 +147,7 @@ public class TutorialScreen extends BaseScreen {
     @Override
     public void show() {
         super.show();
+        step = 0;
     }
 
     @Override
@@ -137,9 +159,10 @@ public class TutorialScreen extends BaseScreen {
         stage.act(Gdx.graphics.getDeltaTime());
 
         stage.getBatch().begin();
-        stage.getBatch().draw(sprite_background, 0, 0);
 
-        stage.getBatch().draw(texture_screens.get(step), 58, 110);
+        stage.getBatch().draw(sprite_background, 0, 0);
+        stage.getBatch().draw(screenshots.get(step), 58, 110);
+        label_textbox.setText(texts.get(step));
 
         stage.getBatch().end();
 

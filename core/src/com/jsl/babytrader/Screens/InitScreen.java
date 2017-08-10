@@ -21,11 +21,15 @@ public class InitScreen extends BaseScreen {
     // buttons
     private Texture sprite_button_start_up = new Texture("sprites/startPage_startButton_191x357.png");
     private Texture sprite_button_start_down = new Texture("sprites/startPage_startButton_inv_191x357.png");
+    private ImageButton button_start = null;
+
     private Texture sprite_button_credit_up = new Texture("sprites/startPage_creditsButton_191x463.png");
     private Texture sprite_button_credit_down = new Texture("sprites/startPage_creditsButton_inv_191x463.png");
-
-    private ImageButton button_start = null;
     private ImageButton button_credit = null;
+
+    private Texture sprite_button_howToPlay_up = new Texture("sprites/startPage_howToPlayButton_191x410.png");
+    private Texture sprite_button_howToPlay_down = new Texture("sprites/startPage_howToPlayButton_inv_191x410.png");
+    private ImageButton button_howToPlay = null;
 
     private static final int MARGIN_LEFT = 100;
 
@@ -35,7 +39,15 @@ public class InitScreen extends BaseScreen {
         // bgm setup
         // TODO: switch the file extension to something cheap
         setupMusic("music/bgm_usodarake.wav", true);
+        buttonSetup();
 
+        addElementsToStage(button_start, button_credit, button_howToPlay);
+
+        // taking inputs from ui
+        Gdx.input.setInputProcessor(stage);
+    }
+
+    private void buttonSetup() {
         // startThreadsAndTimer button setup
         button_start = generateButton(sprite_button_start_up, sprite_button_start_down);
         button_start.setPosition(MARGIN_LEFT + 60, 200);
@@ -64,10 +76,18 @@ public class InitScreen extends BaseScreen {
             }
         });
 
-        addElementsToStage(button_start, button_credit);
+        button_howToPlay = generateButton(sprite_button_howToPlay_up, sprite_button_howToPlay_down);
+        button_howToPlay.setPosition(MARGIN_LEFT + 60, 80);
 
-        // taking inputs from ui
-        Gdx.input.setInputProcessor(stage);
+        button_howToPlay.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Tutorial Button", "Activated");
+                sound_buttonClick.play();
+                stopMusic();
+                switchScreen(BabyTrader.tutorialScreen);
+            }
+        });
     }
 
     @Override
@@ -114,5 +134,7 @@ public class InitScreen extends BaseScreen {
         sprite_button_start_down.dispose();
         sprite_button_credit_up.dispose();
         sprite_button_credit_down.dispose();
+        sprite_button_howToPlay_up.dispose();
+        sprite_button_howToPlay_down.dispose();
     }
 }

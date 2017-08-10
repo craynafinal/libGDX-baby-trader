@@ -8,6 +8,7 @@ import com.jsl.babytrader.Screens.GameScreen;
 import com.jsl.babytrader.Screens.InitScreen;
 import com.jsl.babytrader.Screens.SliderNegativeScreen;
 import com.jsl.babytrader.Screens.SliderPositiveScreen;
+import com.jsl.babytrader.Screens.TutorialScreen;
 
 public class BabyTrader extends Game {
 	public static InitScreen initScreen = null;
@@ -16,6 +17,7 @@ public class BabyTrader extends Game {
 	public static CreditScreen creditScreen = null;
 	public static GameScreen gameScreen = null;
 	public static GameOverScreen gameOverScreen = null;
+	public static TutorialScreen tutorialScreen = null;
 
     public SpriteBatch batch = null;
 
@@ -27,6 +29,7 @@ public class BabyTrader extends Game {
 		creditScreen = new CreditScreen(this);
 		gameScreen = new GameScreen(this);
 		gameOverScreen = new GameOverScreen(this);
+		tutorialScreen = new TutorialScreen(this);
 
 		batch = new SpriteBatch();
 		setScreen(initScreen);

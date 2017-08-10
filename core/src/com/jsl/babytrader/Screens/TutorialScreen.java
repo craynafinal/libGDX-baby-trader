@@ -1,11 +1,18 @@
 package com.jsl.babytrader.Screens;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Data.ConstData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by crayna on 8/9/17.
+ * Tutorial screen.
  */
 
 public class TutorialScreen extends BaseScreen {
@@ -33,8 +40,87 @@ public class TutorialScreen extends BaseScreen {
     private Texture sprite_button_next_inv = new Texture("sprites/tutorial_button_next_inv_186x45.png");
     private ImageButton button_next = null;
 
+    // meta data
+    private int step = 0;
+    private List<Texture> texture_screens = null;
+
+
     public TutorialScreen(BabyTrader game) {
         super(game);
+
+        // bgm setup
+        // TODO: switch the file extension to something cheap
+        setupMusic("music/bgm_makkura.wav", true);
+
+        // do same for label
+        texture_screens = new ArrayList<Texture>();
+        texture_screens.add(sprite_screen_setting);
+        texture_screens.add(sprite_screen_hud);
+        texture_screens.add(sprite_screen_babies);
+        texture_screens.add(sprite_screen_seller);
+        texture_screens.add(sprite_screen_buyer);
+        texture_screens.add(sprite_screen_upgrade);
+        texture_screens.add(sprite_screen_gameover);
+
+        buttonSetup();
+
+        addElementsToStage(button_back, button_mainMenu, button_next);
+
+        // taking inputs from ui
+        Gdx.input.setInputProcessor(stage);
+    }
+
+    private void increaseStep() {
+        if (step < texture_screens.size() -1) {
+            step++;
+        }
+    }
+
+    private void decreaseStep() {
+        if (step > 0) {
+            step--;
+        }
+    }
+
+    private void buttonSetup() {
+        button_back = generateButton(sprite_button_back, sprite_button_back_inv);
+        button_back.setPosition(598, 29);
+
+        button_back.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Back Button", "Activated");
+                sound_buttonClick.play();
+                stopMusic();
+                decreaseStep();
+            }
+        });
+
+        button_mainMenu = generateButton(sprite_button_mainMenu, sprite_button_mainMenu_inv);
+        button_mainMenu.setPosition(44, 29);
+
+        button_mainMenu.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Main Menu Button", "Activated");
+                sound_buttonClick.play();
+                stopMusic();
+                switchScreen(BabyTrader.initScreen);
+            }
+        });
+
+        button_next = generateButton(sprite_button_next, sprite_button_next_inv);
+        button_next.setPosition(793, 29);
+
+        button_next.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.log("Clicking Next Button", "Activated");
+                sound_buttonClick.play();
+                stopMusic();
+                increaseStep();
+            }
+        });
     }
 
     @Override
@@ -44,7 +130,23 @@ public class TutorialScreen extends BaseScreen {
 
     @Override
     public void render(float delta) {
+        clearingScreen();
+        viewportRender();
 
+        // stage.draw() must appear before game batch
+        stage.act(Gdx.graphics.getDeltaTime());
+
+        stage.getBatch().begin();
+        stage.getBatch().draw(sprite_background, 0, 0);
+
+        stage.getBatch().draw(texture_screens.get(step), 58, 110);
+
+        stage.getBatch().end();
+
+        stage.draw();
+
+        game.batch.begin();
+        game.batch.end();
     }
 
     @Override

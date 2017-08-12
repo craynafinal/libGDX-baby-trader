@@ -59,22 +59,32 @@ public class TutorialScreen extends BaseScreen {
         setupMusic("music/bgm_makkura.wav", true);
 
         screenshots = new ArrayList<Texture>();
+        screenshots.add(sprite_screen_setting); // replace
+        screenshots.add(sprite_screen_setting); // replace
         screenshots.add(sprite_screen_setting);
         screenshots.add(sprite_screen_hud);
         screenshots.add(sprite_screen_babies);
         screenshots.add(sprite_screen_seller);
         screenshots.add(sprite_screen_buyer);
         screenshots.add(sprite_screen_upgrade);
+        screenshots.add(sprite_screen_upgrade); // replace
+        screenshots.add(sprite_screen_upgrade); // replace
         screenshots.add(sprite_screen_gameover);
+        screenshots.add(sprite_screen_gameover); // replace
 
         texts = new ArrayList<String>();
-        texts.add("Setting");
-        texts.add("Hud");
-        texts.add("Babies");
-        texts.add("Seller");
-        texts.add("Buyer");
-        texts.add("Upgrade");
-        texts.add("Game Over");
+        texts.add("Welcome to Baby Trader tutorial!\n\nNow you have a chance to make the world happier place by buying and selling babies.\n\nLet's start business!");
+        texts.add("Customers want babies with high potential. Babies deserve nice parents who will treat them right.\n\nYou can find perfect match between them for their ultimate happiness!");
+        texts.add("Start by setting values regarding talents of babies. These values will affect your game.\n\nFor example, if being smart is important for a baby, how much would you pay for? How much would you sell for?");
+        texts.add("When game starts, time and money will be displayed on the right. When time or money becomes zero, the game is over. Your goal is to make money as much as possible.");
+        texts.add("Browse your babies in stock by touching arrow buttons. You can see their name, age, and talents. Number of babies in stock will vary in the middle of game.");
+        texts.add("You will have customers who would want to buy your baby. If you have a baby with talents matching their desire and the customer accepts your price, the baby will be automatically sold!");
+        texts.add("Same goes for customers who would like to sell their babies to you. If customer's price falls in your price range you have set in the beginning, you will buy the baby. You need babies to make profits.");
+        texts.add("If you have budget, you should upgrade your abilities. Upgrading selling, buying, promotion, and research will allow you make money faster!");
+        texts.add("Upgrading selling and buying abilities will increase number of sales representative so you can face multiple customers at the same time. This way, number of customers waiting in line will decrease.");
+        texts.add("High level of promotion will increase number of customers come in your store, while high level of research will upgrade your babies in your stock more often for higher profits.");
+        texts.add("When time or money become zero, the game will be over. This game keeps your high score.\n\nChallenge yourself for better high scores!");
+        texts.add("Thank you for reading this tutorial.\n\nHope you enjoy trading babies and become the best Baby Trader!");
 
         labelSetup();
         buttonSetup();
@@ -88,6 +98,7 @@ public class TutorialScreen extends BaseScreen {
     private void labelSetup() {
         label_textbox = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 30, Color.WHITE));
         label_textbox.setAlignment(Align.topLeft);
+        label_textbox.setWrap(true);
         label_textbox.setWidth(381);
         label_textbox.setHeight(367);
         label_textbox.setPosition(598, 99);

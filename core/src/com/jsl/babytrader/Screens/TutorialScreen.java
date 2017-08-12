@@ -28,6 +28,11 @@ public class TutorialScreen extends BaseScreen {
     private Texture sprite_screen_seller = new Texture("sprites/tutorial_screen_seller_503x342.png");
     private Texture sprite_screen_setting = new Texture("sprites/tutorial_screen_setting_503x342.png");
     private Texture sprite_screen_upgrade = new Texture("sprites/tutorial_screen_upgrade_503x342.png");
+    private Texture sprite_screen_babyTrader = new Texture("sprites/tutorial_screen_babyTrader_503x342.png");
+    private Texture sprite_screen_buyingAndSelling = new Texture("sprites/tutorial_screen_buyingAndSelling_503x342.png");
+    private Texture sprite_screen_promotionAndResearch = new Texture("sprites/tutorial_screen_promotionAndResearch_503x342.png");
+    private Texture sprite_screen_purpose = new Texture("sprites/tutorial_screen_purpose_503x342.png");
+    private Texture sprite_screen_thankYou = new Texture("sprites/tutorial_screen_thankYou_503x342.png");
 
     // buttons
     private Texture sprite_button_back = new Texture("sprites/tutorial_button_back_186x45.png");
@@ -59,18 +64,18 @@ public class TutorialScreen extends BaseScreen {
         setupMusic("music/bgm_makkura.wav", true);
 
         screenshots = new ArrayList<Texture>();
-        screenshots.add(sprite_screen_setting); // replace
-        screenshots.add(sprite_screen_setting); // replace
+        screenshots.add(sprite_screen_babyTrader);
+        screenshots.add(sprite_screen_purpose);
         screenshots.add(sprite_screen_setting);
         screenshots.add(sprite_screen_hud);
         screenshots.add(sprite_screen_babies);
         screenshots.add(sprite_screen_seller);
         screenshots.add(sprite_screen_buyer);
         screenshots.add(sprite_screen_upgrade);
-        screenshots.add(sprite_screen_upgrade); // replace
-        screenshots.add(sprite_screen_upgrade); // replace
+        screenshots.add(sprite_screen_buyingAndSelling);
+        screenshots.add(sprite_screen_promotionAndResearch);
         screenshots.add(sprite_screen_gameover);
-        screenshots.add(sprite_screen_gameover); // replace
+        screenshots.add(sprite_screen_thankYou);
 
         texts = new ArrayList<String>();
         texts.add("Welcome to Baby Trader tutorial!\n\nNow you have a chance to make the world happier place by buying and selling babies.\n\nLet's start business!");
@@ -210,6 +215,11 @@ public class TutorialScreen extends BaseScreen {
         sprite_screen_seller.dispose();
         sprite_screen_setting.dispose();
         sprite_screen_upgrade.dispose();
+        sprite_screen_babyTrader.dispose();
+        sprite_screen_buyingAndSelling.dispose();
+        sprite_screen_promotionAndResearch.dispose();
+        sprite_screen_purpose.dispose();
+        sprite_screen_thankYou.dispose();
 
         sprite_button_back.dispose();
         sprite_button_back_inv.dispose();
@@ -219,5 +229,7 @@ public class TutorialScreen extends BaseScreen {
 
         sprite_button_next.dispose();
         sprite_button_next_inv.dispose();
+
+
     }
 }

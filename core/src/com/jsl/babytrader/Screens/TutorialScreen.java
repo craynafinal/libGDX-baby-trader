@@ -60,8 +60,7 @@ public class TutorialScreen extends BaseScreen {
         super(game);
 
         // bgm setup
-        // TODO: switch the file extension to something cheap
-        setupMusic("music/bgm_makkura.wav", true);
+        setupMusic("music/tutorial_dareka.mp3", true);
 
         screenshots = new ArrayList<Texture>();
         screenshots.add(sprite_screen_babyTrader);
@@ -142,7 +141,6 @@ public class TutorialScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Main Menu Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 switchScreen(BabyTrader.initScreen);
             }
         });
@@ -200,7 +198,7 @@ public class TutorialScreen extends BaseScreen {
 
     @Override
     public void hide() {
-
+        super.hide();
     }
 
     @Override
@@ -229,7 +227,5 @@ public class TutorialScreen extends BaseScreen {
 
         sprite_button_next.dispose();
         sprite_button_next_inv.dispose();
-
-
     }
 }

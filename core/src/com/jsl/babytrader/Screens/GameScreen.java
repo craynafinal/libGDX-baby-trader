@@ -20,7 +20,9 @@ import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Popups.PopupPause;
 import com.jsl.babytrader.Popups.PopupUpgrade;
+import com.jsl.babytrader.Utilities.CommonUtilities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -113,8 +115,7 @@ public class GameScreen extends BaseScreen {
         config.timerSetup();
 
         // bgm setup
-        // TODO: switch the file extension to something cheap
-        setupMusic("music/bgm_usodarake.wav", true);
+        setupMusic(getMusic(), true);
 
         popupSetup();
         labelSetup();
@@ -149,6 +150,15 @@ public class GameScreen extends BaseScreen {
 
         // taking inputs from ui
         Gdx.input.setInputProcessor(stage);
+    }
+
+    private String getMusic() {
+        List<String> musicList = new ArrayList<String>();
+        musicList.add("music/game_boukyaku_eq.mp3");
+        musicList.add("music/game_katarusis.mp3");
+        musicList.add("music/game_omoide_loft.mp3");
+
+        return musicList.get(CommonUtilities.getRandomInteger(0, musicList.size()));
     }
 
     private void popupSetup() {
@@ -553,6 +563,7 @@ public class GameScreen extends BaseScreen {
 
     @Override
     public void hide() {
+        super.hide();
         config.killThreads();
     }
 

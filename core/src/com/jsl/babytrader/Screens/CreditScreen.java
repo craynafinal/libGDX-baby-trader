@@ -31,8 +31,7 @@ public class CreditScreen extends BaseScreen {
         super(game);
 
         // bgm setup
-        // TODO: switch the file extension to something cheap
-        setupMusic("music/bgm_makkura.wav", true);
+        setupMusic("music/credit_kokoro_kizu.mp3", true);
 
         // startThreadsAndTimer button setup
         button_back = generateButton(sprite_button_back_up, sprite_button_back_down);
@@ -43,7 +42,6 @@ public class CreditScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Back Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 switchScreen(BabyTrader.initScreen);
             }
         });
@@ -91,7 +89,7 @@ public class CreditScreen extends BaseScreen {
 
     @Override
     public void hide() {
-
+        super.hide();
     }
 
     @Override

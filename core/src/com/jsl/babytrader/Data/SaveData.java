@@ -14,7 +14,6 @@ public class SaveData {
 
     public static int saveHighScore(int newScore) {
         int highScore = prefs.getInteger(TOKEN_HIGHSCORE, 0);
-        System.out.println("last data" + highScore);
         if (highScore < newScore) {
             prefs.putInteger(TOKEN_HIGHSCORE, newScore);
             prefs.flush();

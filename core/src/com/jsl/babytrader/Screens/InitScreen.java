@@ -37,8 +37,7 @@ public class InitScreen extends BaseScreen {
         super(game);
 
         // bgm setup
-        // TODO: switch the file extension to something cheap
-        setupMusic("music/bgm_usodarake.wav", true);
+        setupMusic("music/init_biai.mp3", true);
         buttonSetup();
 
         addElementsToStage(button_start, button_credit, button_howToPlay);
@@ -57,7 +56,6 @@ public class InitScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Start Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 switchScreen(BabyTrader.sliderPositiveScreen);
             }
         });
@@ -71,7 +69,6 @@ public class InitScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Credit Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 switchScreen(BabyTrader.creditScreen);
             }
         });
@@ -84,7 +81,6 @@ public class InitScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Tutorial Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 switchScreen(BabyTrader.tutorialScreen);
             }
         });
@@ -118,6 +114,12 @@ public class InitScreen extends BaseScreen {
 
     @Override
     public void hide() {
+        super.hide();
+    }
+
+    @Override
+    public void show() {
+        super.show();
     }
 
     @Override

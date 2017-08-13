@@ -15,7 +15,7 @@ import com.jsl.babytrader.Data.ConstData;
 
 public class SliderNegativeScreen extends SliderScreen {
     public SliderNegativeScreen(final BabyTrader game) {
-        super(game, "sprites/sliders_negTitle_591x52.png", "music/bgm_rihujin.wav", true);
+        super(game, "sprites/sliders_negTitle_591x52.png", "music/setting_black_garden.mp3", true);
 
         // create a table that contains all sliders and labels
         Table table = generateSliderLabelTable(false);
@@ -29,7 +29,6 @@ public class SliderNegativeScreen extends SliderScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
                 switchScreen(BabyTrader.gameScreen);
             }
         });
@@ -53,7 +52,12 @@ public class SliderNegativeScreen extends SliderScreen {
 
     @Override
     public void hide() {
+        super.hide();
+    }
 
+    @Override
+    public void show() {
+        super.show();
     }
 
     @Override

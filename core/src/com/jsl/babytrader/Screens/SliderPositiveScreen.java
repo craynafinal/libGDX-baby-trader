@@ -20,7 +20,7 @@ public class SliderPositiveScreen extends SliderScreen {
     private ImageButton button_next = null;
 
     public SliderPositiveScreen(final BabyTrader game) {
-        super(game, "sprites/sliders_posTitle_573x52.png", "music/bgm_rihujin.wav", true);
+        super(game, "sprites/sliders_posTitle_573x52.png", "music/setting_black_garden.mp3", true);
 
         Table table = generateSliderLabelTable(true);
 
@@ -33,8 +33,6 @@ public class SliderPositiveScreen extends SliderScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
-                stopMusic();
-                //switchScreen(new com.jsl.babytrader.Screens.SliderNegativeScreen(game));\
                 switchScreen(BabyTrader.sliderNegativeScreen);
             }
         });
@@ -58,7 +56,12 @@ public class SliderPositiveScreen extends SliderScreen {
 
     @Override
     public void hide() {
+        super.hide();
+    }
 
+    @Override
+    public void show() {
+        super.show();
     }
 
     @Override

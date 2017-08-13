@@ -58,6 +58,8 @@ public class GameOverScreen extends BaseScreen {
     public GameOverScreen(BabyTrader game) {
         super(game);
 
+        setupMusic("music/gameover_death_tone.mp3", true);
+
         buttonSetup();
         labelSetup();
 
@@ -173,7 +175,7 @@ public class GameOverScreen extends BaseScreen {
 
     @Override
     public void hide() {
-
+        super.hide();
     }
 
     @Override

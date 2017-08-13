@@ -39,6 +39,7 @@ public abstract class BaseScreen implements Screen {
 
     // commonly used assets
     protected Sound sound_buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/se_buttonClick.mp3"));
+
     final protected static String FONT_NOKIA_PATH = "fonts/nokiafc22.ttf";
     final protected static String FONT_5COMPUTERS_PATH = "fonts/5Computers-In-Love.ttf";
     final protected static String FONT_CARRIER_PATH = "fonts/Carrier_Command.ttf";
@@ -151,7 +152,6 @@ public abstract class BaseScreen implements Screen {
     protected void setupMusic(String filepath, Boolean loop) {
         bgm = Gdx.audio.newMusic(Gdx.files.internal(filepath));
         bgm.setLooping(loop);
-        playMusic();
     }
 
     protected void playMusic() {
@@ -164,6 +164,11 @@ public abstract class BaseScreen implements Screen {
         if (bgm != null) {
             bgm.stop();
         }
+    }
+
+    @Override
+    public void hide() {
+        stopMusic();
     }
 
     @Override
@@ -184,5 +189,6 @@ public abstract class BaseScreen implements Screen {
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
+        playMusic();
     }
 }

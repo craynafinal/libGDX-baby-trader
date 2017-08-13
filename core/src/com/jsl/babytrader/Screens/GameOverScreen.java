@@ -78,7 +78,6 @@ public class GameOverScreen extends BaseScreen {
     private int highScore = 0;
 
     private void labelSetup() {
-        // TODO: get highscore here and save highscore too
         label_highScore = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
         label_highScore.setAlignment(Align.center);
         label_highScore.setPosition(0, 0);

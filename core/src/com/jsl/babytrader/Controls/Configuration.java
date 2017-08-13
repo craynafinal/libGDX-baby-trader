@@ -4,7 +4,7 @@ import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Data.Time;
-import com.jsl.babytrader.Runnables.FaceTracker;
+import com.jsl.babytrader.Runnables.EventTracker;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
 import com.jsl.babytrader.Runnables.ResearchTeam;
@@ -47,6 +47,8 @@ public class Configuration {
 
     // baby trader face ui
     private static boolean babyTrader_isNormal = true;
+    private static boolean seller_isSold = false;
+    private static boolean buyer_isPurchased = false;
     private Thread faceTracker = null;
 
     public static int getLevelSeller() {
@@ -202,7 +204,7 @@ public class Configuration {
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
 
-        faceTracker = new Thread(new FaceTracker());
+        faceTracker = new Thread(new EventTracker());
     }
 
     public void killThreads() {
@@ -254,5 +256,16 @@ public class Configuration {
 
     public static void setBabyTraderFace(boolean isNormal) {
         babyTrader_isNormal = isNormal;
+    }
+
+    public static boolean isSellerSold() { return seller_isSold; }
+    public static boolean isBuyerPurchased() { return buyer_isPurchased; }
+
+    public static void setSellerSold(boolean isSold) {
+        seller_isSold = isSold;
+    }
+
+    public static void setBuyerPurchased(boolean isPurchased) {
+        buyer_isPurchased = isPurchased;
     }
 }

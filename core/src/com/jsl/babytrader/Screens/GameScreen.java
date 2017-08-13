@@ -71,6 +71,9 @@ public class GameScreen extends BaseScreen {
     private Label label_level_sell = null;
     private Label label_level_buy = null;
 
+    private Label label_sold = null;
+    private Label label_purchased = null;
+
     // pause popup windows
     private PopupPause popup_pause = null;
     private Texture sprite_popup_paused = new Texture("sprites/popup_pause_305x240.png");
@@ -139,7 +142,9 @@ public class GameScreen extends BaseScreen {
             label_level_sell,
             label_level_buy,
             popup_pause.getTable(),
-            popup_upgrade.getTable()
+            popup_upgrade.getTable(),
+            label_sold,
+            label_purchased
         );
 
         // taking inputs from ui
@@ -257,9 +262,14 @@ public class GameScreen extends BaseScreen {
         }
     }
 
-    private void renderCustomer(Customer customer, Label label_title, Label label_properties, int x, int y, String description) {
+    private void renderCustomer(Customer customer, Label label_title, Label label_properties, int x, int y, String description, boolean displaySprite, Label labelReplaceSprite) {
         if (customer != null) {
-            stage.getBatch().draw(customer.getSprite(), x, y);
+            if (displaySprite) {
+                labelReplaceSprite.setVisible(true);
+            } else {
+                labelReplaceSprite.setVisible(false);
+                stage.getBatch().draw(customer.getSprite(), x, y);
+            }
 
             label_title.setText(customer.getName() + " (" + customer.getAge() + ")");
 
@@ -328,8 +338,8 @@ public class GameScreen extends BaseScreen {
 
         // customer sprites
         // this one should appear when customer is accepted by sales / purchase team
-        renderCustomer(SharedData.getCustomerSellingLatest(), label_properties_title_sell, label_properties_list_sell, 15, 306, "dream baby");
-        renderCustomer(SharedData.getCustomerBuyingLatest(), label_properties_title_buy, label_properties_list_buy, 15, 15, "baby for sale");
+        renderCustomer(SharedData.getCustomerSellingLatest(), label_properties_title_sell, label_properties_list_sell, 15, 306, "dream baby", Configuration.isSellerSold(), label_sold);
+        renderCustomer(SharedData.getCustomerBuyingLatest(), label_properties_title_buy, label_properties_list_buy, 15, 15, "baby for sale", Configuration.isBuyerPurchased(), label_purchased);
 
         label_money.setText("$" + SharedData.getMoney());
         label_time.setText(config.getTime());
@@ -505,6 +515,14 @@ public class GameScreen extends BaseScreen {
 
         label_level_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE));
         label_level_buy.setPosition(154, 258);
+
+        label_sold = new Label("Sold!", getLabelStyle(FONT_WORK_EXTRA_BOLD, 30, FONT_COLOR_LIGHT_GRAY));
+        label_sold.setPosition(97 - label_sold.getWidth() / 2, 390);
+        label_sold.setVisible(false);
+
+        label_purchased = new Label("Purchased!", getLabelStyle(FONT_WORK_EXTRA_BOLD, 26, FONT_COLOR_LIGHT_GRAY));
+        label_purchased.setPosition(97 - label_purchased.getWidth() / 2, 99);
+        label_purchased.setVisible(false);
     }
 
     @Override

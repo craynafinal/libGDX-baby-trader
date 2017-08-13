@@ -27,20 +27,19 @@ public class PopupUpgrade extends Popup {
         "another sales agent\n" +
         "so you can sell babies faster.";
 
-    // TODO: change text for each team below
     final public static String DESCRIPTION_BUYER =
-        "Seller upgrade will add\n" +
+        "Buyer upgrade will add\n" +
         "another sales agent\n" +
-        "so you can sell babies faster.";
+        "so you can buy babies faster.";
 
     final public static String DESCRIPTION_PROMOTION =
-        "Seller upgrade will add\n" +
-        "another sales agent\n" +
-        "so you can sell babies faster.";
+        "Promotion upgrade will\n" +
+        "bring customers\n" +
+        "to your store more often.";
     final public static String DESCRIPTION_RESEARCH =
-        "Seller upgrade will add\n" +
-        "another sales agent\n" +
-        "so you can sell babies faster.";
+        "Research upgrade will enhance \n" +
+        "talents of your babies more often\n" +
+        "so your can make higher profit.";
 
     public PopupUpgrade(Texture background, Label.LabelStyle labelStyle) {
         super(background);

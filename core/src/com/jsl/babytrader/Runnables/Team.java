@@ -11,11 +11,7 @@ import com.jsl.babytrader.Utilities.CommonUtilities;
 public abstract class Team implements Runnable {
 
     protected static void sleep(int sleepTime) {
-        try {
-            Thread.sleep(sleepTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        CommonUtilities.sleep(sleepTime);
     }
 
     protected static boolean isPaused() {

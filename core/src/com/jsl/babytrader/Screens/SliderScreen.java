@@ -32,7 +32,6 @@ public abstract class SliderScreen extends BaseScreen {
     protected Texture sprite_button_next_down = new Texture("sprites/sliders_nextButton_inv_234x45.png");
     protected ImageButton button_next = null;
 
-    // TODO: sprites are place holders
     // slider sprites
     private Texture sprite_slider_bar = new Texture("sprites/slider_bar_141x8.png");
     private Texture sprite_slider_knob = new Texture("sprites/slider_knob_24x24.png");
@@ -46,20 +45,11 @@ public abstract class SliderScreen extends BaseScreen {
     private List<Label> labels_sell = null;
     private List<Label> labels_buy = null;
 
-    // fonts
-    // TODO: just move all fonts to base class?
-    private BitmapFont font_nokia = null;
-    private final static int FONT_NOKIA_SIZE = 20;
-    private final static Color FONT_NOKIA_COLOR = Color.valueOf("2F3A42");
-
     public SliderScreen(final BabyTrader game, String title_sprite, String bgm, boolean loop) {
         super(game);
 
         // setup title
         sprite_title = new Texture(title_sprite);
-
-        // font setup
-        font_nokia = generateFont(FONT_NOKIA_PATH, FONT_NOKIA_SIZE, FONT_NOKIA_COLOR);
 
         // bgm setup
         setupMusic(bgm, loop);
@@ -193,7 +183,7 @@ public abstract class SliderScreen extends BaseScreen {
         labels_buy = new ArrayList<Label>();
         labels_sell = new ArrayList<Label>();
 
-        createLabelsAndSliders(isPositive, font_nokia);
+        createLabelsAndSliders(isPositive, generateFont(FONT_NOKIA_PATH, 20, FONT_COLOR_DARK_BLUE));
 
         return addSlidersAndLabelsToTable();
     }

@@ -2,39 +2,31 @@
 <items version="2" >
 
     <item
-        jar="/home/crayna/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.6/47d1e9b890e364ec28f128e9bb3b9a12a94c164/gdx-1.9.6.jar"
-        jumboMode="false"
-        revision="25.0.3"
-        sha1="047d1e9b890e364ec28f128e9bb3b9a12a94c164">
-        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/release/gdx-1.9.6_6825c491564e37b4190506523534188e17728989.jar" />
+        is-multidex="true"
+        jar="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="deb9bb9f2da808dff78da56555a1380fdf4d2c2e">
+        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_c2ae96da6dd77a574b2841513d111f1d56491bd1/classes.dex" />
     </item>
     <item
-        jar="/home/crayna/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.6/c249ef4060a4fada952f278455c8f7b9cba3c18a/gdx-box2d-1.9.6.jar"
-        jumboMode="false"
-        revision="25.0.3"
-        sha1="c249ef4060a4fada952f278455c8f7b9cba3c18a">
-        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/release/gdx-box2d-1.9.6_ad23d7201890a45e63f2cfb260c13b47de34d188.jar" />
-    </item>
-    <item
-        jar="/home/crayna/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-freetype/1.9.6/69187cc3c8062f191df435b43671b0e5ffcbf353/gdx-freetype-1.9.6.jar"
-        jumboMode="false"
-        revision="25.0.3"
-        sha1="69187cc3c8062f191df435b43671b0e5ffcbf353">
-        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/release/gdx-freetype-1.9.6_1f70d39d1bdcac0d43ed909593c52a77117a3aa5.jar" />
-    </item>
-    <item
-        jar="/home/crayna/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.9.6/57c2831c870743712b808384187ea856e541878f/gdx-backend-android-1.9.6.jar"
-        jumboMode="false"
-        revision="25.0.3"
-        sha1="57c2831c870743712b808384187ea856e541878f">
-        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/release/gdx-backend-android-1.9.6_265587045a6b7e5ee09f23622e381d649688f113.jar" />
-    </item>
-    <item
+        is-multidex="false"
         jar="/home/crayna/Downloads/libGDX/libGDX_baby-trader/core/build/libs/core-1.0.jar"
         jumboMode="false"
-        revision="25.0.3"
-        sha1="2e4fd293dfbc8c101e321f00b6356823b4d6c005">
+        optimize="true"
+        revision="25.0.0"
+        sha1="e76decf794ff7be62eabfb5aac9cce0a7b872961">
         <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/release/core-1.0_4091ca507dd00c2ec59a172322498878672ad3f6.jar" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_71fd32b16bd9aaf7ff11e4194bcbdf618a1dc20c/classes.dex" />
     </item>
 
 </items>

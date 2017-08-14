@@ -1,0 +1,71 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fbbef467cb4, pid=14404, tid=0x00007fbbef970700
+#
+# JRE version: OpenJDK Runtime Environment (8.0_112-b06) (build 1.8.0_112-release-b06)
+# Java VM: OpenJDK 64-Bit Server VM (25.112-b06 mixed mode linux-amd64 compressed oops)
+# Problematic frame:
+# C  [VBoxOGLcrutil.so+0x3acb4]  crHashtableWalkUnlocked+0x24
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fbc2c3bb000):  JavaThread "LWJGL Application" [_thread_in_native, id=14421, stack(0x00007fbbef870000,0x00007fbbef971000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x0000000000000008
+
+Registers:
+RAX=0x0000000000000000, RBX=0x00007fbc143a7450, RCX=0x0000000000000000, RDX=0x00007fbc143a7450
+RSP=0x00007fbbef96f7c0, RBP=0x00007fbbef96f7f0, RSI=0x00007fbbef65e920, RDI=0x0000000000000000
+R8 =0x00007fbc14003930, R9 =0x0000000000000000, R10=0x00007fbc1c95c244, R11=0x0000000000000000
+R12=0x0000000000000000, R13=0x0000000000000000, R14=0x00007fbbef65e920, R15=0x00007fbc143a7450
+RIP=0x00007fbbef467cb4, EFLAGS=0x0000000000010206, CSGSFS=0x002b000000000033, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x00007fbbef96f7c0)
+0x00007fbbef96f7c0:   0000000000000000 00007fbc143a7450
+0x00007fbbef96f7d0:   0000000000000000 00007fbbef96fa00
+0x00007fbbef96f7e0:   00007fbbef96f870 00007fbc2c3bb000
+0x00007fbbef96f7f0:   00007fbbef96f810 00007fbbef65e728
+0x00007fbbef96f800:   0000000000004000 0000000000000000
+0x00007fbbef96f810:   00007fbbef96f830 00007fbbef65e820
+0x00007fbbef96f820:   00007fbbef96f870 00007fbbef679710
+0x00007fbbef96f830:   00007fbbef96f880 00007fbc1c95c2b6
+0x00007fbbef96f840:   00000000eb3a6820 00000000eb365020
+0x00007fbbef96f850:   00000000eb3a1b58 00000000e15424a0
+0x00007fbbef96f860:   00007fbbef96fa58 00007fbc1c96d9f5
+0x00007fbbef96f870:   00000000e14886b0 00000000eb3a1b58
+0x00007fbbef96f880:   00007fbbef96fa58 00007fbc1c93b70a
+0x00007fbbef96f890:   0000000000000009 0000000000000009
+0x00007fbbef96f8a0:   00000000eb3a1b38 0000000000000009
+0x00007fbbef96f8b0:   00000000eb3a1b38 00007fbc1c92fdc8
+0x00007fbbef96f8c0:   00007fbbef96fa58 00007fbc1c969acf
+0x00007fbbef96f8d0:   00007fbbef96f9e0 00007fbc310008b7
+0x00007fbbef96f8e0:   00007fbc00000004 0000000000000000
+0x00007fbbef96f8f0:   0000000000000000 00000000eb3a1b38
+0x00007fbbef96f900:   0000000000000000 00007fbbef96f930
+0x00007fbbef96f910:   00007ffeb6c92c03 00007fbbef96f960
+0x00007fbbef96f920:   00000002b6c92d14 00007fbbef96f950
+0x00007fbbef96f930:   00007ffeb6c92c03 00007fbbef96f980
+0x00007fbbef96f940:   00000002ef96f960 0000000000000001
+0x00007fbbef96f950:   00007fbbef96f980 00007fbc31e14836
+0x00007fbbef96f960:   00000000e1495ac0 0000000000001ff0
+0x00007fbbef96f970:   00007fbbef96f990 00007fbc3122b97f
+0x00007fbbef96f980:   000000000001a10c 00000000346ac108
+0x00007fbbef96f990:   00007fbbef96fa58 00007fbc1c97c99a
+0x00007fbbef96f9a0:   00007fbbef96fa58 00007fbc1c97cf26
+0x00007fbbef96f9b0:   00000000eb391830 00000000eb3b28e8 
+
+Instructions: (pc=0x00007fbbef467cb4)
+0x00007fbbef467c94:   41 57 49 89 d7 41 56 49 89 f6 41 55 45 31 ed 41
+0x00007fbbef467ca4:   54 53 48 83 ec 08 48 89 7d d0 66 90 48 8b 45 d0
+0x00007fbbef467cb4:   4a 8b 4c e8 08 48 85 c9 74 35 4d 85 f6 41 0f 95
+0x00007fbbef467cc4:   c4 eb 08 48 85 db 48 89 d9

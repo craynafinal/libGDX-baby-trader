@@ -1,0 +1,13 @@
+#Mon Aug 14 00:40:31 PDT 2017
+renamed.3=classes2.dex
+renamed.2=classes3.dex
+renamed.1=classes4.dex
+renamed.0=classes.dex
+base.3=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-backend-android-1.9.6_265587045a6b7e5ee09f23622e381d649688f113
+base.2=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-1.9.6_6825c491564e37b4190506523534188e17728989
+base.1=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-freetype-1.9.6_1f70d39d1bdcac0d43ed909593c52a77117a3aa5
+base.0=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-box2d-1.9.6_ad23d7201890a45e63f2cfb260c13b47de34d188
+file.3=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-backend-android-1.9.6_265587045a6b7e5ee09f23622e381d649688f113/classes.dex
+file.2=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-1.9.6_6825c491564e37b4190506523534188e17728989/classes.dex
+file.1=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-freetype-1.9.6_1f70d39d1bdcac0d43ed909593c52a77117a3aa5/classes.dex
+file.0=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10/gdx-box2d-1.9.6_ad23d7201890a45e63f2cfb260c13b47de34d188/classes.dex

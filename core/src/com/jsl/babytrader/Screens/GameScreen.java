@@ -565,6 +565,9 @@ public class GameScreen extends BaseScreen {
     public void hide() {
         super.hide();
         config.killThreads();
+
+        // pick another random music
+        setupMusic(getMusic(), true);
     }
 
     @Override

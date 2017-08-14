@@ -120,7 +120,7 @@ public class CreditScreen extends BaseScreen {
 
         Label label_developedBy = getLabel("Developed by", style_small);
 
-        Label label_developer = getLabel("Chaos Depot", style_big);
+        Label label_developer = getLabel("Jong Seong Lee", style_big);
 
         Label label_developerWebsite = getLabel("chaosdepot.com", style_small);
 

@@ -29,7 +29,7 @@ public class SliderNegativeScreen extends SliderScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
-                switchScreen(BabyTrader.gameScreen);
+                switchScreen(BabyTrader.readyScreen);
             }
         });
 

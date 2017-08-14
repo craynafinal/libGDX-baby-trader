@@ -25,17 +25,17 @@ public class PurchaseTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                        // proceed if there is any customer
-                        if (SharedData.getCustomerBuyingSize() > 0) {
-                            Customer customer = SharedData.getCustomerBuying();
-                            Baby baby = customer.getBaby();
+                    // proceed if there is any customer
+                    if (SharedData.getCustomerBuyingSize() > 0) {
+                        Customer customer = SharedData.getCustomerBuying();
+                        Baby baby = customer.getBaby();
 
-                            // buy if price range is good
-                            if (baby.getBuyPrice() >= customer.getBuyPrice()) {
-                                SharedData.addMoney(-baby.getBuyPrice());
-                                SharedData.addBaby(baby);
-                            }
+                        // buy if price range is good
+                        if (baby.getBuyPrice() >= customer.getBuyPrice()) {
+                            SharedData.addMoney(-baby.getBuyPrice());
+                            SharedData.addBaby(baby);
                         }
+                    }
                     }
                 });
             }

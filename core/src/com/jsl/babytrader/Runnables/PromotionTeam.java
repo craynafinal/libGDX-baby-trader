@@ -23,8 +23,8 @@ public class PromotionTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                        addCustomer(true);
-                        addCustomer(false);
+                    addCustomer(true);
+                    addCustomer(false);
                     }
                 });
             }

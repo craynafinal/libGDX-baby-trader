@@ -25,21 +25,21 @@ public class SalesTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                        // proceed if there is any customer
-                        if (SharedData.getCustomerSellingSize() > 0) {
-                            Customer customer = SharedData.getCustomerSelling();
+                    // proceed if there is any customer
+                    if (SharedData.getCustomerSellingSize() > 0) {
+                        Customer customer = SharedData.getCustomerSelling();
 
-                            Baby baby = SharedData.getBabyByAttribute(customer.getAttributes());
+                        Baby baby = SharedData.getBabyByAttribute(customer.getAttributes());
 
-                            if (baby != null) {
-                                // sell if price range is good
-                                if (baby.getSellPrice() <= customer.getSellPrice()) {
-                                    SharedData.addMoney(baby.getSellPrice());
-                                } else {
-                                    SharedData.addBaby(baby);
-                                }
+                        if (baby != null) {
+                            // sell if price range is good
+                            if (baby.getSellPrice() <= customer.getSellPrice()) {
+                                SharedData.addMoney(baby.getSellPrice());
+                            } else {
+                                SharedData.addBaby(baby);
                             }
                         }
+                    }
                     }
                 });
             }

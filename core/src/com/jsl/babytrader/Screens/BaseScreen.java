@@ -134,15 +134,14 @@ public abstract class BaseScreen implements Screen {
         }
     }
 
-    protected static void clearingScreen() {
-        Gdx.gl.glClearColor(
-                ConstData.COLOR_BG_RED,
-                ConstData.COLOR_BG_BLUE,
-                ConstData.COLOR_BG_GREEN,
-                ConstData.COLOR_BG_ALPHA
-        );
+    protected static void clearingScreen(float red, float blue, float green, float alpha) {
+        Gdx.gl.glClearColor(red, blue, green, alpha);
 
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+    }
+
+    protected static void clearingScreen() {
+        clearingScreen(ConstData.COLOR_BG_RED, ConstData.COLOR_BG_BLUE, ConstData.COLOR_BG_GREEN, ConstData.COLOR_BG_ALPHA);
     }
 
     protected void viewportRender() {

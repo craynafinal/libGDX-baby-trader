@@ -49,6 +49,22 @@ public enum Attribute {
         this.index = index;
         this.isPositive = isPositive;
 
+        reroll();
+    }
+
+    Attribute(int index, int initSell, int initBuy) {
+        this.index = index;
+        sellValue = initSell;
+        buyValue = initBuy;
+    }
+
+    public static void rerollAll() {
+        for (Attribute attribute : Attribute.values()) {
+            attribute.reroll();
+        }
+    }
+
+    public void reroll() {
         if (isPositive) {
             sellValue = DEFAULT_SELL_VALUE_POSITIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
             buyValue = DEFAULT_BUY_VALUE_POSITIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
@@ -56,12 +72,6 @@ public enum Attribute {
             sellValue = DEFAULT_SELL_VALUE_NEGATIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
             buyValue = DEFAULT_BUY_VALUE_NEGATIVE + CommonUtilities.getRandomInteger(-DEFAULT_VARIATION, DEFAULT_VARIATION);
         }
-    }
-
-    Attribute(int index, int initSell, int initBuy) {
-        this.index = index;
-        sellValue = initSell;
-        buyValue = initBuy;
     }
 
     public int getSellValue() {

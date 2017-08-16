@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.ConstData;
 
 /**
@@ -62,6 +63,7 @@ public class SliderPositiveScreen extends SliderScreen {
     @Override
     public void show() {
         super.show();
+        Attribute.rerollAll();
     }
 
     @Override

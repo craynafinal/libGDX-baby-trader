@@ -45,25 +45,28 @@ public abstract class SliderScreen extends BaseScreen {
     private List<Label> labels_sell = null;
     private List<Label> labels_buy = null;
 
+    // to update sliders in the beginning
+    private List<Attribute> attributes = null;
+
     public SliderScreen(final BabyTrader game, String title_sprite, String bgm, boolean loop) {
         super(game);
 
-        // setup title
         sprite_title = new Texture(title_sprite);
+        attributes = new ArrayList<Attribute>();
 
         // bgm setup
         setupMusic(bgm, loop);
     }
 
     // create a slider using textures, attribute and integer variables needed for libgdx method
-    private Slider createSlider(int attributeValue, final Label textLabel, final Attribute attribute, final boolean isSell) {
+    private Slider createSlider(final Label textLabel, final Attribute attribute, final boolean isSell) {
         int slider_min = 0;
         int slider_max = 100;
         int slider_step = 1;
         float slider_speed = 0.3f;
 
         final Slider result = generateSlider(sprite_slider_bar, sprite_slider_knob, slider_min, slider_max, slider_step, false);
-        result.setValue(attributeValue); // initial value
+        result.setValue(slider_max / 2);
         result.setAnimateDuration(slider_speed);
         result.setWidth(sprite_slider_bar.getWidth());
 
@@ -88,6 +91,8 @@ public abstract class SliderScreen extends BaseScreen {
     private void createLabelsAndSliders(boolean isPositive, BitmapFont font) {
         for (Attribute attribute : Attribute.values()) {
             if (attribute.isPositive() == isPositive) {
+
+                attributes.add(attribute);
                 // assign index to avoid unexpected placement
                 /*
                 examples:
@@ -105,29 +110,25 @@ public abstract class SliderScreen extends BaseScreen {
                     - 1-3 = 2, subtract 2 from attribute index => 1
                  */
                 int index = attribute.getIndex() - (attribute.getIndex() - sliders_sell.size());
-                String format = "%03d";
-                Color color_title = Color.valueOf("2F3A42");
                 Color color_display = Color.WHITE;
 
                 // create label
                 String name = attribute.getName();
-                Label label = new Label(String.format(name), new Label.LabelStyle(font, color_title));
+                Label label = new Label(String.format(name), new Label.LabelStyle(font, FONT_COLOR_DARK_BLUE));
                 labels_title.add(index, label);
 
-                Label label_display_sell = new Label("$" + String.format(format, attribute.getSellValue()), new Label.LabelStyle(font, color_display));
-                label_display_sell.setText("$" + attribute.getSellValue());
+                Label label_display_sell = new Label("", new Label.LabelStyle(font, color_display));
                 labels_display_sell.add(index, label_display_sell);
 
-                Label label_display_buy = new Label("$" + String.format(format, attribute.getBuyValue()), new Label.LabelStyle(font, color_display));
-                label_display_buy.setText("$" + attribute.getBuyValue());
+                Label label_display_buy = new Label("", new Label.LabelStyle(font, color_display));
                 labels_display_buy.add(index, label_display_buy);
 
-                labels_sell.add(index, new Label(String.format("Sell"), new Label.LabelStyle(font, color_display)));
-                labels_buy.add(index, new Label(String.format("Buy"), new Label.LabelStyle(font, color_display)));
+                labels_sell.add(index, new Label("Sell", new Label.LabelStyle(font, color_display)));
+                labels_buy.add(index, new Label("Buy", new Label.LabelStyle(font, color_display)));
 
                 // create slider
-                sliders_sell.add(index, createSlider(attribute.getSellValue(), label_display_sell, attribute, true));
-                sliders_buy.add(index, createSlider(attribute.getBuyValue(), label_display_buy, attribute, false));
+                sliders_sell.add(index, createSlider(label_display_sell, attribute, true));
+                sliders_buy.add(index, createSlider(label_display_buy, attribute, false));
             }
         }
     }
@@ -210,5 +211,15 @@ public abstract class SliderScreen extends BaseScreen {
 
         sprite_slider_bar.dispose();
         sprite_slider_knob.dispose();
+    }
+
+    @Override
+    public void show() {
+        super.show();
+
+        for (int i = 0; i < attributes.size(); i++) {
+            sliders_sell.get(i).setValue(attributes.get(i).getSellValue());
+            sliders_buy.get(i).setValue(attributes.get(i).getBuyValue());
+        }
     }
 }

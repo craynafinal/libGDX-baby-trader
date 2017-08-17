@@ -13,7 +13,7 @@ import java.util.Set;
 import static com.jsl.babytrader.Data.SharedData.isEnded;
 
 /**
- * Created by crayna on 7/8/17.
+ * Represents a research team.
  */
 
 public class ResearchTeam extends Team {

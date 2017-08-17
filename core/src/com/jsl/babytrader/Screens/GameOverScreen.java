@@ -10,6 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
+import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.SaveData;
 import com.jsl.babytrader.Data.SharedData;
 
@@ -25,8 +26,8 @@ public class GameOverScreen extends BaseScreen {
     // buttons
     private Texture sprite_button_main_menu = new Texture("sprites/gameOver_button_mainMenu_186x45.png");
     private Texture sprite_button_main_menu_inv = new Texture("sprites/gameOver_button_mainMenu_inv_186x45.png");
-    private Texture sprite_button_exit_game = new Texture("sprites/gameOver_button_exitGame_186x45.png");
-    private Texture sprite_button_exit_game_inv = new Texture("sprites/gameOver_button_exitGame_inv_186x45.png");
+    private Texture sprite_button_retry = new Texture("sprites/gameOver_button_retry_186x45.png");
+    private Texture sprite_button_retry_inv = new Texture("sprites/gameOver_button_retry_inv_186x45.png");
 
     private ImageButton button_main_menu = null;
     private ImageButton button_exit_game = null;
@@ -118,7 +119,7 @@ public class GameOverScreen extends BaseScreen {
             }
         });
 
-        button_exit_game = generateButton(sprite_button_exit_game, sprite_button_exit_game_inv);
+        button_exit_game = generateButton(sprite_button_retry, sprite_button_retry_inv);
         button_exit_game.setPosition(793, 29);
 
         button_exit_game.addListener(new ChangeListener() {
@@ -126,7 +127,7 @@ public class GameOverScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Exit Game button", "Activated");
                 sound_buttonClick.play();
-                Gdx.app.exit();
+                switchScreen(BabyTrader.sliderPositiveScreen);
             }
         });
     }
@@ -183,7 +184,7 @@ public class GameOverScreen extends BaseScreen {
         super.dispose();
         sprite_button_main_menu.dispose();
         sprite_button_main_menu_inv.dispose();
-        sprite_button_exit_game.dispose();
-        sprite_button_exit_game_inv.dispose();
+        sprite_button_retry.dispose();
+        sprite_button_retry_inv.dispose();
     }
 }

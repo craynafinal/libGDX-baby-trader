@@ -51,6 +51,26 @@ public class Configuration {
     private static boolean buyer_isPurchased = false;
     private Thread faceTracker = null;
 
+    // counter
+    private static int babies_sold = 0;
+    private static int babies_purchased = 0;
+
+    public static void increaseBabySold() {
+        babies_sold++;
+    }
+
+    public static void increaseBabyPurchased() {
+        babies_purchased++;
+    }
+
+    public static int getBabiesSold() {
+        return babies_sold;
+    }
+
+    public static int getBabiesPurchased() {
+        return babies_purchased;
+    }
+
     public static int getLevelSeller() {
         return level_seller;
     }
@@ -185,6 +205,9 @@ public class Configuration {
 
         team_seller_count = 0;
         team_buyer_count = 0;
+
+        babies_sold = 0;
+        babies_purchased = 0;
 
         for (int i = 0; i < DEFAULT_STARTING_BABY; i++) {
             SharedData.addBaby(new Baby());

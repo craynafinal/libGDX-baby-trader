@@ -8,7 +8,7 @@ import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
 /**
- * Created by crayna on 8/5/17.
+ * Tracking information.
  */
 
 public class EventTracker implements Runnable {
@@ -30,6 +30,7 @@ public class EventTracker implements Runnable {
                     babyStackCount = newSize;
                     Configuration.setBabyTraderFace(false);
                     Configuration.setBuyerPurchased(true);
+                    Configuration.increaseBabyPurchased();
                     sound_cash.play();
 
                     sleep(500);
@@ -40,6 +41,7 @@ public class EventTracker implements Runnable {
                     babyStackCount = newSize;
                     Configuration.setBabyTraderFace(false);
                     Configuration.setSellerSold(true);
+                    Configuration.increaseBabySold();
                     sound_cash.play();
 
                     sleep(500);

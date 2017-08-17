@@ -9,7 +9,7 @@ import com.jsl.babytrader.Data.SharedData;
 import static com.jsl.babytrader.Data.SharedData.isEnded;
 
 /**
- * Created by crayna on 6/3/17.
+ * Represents a sales team.
  */
 
 public class SalesTeam extends Team {

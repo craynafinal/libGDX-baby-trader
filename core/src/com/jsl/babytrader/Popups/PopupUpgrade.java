@@ -57,19 +57,20 @@ public class PopupUpgrade extends Popup {
 
     private void labelSetup(Label.LabelStyle labelStyle) {
         type = new Label("", labelStyle);
-        table_dialog.add(type).align(Align.left).padLeft(190).padTop(90);
+        table_dialog.add(type).align(Align.left).padLeft(190).padTop(90).width(300);
         table_dialog.row();
 
         level = new Label("", labelStyle);
-        table_dialog.add(level).align(Align.left).padLeft(190).padTop(-5);
+        table_dialog.add(level).align(Align.left).padLeft(190).padTop(-5).width(300);
         table_dialog.row();
 
         cost = new Label("", labelStyle);
-        table_dialog.add(cost).align(Align.left).padLeft(190).padTop(-5);
+        table_dialog.add(cost).align(Align.left).padLeft(190).padTop(-5).width(300);
         table_dialog.row();
 
         description = new Label("", labelStyle);
         description.setAlignment(Align.center);
+        description.setWidth(table_dialog.getWidth() - 30);
         table_dialog.add(description).center().minHeight(100).maxHeight(100).padTop(24).padBottom(14);
         table_dialog.row();
 

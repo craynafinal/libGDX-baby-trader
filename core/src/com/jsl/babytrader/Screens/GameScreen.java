@@ -329,7 +329,7 @@ public class GameScreen extends BaseScreen {
     @Override
     public void render(float delta) {
         // exit if game is over
-        if (SharedData.getMoney() < 0 || config.isTimeOver()) {
+        if (SharedData.getMoney() <= 0 || config.isTimeOver()) {
             switchScreen(BabyTrader.gameOverScreen);
         }
 

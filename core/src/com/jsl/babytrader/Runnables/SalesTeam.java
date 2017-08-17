@@ -19,9 +19,9 @@ public class SalesTeam extends Team {
     @Override
     public void run() {
         while (!isEnded()) {
-            if (!isPaused()) {
-                sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelSeller()));
+            sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelSeller()));
 
+            if (!isPaused()) {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {

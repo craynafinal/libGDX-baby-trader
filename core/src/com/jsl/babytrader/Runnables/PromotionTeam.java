@@ -17,9 +17,9 @@ public class PromotionTeam extends Team {
     @Override
     public void run() {
         while (!isEnded()) {
-            if (!isPaused()) {
-                sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelPromotion()));
+            sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelPromotion()));
 
+            if (!isPaused()) {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {

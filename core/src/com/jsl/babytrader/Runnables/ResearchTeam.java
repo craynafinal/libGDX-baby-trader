@@ -23,9 +23,9 @@ public class ResearchTeam extends Team {
     @Override
     public void run() {
         while (!isEnded()) {
-            if (!isPaused()) {
-                sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelResearch()));
+            sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelResearch()));
 
+            if (!isPaused()) {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {

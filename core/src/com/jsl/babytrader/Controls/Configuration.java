@@ -49,11 +49,12 @@ public class Configuration {
     private static boolean babyTrader_isNormal = true;
     private static boolean seller_isSold = false;
     private static boolean buyer_isPurchased = false;
-    private Thread faceTracker = null;
+    private Thread eventTracker = null;
 
     // counter
     private static int babies_sold = 0;
     private static int babies_purchased = 0;
+    private static int customers_visited = 0;
 
     public static void increaseBabySold() {
         babies_sold++;
@@ -69,6 +70,14 @@ public class Configuration {
 
     public static int getBabiesPurchased() {
         return babies_purchased;
+    }
+
+    public static void increaseCustomersVisited() {
+        customers_visited++;
+    }
+
+    public static int getCustomersVisited() {
+        return customers_visited;
     }
 
     public static int getLevelSeller() {
@@ -173,7 +182,7 @@ public class Configuration {
         team_promotion.start();
         team_research.start();
 
-        faceTracker.start();
+        eventTracker.start();
 
         Timer.instance().start();
     }
@@ -208,6 +217,7 @@ public class Configuration {
 
         babies_sold = 0;
         babies_purchased = 0;
+        customers_visited = SharedData.getCustomerSellingSize() + SharedData.getCustomerBuyingSize();
 
         for (int i = 0; i < DEFAULT_STARTING_BABY; i++) {
             SharedData.addBaby(new Baby());
@@ -227,7 +237,7 @@ public class Configuration {
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
 
-        faceTracker = new Thread(new EventTracker());
+        eventTracker = new Thread(new EventTracker());
     }
 
     public void killThreads() {
@@ -264,8 +274,8 @@ public class Configuration {
             team_research.interrupt();
             team_research.join();
 
-            faceTracker.interrupt();
-            faceTracker.join();
+            eventTracker.interrupt();
+            eventTracker.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

@@ -23,8 +23,11 @@ public class PromotionTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
+                    // TODO: make it random for each customer stack?
                     addCustomer(true);
+                    Configuration.increaseCustomersVisited();
                     addCustomer(false);
+                    Configuration.increaseCustomersVisited();
                     }
                 });
             }

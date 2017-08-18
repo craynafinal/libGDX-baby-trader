@@ -30,7 +30,6 @@ public class EventTracker implements Runnable {
                     babyStackCount = newSize;
                     Configuration.setBabyTraderFace(false);
                     Configuration.setBuyerPurchased(true);
-                    Configuration.increaseBabyPurchased();
                     sound_cash.play();
 
                     sleep(500);
@@ -41,7 +40,6 @@ public class EventTracker implements Runnable {
                     babyStackCount = newSize;
                     Configuration.setBabyTraderFace(false);
                     Configuration.setSellerSold(true);
-                    Configuration.increaseBabySold();
                     sound_cash.play();
 
                     sleep(500);

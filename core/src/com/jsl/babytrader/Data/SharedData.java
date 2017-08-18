@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class SharedData {
     // static data for default setup
-    final private static int DEFAULT_STARTING_MONEY = 10000;
+    final private static int DEFAULT_STARTING_MONEY = 5000;
 
     // data for hud
     private static int money = DEFAULT_STARTING_MONEY;

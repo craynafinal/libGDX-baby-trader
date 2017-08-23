@@ -20,7 +20,7 @@ public class CommonUtilities {
     public static String getRandomString(String ... strings) {
         String result = "";
 
-        if (strings.length != 0) {
+        if (strings.length > 0) {
             result = strings[getRandomInteger(0, strings.length - 1)];
         }
 

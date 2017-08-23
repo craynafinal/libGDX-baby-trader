@@ -33,6 +33,10 @@ public class SalesTeam extends Team {
 
                         if (baby != null) {
                             // sell if price range is good
+
+                            customer.setBaby(baby);
+                            System.out.println("found " + baby.getSellPrice() + " " + customer.getSellPrice());
+
                             if (baby.getSellPrice() <= customer.getSellPrice()) {
                                 SharedData.addMoney(baby.getSellPrice());
                                 Configuration.increaseBabySold();

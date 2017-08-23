@@ -1,4 +1,4 @@
-#Mon Aug 14 00:40:32 PDT 2017
+#Fri Aug 18 00:29:51 PDT 2017
 base.0=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0
 renamed.0=classes.dex
 file.0=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex

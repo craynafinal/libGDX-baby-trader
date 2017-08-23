@@ -74,7 +74,13 @@ public class SharedData {
     }
 
     synchronized public static Baby getBabyWithoutRemoval(int index) {
-        return babies.get(index);
+        Baby baby = null;
+
+        if (index >= 0 && index < babies.size()) {
+            baby = babies.get(index);
+        }
+
+        return baby;
     }
 
     synchronized public static Customer getCustomerSellingLatest() { return customer_selling_latest; }

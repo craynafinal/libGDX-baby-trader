@@ -17,8 +17,8 @@ import static com.jsl.babytrader.Data.SharedData.isEnded;
  */
 
 public class ResearchTeam extends Team {
-    final private static int SLEEP_TIME_MIN = 1000;
-    final private static int SLEEP_TIME_MAX = 2000;
+    final private static int SLEEP_TIME_MIN = 5000;
+    final private static int SLEEP_TIME_MAX = 10000;
 
     @Override
     public void run() {
@@ -52,9 +52,13 @@ public class ResearchTeam extends Team {
                             attributes.removeAll(negativeAttribute);
 
                             // add positive ones
-                            // TODO: this is going to convert all negative ones to positive ones, maybe need to make a better logic
                             while (attributes.size() < size) {
                                 attributes.addAll(Attribute.getRandomAttributesPositive(1));
+                            }
+
+                            // only change the first one with negative talents
+                            if (negativeAttribute.size() > 0) {
+                                break;
                             }
                         }
                     }

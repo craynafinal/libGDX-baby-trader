@@ -11,13 +11,13 @@ import java.util.List;
  */
 
 public class Customer extends Person {
-    // TODO: only produce positive attribute and make the attribute max random number
-    final private static int ATTRIBUTE_MAX = 1;
-    final private static int AGE_MIN = 30;
-    final private static int AGE_MAX = 60;
+    final public static int ATTRIBUTE_MIN = 1;
+    final public static int ATTRIBUTE_MAX = 5;
+    final public static int AGE_MIN = 30;
+    final public static int AGE_MAX = 60;
 
-    final private static float RATE_MIN = 0.8f;
-    final private static float RATE_MAX = 1.334f;
+    final public static float RATE_MIN = 0.8f;
+    final public static float RATE_MAX = 1.334f;
 
     private float rate_sell = 0f;
     private float rate_buy = 0f;
@@ -27,7 +27,7 @@ public class Customer extends Person {
     private Baby baby = null;
 
     public Customer(boolean isSelling) {
-        super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX, true);
+        super(AGE_MIN, AGE_MAX, CommonUtilities.getRandomInteger(ATTRIBUTE_MIN, ATTRIBUTE_MAX), true);
 
         this.rate_sell = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
         this.rate_buy = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
@@ -38,6 +38,10 @@ public class Customer extends Person {
         if (!isSelling) {
             baby = new Baby();
         }
+    }
+
+    public void setBaby(Baby baby) {
+        this.baby = baby;
     }
 
     public Baby getBaby() {
@@ -56,7 +60,7 @@ public class Customer extends Person {
                 "sprites/customer_m_003_163x170.png",
                 "sprites/customer_m_004_163x170.png",
                 "sprites/customer_m_005_163x170.png",
-                "sprites/customer_m_006_163x170.png"
+                "sprites/customer_m_006_163x170.png",
         };
 
         return CommonUtilities.getRandomString(sprites);
@@ -67,7 +71,7 @@ public class Customer extends Person {
         String[] sprites = {
                 "sprites/customer_f_001_163x170.png",
                 "sprites/customer_f_002_163x170.png",
-                "sprites/customer_f_003_163x170.png"
+                "sprites/customer_f_003_163x170.png",
         };
 
         return CommonUtilities.getRandomString(sprites);
@@ -78,8 +82,14 @@ public class Customer extends Person {
     public int getSellPrice() {
         int result = 0;
 
-        for (int i = 0; i < ATTRIBUTE_MAX; i++) {
-            result += CommonUtilities.getRandomInteger(1, Attribute.MAX);
+        if (baby != null) {
+            for (Attribute attribute : baby.getAttributes()) {
+                if (attribute.isPositive()) {
+                    result += CommonUtilities.getRandomInteger(50, 100);
+                } else {
+                    result += CommonUtilities.getRandomInteger(0, 75);
+                }
+            }
         }
 
         return result;

@@ -11,8 +11,8 @@ import static com.jsl.babytrader.Data.SharedData.isEnded;
  * Team that brings customers over.
  */
 public class PromotionTeam extends Team {
-    final private static int SLEEP_TIME_MIN = 300;
-    final private static int SLEEP_TIME_MAX = 800;
+    final private static int SLEEP_TIME_MIN = 100;
+    final private static int SLEEP_TIME_MAX = 400;
 
     @Override
     public void run() {

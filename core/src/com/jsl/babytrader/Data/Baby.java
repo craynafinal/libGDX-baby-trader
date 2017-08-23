@@ -12,9 +12,9 @@ import java.util.Set;
  */
 
 public class Baby extends Person {
-    final private static int ATTRIBUTE_MAX = 5;
-    final private static int AGE_MIN = 1;
-    final private static int AGE_MAX = 6;
+    final public static int ATTRIBUTE_MAX = 5;
+    final public static int AGE_MIN = 1;
+    final public static int AGE_MAX = 6;
 
     public Baby() {
         super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX, false);

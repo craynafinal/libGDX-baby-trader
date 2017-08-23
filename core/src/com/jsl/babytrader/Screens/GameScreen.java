@@ -242,6 +242,10 @@ public class GameScreen extends BaseScreen {
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
             }
+
+            if (Configuration.getLevelSeller() == Configuration.MAX_LEVEL) {
+                button_upgrade_sell.setDisabled(true);
+            }
         } else if (type.equals(PopupUpgrade.TYPE_BUYER)){
             if (SharedData.getMoney() >= Configuration.getUpgradeCostBuyer()) {
                 SharedData.spendMoney(Configuration.getUpgradeCostBuyer());
@@ -250,6 +254,10 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setVisible(false);
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
+            }
+
+            if (Configuration.getLevelBuyer() == Configuration.MAX_LEVEL) {
+                button_upgrade_buy.setDisabled(true);
             }
         } else if (type.equals(PopupUpgrade.TYPE_PROMOTION)) {
             if (SharedData.getMoney() >= Configuration.getUpgradeCostPromotion()) {
@@ -260,6 +268,10 @@ public class GameScreen extends BaseScreen {
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
             }
+
+            if (Configuration.getLevelPromotion() == Configuration.MAX_LEVEL) {
+                button_promotion.setDisabled(true);
+            }
         } else if (type.equals(PopupUpgrade.TYPE_RESEARCH)) {
             if (SharedData.getMoney() >= Configuration.getUpgradeCostResearch()) {
                 SharedData.spendMoney(Configuration.getUpgradeCostResearch());
@@ -268,6 +280,10 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setVisible(false);
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
+            }
+
+            if (Configuration.getLevelResearch() == Configuration.MAX_LEVEL) {
+                button_research.setDisabled(true);
             }
         }
     }
@@ -308,17 +324,22 @@ public class GameScreen extends BaseScreen {
             baby = SharedData.getBabyWithoutRemoval(currentBabyIndex);
         }
 
-        stage.getBatch().draw(baby.getSprite(), 484, 131);
+        if (baby != null) {
+            stage.getBatch().draw(baby.getSprite(), 484, 131);
 
-        label_properties_title_baby.setText(baby.getName() + " (" + baby.getAge() + ") $"+ baby.getSellPrice());
+            label_properties_title_baby.setText(baby.getName() + " (" + baby.getAge() + ") $" + baby.getSellPrice());
 
-        StringBuilder stringBuilder = new StringBuilder();
+            StringBuilder stringBuilder = new StringBuilder();
 
-        for (Attribute attribute : baby.getAttributes()) {
-            stringBuilder.append(propertyFormat(attribute.getName()));
+            for (Attribute attribute : baby.getAttributes()) {
+                stringBuilder.append(propertyFormat(attribute.getName()));
+            }
+
+            label_properties_list_baby.setText(stringBuilder);
+        } else {
+            label_properties_title_baby.setText("");
+            label_properties_list_baby.setText("");
         }
-
-        label_properties_list_baby.setText(stringBuilder);
     }
 
     // returns an attribute in a formatted string

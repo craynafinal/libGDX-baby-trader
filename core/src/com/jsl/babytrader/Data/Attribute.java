@@ -37,8 +37,8 @@ public enum Attribute {
     private boolean isPositive = false;
 
     private static final int DEFAULT_BUY_VALUE_POSITIVE = 50;
-    private static final int DEFAULT_SELL_VALUE_POSITIVE = 75;
-    private static final int DEFAULT_BUY_VALUE_NEGATIVE = 25;
+    private static final int DEFAULT_SELL_VALUE_POSITIVE = 60;
+    private static final int DEFAULT_BUY_VALUE_NEGATIVE = 40;
     private static final int DEFAULT_SELL_VALUE_NEGATIVE = 50;
     private static final int DEFAULT_VARIATION = 20;
 

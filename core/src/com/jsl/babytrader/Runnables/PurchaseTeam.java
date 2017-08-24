@@ -32,7 +32,7 @@ public class PurchaseTeam extends Team {
 
                         // buy if price range is good
                         if (baby.getBuyPrice() >= customer.getBuyPrice()) {
-                            SharedData.addMoney(-baby.getBuyPrice());
+                            SharedData.addMoney(-Math.min(baby.getBuyPrice(), customer.getBuyPrice()));
                             // buying and adding baby to stock
                             SharedData.addBaby(baby);
                             Configuration.increaseBabyPurchased();

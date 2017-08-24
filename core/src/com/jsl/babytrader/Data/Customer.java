@@ -87,7 +87,7 @@ public class Customer extends Person {
                 if (attribute.isPositive()) {
                     result += CommonUtilities.getRandomInteger(50, 100);
                 } else {
-                    result += CommonUtilities.getRandomInteger(0, 75);
+                    result += CommonUtilities.getRandomInteger(1, 75);
                 }
             }
         }

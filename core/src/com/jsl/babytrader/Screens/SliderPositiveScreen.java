@@ -62,8 +62,8 @@ public class SliderPositiveScreen extends SliderScreen {
 
     @Override
     public void show() {
-        super.show();
         Attribute.rerollAll();
+        super.show();
     }
 
     @Override

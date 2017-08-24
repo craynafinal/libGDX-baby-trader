@@ -38,7 +38,7 @@ public class SalesTeam extends Team {
                             System.out.println("found " + baby.getSellPrice() + " " + customer.getSellPrice());
 
                             if (baby.getSellPrice() <= customer.getSellPrice()) {
-                                SharedData.addMoney(baby.getSellPrice());
+                                SharedData.addMoney(Math.max(baby.getSellPrice(), customer.getSellPrice()));
                                 Configuration.increaseBabySold();
                             } else {
                                 SharedData.addBaby(baby);

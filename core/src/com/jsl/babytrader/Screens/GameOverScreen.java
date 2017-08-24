@@ -34,21 +34,23 @@ public class GameOverScreen extends BaseScreen {
 
     // labels
     private Label label_highScore = null;
-    private Label label_highScoreBabySold = null;
-    private Label label_highScoreBabyPurchased = null;
+    private Label label_highScoreMoney = null;
+    private Label label_highScoreBabyCount = null;
     private Label label_highScoreCustomersVisited = null;
     private Label label_currentScore = null;
-    private Label label_currentBabySold = null;
-    private Label label_currentBabyPurchased = null;
+    private Label label_currentMoney = null;
+    private Label label_currentBabyCount = null;
     private Label label_currentCustomersVisited = null;
 
     // records
     private int currentScore = 0;
+    private int currentMoney = 0;
     private int currentBabySold = 0;
     private int currentBabyPurchased = 0;
     private int currentCustomersVisited = 0;
 
     private int highScore = 0;
+    private int highScoreMoney = 0;
     private int highScoreBabySold = 0;
     private int highScoreBabyPurchased = 0;
     private int highScoreCustomersVisited = 0;
@@ -65,8 +67,8 @@ public class GameOverScreen extends BaseScreen {
         int positionX_high = ConstData.SCREEN_WIDTH / 4;
         int positionX_current = ConstData.SCREEN_WIDTH - ConstData.SCREEN_WIDTH / 4;
 
-        Table highScoreTable = getTable(positionX_high, positionY, label_highScore, label_highScoreBabySold, label_highScoreBabyPurchased, label_highScoreCustomersVisited);
-        Table currentScoreTable = getTable(positionX_current, positionY, label_currentScore, label_currentBabySold, label_currentBabyPurchased, label_currentCustomersVisited);
+        Table highScoreTable = getTable(positionX_high, positionY, label_highScore, label_highScoreMoney, label_highScoreBabyCount, label_highScoreCustomersVisited);
+        Table currentScoreTable = getTable(positionX_current, positionY, label_currentScore, label_currentMoney, label_currentBabyCount, label_currentCustomersVisited);
 
         addElementsToStage(highScoreTable, currentScoreTable, button_retry, button_main_menu);
 
@@ -97,12 +99,12 @@ public class GameOverScreen extends BaseScreen {
         int smallFontSize = 40;
 
         label_highScore = getLabel(bigFontSize);
-        label_highScoreBabySold = getLabel(smallFontSize);
-        label_highScoreBabyPurchased = getLabel(smallFontSize);
+        label_highScoreMoney = getLabel(smallFontSize);
+        label_highScoreBabyCount = getLabel(smallFontSize);
         label_highScoreCustomersVisited = getLabel(smallFontSize);
         label_currentScore = getLabel(bigFontSize);
-        label_currentBabySold = getLabel(smallFontSize);
-        label_currentBabyPurchased = getLabel(smallFontSize);
+        label_currentMoney = getLabel(smallFontSize);
+        label_currentBabyCount = getLabel(smallFontSize);
         label_currentCustomersVisited = getLabel(smallFontSize);
     }
 
@@ -160,13 +162,15 @@ public class GameOverScreen extends BaseScreen {
     }
 
     private void scoreSetup() {
-        currentScore = SharedData.getMoney();
+        currentScore = Configuration.getScore();
+        currentMoney = SharedData.getMoney();
         currentBabySold = Configuration.getBabiesSold();
         currentBabyPurchased = Configuration.getBabiesPurchased();
         currentCustomersVisited = Configuration.getCustomersVisited();
 
-        SaveData.HighScore highScoreContent = SaveData.saveHighScore(currentScore, currentBabySold, currentBabyPurchased, currentCustomersVisited);
+        SaveData.HighScore highScoreContent = SaveData.saveHighScore(currentScore, currentMoney, currentBabySold, currentBabyPurchased, currentCustomersVisited);
         highScore = highScoreContent.highScore;
+        highScoreMoney = highScoreContent.money;
         highScoreBabySold = highScoreContent.babySold;
         highScoreBabyPurchased = highScoreContent.babyPurchased;
         highScoreCustomersVisited = highScoreContent.customerVisited;
@@ -185,15 +189,15 @@ public class GameOverScreen extends BaseScreen {
     public void show() {
         super.show();
         scoreSetup();
-        System.out.println(Configuration.getBabiesSold() + " " + Configuration.getBabiesPurchased() + " " + Configuration.getCustomersVisited());
-        label_currentScore.setText("$" + currentScore);
-        label_currentBabySold.setText(currentBabySold + "");
-        label_currentBabyPurchased.setText(currentBabyPurchased + "");
+
+        label_currentScore.setText(currentScore + "");
+        label_currentMoney.setText("$" + currentMoney);
+        label_currentBabyCount.setText(currentBabySold + " / " + currentBabyPurchased);
         label_currentCustomersVisited.setText(currentCustomersVisited + "");
 
-        label_highScore.setText("$" + highScore);
-        label_highScoreBabySold.setText(highScoreBabySold + "");
-        label_highScoreBabyPurchased.setText(highScoreBabyPurchased + "");
+        label_highScore.setText(highScore + "");
+        label_highScoreMoney.setText("$" + highScoreMoney);
+        label_highScoreBabyCount.setText(highScoreBabySold + " / " + highScoreBabyPurchased);
         label_highScoreCustomersVisited.setText(highScoreCustomersVisited + "");
     }
 

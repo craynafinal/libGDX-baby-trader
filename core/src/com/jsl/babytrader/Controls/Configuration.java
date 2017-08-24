@@ -64,6 +64,10 @@ public class Configuration {
         babies_purchased++;
     }
 
+    synchronized public static int getScore() {
+        return SharedData.getMoney() + (babies_sold * babies_purchased) + customers_visited;
+    }
+
     public static int getBabiesSold() {
         return babies_sold;
     }

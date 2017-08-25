@@ -6,7 +6,7 @@
     density="xxxhdpi"
     format="10"
     plugin-version="2.3.3"
-    timestamp="1503556903831"
+    timestamp="1503667886882"
     token="4646230736291429381"
     verifier="FULL_BUILD_REQUESTED" >
 
@@ -23,9 +23,6 @@
         name="verifier"
         duration="0" />
 
-    <artifact
-        location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/outputs/apk/android-debug.apk"
-        type="SPLIT_MAIN" />
     <artifact
         location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/split-apk/debug/slices/slice_7.apk"
         type="SPLIT" />
@@ -59,14 +56,14 @@
     <artifact
         location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/split-apk/debug/dep/dependencies.apk"
         type="SPLIT" />
+    <artifact
+        location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/outputs/apk/android-debug.apk"
+        type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1503556903831"
+        timestamp="1503667886882"
         verifier="FULL_BUILD_REQUESTED" >
-        <artifact
-            location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/outputs/apk/android-debug.apk"
-            type="SPLIT_MAIN" />
         <artifact
             location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/split-apk/debug/slices/slice_7.apk"
             type="SPLIT" />
@@ -100,6 +97,9 @@
         <artifact
             location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/split-apk/debug/dep/dependencies.apk"
             type="SPLIT" />
+        <artifact
+            location="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/outputs/apk/android-debug.apk"
+            type="SPLIT_MAIN" />
     </build>
 
 </instant-run>

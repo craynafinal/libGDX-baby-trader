@@ -16,6 +16,8 @@ public class PurchaseTeam extends Team {
     final private static int SLEEP_TIME_MIN = 500;
     final private static int SLEEP_TIME_MAX = 1000;
 
+    private boolean isPurchased = false;
+
     @Override
     public void run() {
         while (!isEnded()) {
@@ -41,14 +43,18 @@ public class PurchaseTeam extends Team {
                                 Configuration.setBabyTraderFace(false);
                                 Configuration.setBuyerPurchased(true);
                                 sound_cash.play();
+                                isPurchased = true;
                             }
                         }
                     }
                 });
 
-                sleep(500);
-                Configuration.setBabyTraderFace(true);
-                Configuration.setBuyerPurchased(false);
+                if (isPurchased) {
+                    sleep(500);
+                    Configuration.setBabyTraderFace(true);
+                    Configuration.setBuyerPurchased(false);
+                    isPurchased = false;
+                }
             }
         }
     }

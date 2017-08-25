@@ -513,13 +513,13 @@ public class GameScreen extends BaseScreen {
         label_properties_title_sell.setPosition(193, 418);
 
         label_properties_list_sell = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY));
-        label_properties_list_sell.setPosition(193, 354);
+        label_properties_list_sell.setPosition(193, 350);
 
         label_properties_title_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_LIGHT_GRAY));
         label_properties_title_buy.setPosition(193, 127);
 
         label_properties_list_buy = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 14, FONT_COLOR_LIGHT_GRAY));
-        label_properties_list_buy.setPosition(193, 63);
+        label_properties_list_buy.setPosition(193, 59);
 
         label_level_sell = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 15, Color.WHITE));
         label_level_sell.setPosition(154, 549);

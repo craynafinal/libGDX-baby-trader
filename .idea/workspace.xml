@@ -6,7 +6,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12339930-d13c-416e-b2c1-7d75316fad23" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/EventTracker.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -14,27 +13,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/sprites/gameOver_background_1024x576.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/sprites/gameOver_background_1024x576.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/debug/sprites/tutorial_screen_gameover_503x342.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/debug/sprites/tutorial_screen_gameover_503x342.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_0.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_0.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_2.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_4.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_4.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_8.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_8.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_9.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_9.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" afterPath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_0/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_0/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_4/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_4/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_8/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_8/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/restart-dex/debug/build-info.xml" />
@@ -42,16 +31,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Controls/Configuration.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Controls/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Time.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Time.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/ResearchTeam.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/ResearchTeam.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/Team.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/Team.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/SliderScreen.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/SliderScreen.java" />
     </list>
     <ignored path="libGDX_baby-trader.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,14 +84,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameScreen.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="173" column="43" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="43" />
+            <state relative-caret-position="119">
+              <caret line="515" column="26" selection-start-line="515" selection-start-column="26" selection-end-line="515" selection-end-column="26" />
               <folding>
+                <element signature="e#7333#7663#0" expanded="true" />
                 <element signature="e#7662#7663#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Attribute.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,14 +122,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PurchaseTeam.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PurchaseTeam.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-301">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="74">
+              <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
               <folding>
-                <element signature="e#720#1861#0" expanded="true" />
-                <element signature="e#1860#1861#0" expanded="true" />
+                <element signature="e#762#1955#0" expanded="true" />
+                <element signature="e#1954#1955#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,20 +138,22 @@
       <file leaf-file-name="PromotionTeam.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            <state relative-caret-position="231">
+              <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
               <folding>
-                <element signature="e#1103#1104#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#711#968#0" expanded="true" />
+                <element signature="e#967#968#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Time.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Time.java">
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="10" column="44" selection-start-line="10" selection-start-column="44" selection-end-line="10" selection-end-column="44" />
+            <state relative-caret-position="122">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -164,11 +162,11 @@
       <file leaf-file-name="SalesTeam.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+            <state relative-caret-position="239">
+              <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
               <folding>
-                <element signature="e#710#1981#0" expanded="true" />
-                <element signature="e#1980#1981#0" expanded="true" />
+                <element signature="e#747#2069#0" expanded="true" />
+                <element signature="e#2068#2069#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2632,23 +2630,23 @@
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Utilities/CommonUtilities.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SharedData.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/SliderPositiveScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SaveData.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameOverScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/TutorialScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/SliderScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/ResearchTeam.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Time.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Popups/PopupUpgrade.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/EventTracker.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/Team.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Controls/Configuration.java" />
-        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java" />
         <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java" />
+        <option value="$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java" />
       </list>
     </option>
   </component>
@@ -2875,7 +2873,7 @@
       <recent name="com.jsl.babytrader.Control" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Desktop">
+  <component name="RunManager" selected="Android App.android">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -3226,12 +3224,12 @@
     <frame x="65" y="24" width="1535" height="751" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.49143174" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.49143174" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35878786" sideWeight="0.45826423" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4112" sideWeight="0.5251847" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4112" sideWeight="0.5251847" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.4538419" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4112" sideWeight="0.4748153" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.49143174" order="9" side_tool="false" content_ui="tabs" />
@@ -3241,6 +3239,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.51741296" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18401612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24983211" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
@@ -3253,7 +3252,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -3496,14 +3494,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="89" column="64" selection-start-line="89" selection-start-column="64" selection-end-line="89" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/SaveData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -3536,14 +3526,6 @@
             <element signature="e#1921#1922#0" expanded="true" />
             <element signature="e#1949#1950#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="68" column="9" selection-start-line="68" selection-start-column="9" selection-end-line="68" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3584,26 +3566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding>
-            <element signature="e#1103#1104#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="173" column="43" selection-start-line="173" selection-start-column="38" selection-end-line="173" selection-end-column="43" />
-          <folding>
-            <element signature="e#7662#7663#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Controls/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -3634,24 +3596,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="51" selection-start-line="16" selection-start-column="51" selection-end-line="16" selection-end-column="51" />
+        <state relative-caret-position="74">
+          <caret line="41" column="50" selection-start-line="41" selection-start-column="50" selection-end-line="41" selection-end-column="50" />
           <folding>
-            <element signature="e#710#1981#0" expanded="true" />
-            <element signature="e#1980#1981#0" expanded="true" />
+            <element signature="e#762#1955#0" expanded="true" />
+            <element signature="e#1954#1955#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/SalesTeam.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-301">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        <state relative-caret-position="239">
+          <caret line="60" column="35" selection-start-line="60" selection-start-column="35" selection-end-line="60" selection-end-column="35" />
           <folding>
-            <element signature="e#720#1861#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
+            <element signature="e#747#2069#0" expanded="true" />
+            <element signature="e#2068#2069#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Attribute.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PromotionTeam.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="26" column="39" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#711#968#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="515" column="26" selection-start-line="515" selection-start-column="26" selection-end-line="515" selection-end-column="26" />
+          <folding>
+            <element signature="e#7333#7663#0" expanded="true" />
+            <element signature="e#7662#7663#0" expanded="true" />
           </folding>
         </state>
       </provider>

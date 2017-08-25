@@ -16,6 +16,8 @@ public class SalesTeam extends Team {
     final private static int SLEEP_TIME_MIN = 500;
     final private static int SLEEP_TIME_MAX = 1000;
 
+    private boolean isSold = false;
+
     @Override
     public void run() {
         while (!isEnded()) {
@@ -43,6 +45,7 @@ public class SalesTeam extends Team {
                                     Configuration.setBabyTraderFace(false);
                                     Configuration.setSellerSold(true);
                                     sound_cash.play();
+                                    isSold = true;
                                 } else {
                                     SharedData.addBaby(baby);
                                 }
@@ -51,9 +54,12 @@ public class SalesTeam extends Team {
                     }
                 });
 
-                sleep(500);
-                Configuration.setBabyTraderFace(true);
-                Configuration.setSellerSold(false);
+                if (isSold) {
+                    sleep(500);
+                    Configuration.setBabyTraderFace(true);
+                    Configuration.setSellerSold(false);
+                    isSold = false;
+                }
             }
         }
     }

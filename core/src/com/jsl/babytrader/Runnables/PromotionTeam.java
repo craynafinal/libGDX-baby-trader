@@ -5,14 +5,16 @@ import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
 
+import java.util.Random;
+
 import static com.jsl.babytrader.Data.SharedData.isEnded;
 
 /**
  * Team that brings customers over.
  */
 public class PromotionTeam extends Team {
-    final private static int SLEEP_TIME_MIN = 100;
-    final private static int SLEEP_TIME_MAX = 400;
+    final private static int SLEEP_TIME_MIN = 50;
+    final private static int SLEEP_TIME_MAX = 200;
 
     @Override
     public void run() {
@@ -23,10 +25,7 @@ public class PromotionTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                        // TODO: make it random for each customer stack?
-                        addCustomer(true);
-                        Configuration.increaseCustomersVisited();
-                        addCustomer(false);
+                        addCustomer(new Random().nextBoolean());
                         Configuration.increaseCustomersVisited();
                     }
                 });

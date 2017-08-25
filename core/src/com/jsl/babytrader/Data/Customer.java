@@ -77,7 +77,6 @@ public class Customer extends Person {
         return CommonUtilities.getRandomString(sprites);
     }
 
-    // TODO: think of a better number for customer instead of random number between 1 and 100
     @Override
     public int getSellPrice() {
         int result = 0;
@@ -95,7 +94,6 @@ public class Customer extends Person {
         return result;
     }
 
-    // TODO: take a baby as a param?
     @Override
     public int getBuyPrice() {
         return getSellPrice();

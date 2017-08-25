@@ -14,22 +14,22 @@ public enum Attribute {
     // positive
     Smart(0, true),
     Humorous(1, true),
-    Fast(2, true),
+    Active(2, true),
     Self_Confidence(3, true),
     Nice_Job(4, true),
-    Rich(5, true),
-    Handsome(6, true),
+    Long_Life(5, true),
+    Fashionable(6, true),
     Tall(7, true),
 
     // negative
-    Dumb(8, false),
-    Boring(9, false),
-    Slow(10, false),
-    Lazy(11, false),
-    Bad_Job(12, false),
-    Poor(13, false),
-    Ugly(14, false),
-    Short(15, false);
+    Geek(8, false),
+    Perverted(9, false),
+    Poor(10, false),
+    Selfish(11, false),
+    Ugly(12, false),
+    Slow(13, false),
+    Lazy(14, false),
+    Single_Forever(15, false);
 
     private int index = 0;
     private int sellValue = 0;

@@ -29,39 +29,39 @@ public class ResearchTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                    synchronized (this) {
-                        List<Baby> babies = SharedData.getBabies();
+                        synchronized (this) {
+                            List<Baby> babies = SharedData.getBabies();
 
-                        // find attributes for each baby
-                        for (Baby baby : babies) {
-                            Set<Attribute> attributes = baby.getAttributes();
+                            // find attributes for each baby
+                            for (Baby baby : babies) {
+                                Set<Attribute> attributes = baby.getAttributes();
 
-                            // save size for later
-                            int size = attributes.size();
+                                // save size for later
+                                int size = attributes.size();
 
-                            Set<Attribute> negativeAttribute = new HashSet<Attribute>();
+                                Set<Attribute> negativeAttribute = new HashSet<Attribute>();
 
-                            // search for negative attributes and change them to positive
-                            for (Attribute attribute : attributes) {
-                                if (!attribute.isPositive()) {
-                                    negativeAttribute.add(attribute);
+                                // search for negative attributes and change them to positive
+                                for (Attribute attribute : attributes) {
+                                    if (!attribute.isPositive()) {
+                                        negativeAttribute.add(attribute);
+                                    }
+                                }
+
+                                // remove all negative ones
+                                attributes.removeAll(negativeAttribute);
+
+                                // add positive ones
+                                while (attributes.size() < size) {
+                                    attributes.addAll(Attribute.getRandomAttributesPositive(1));
+                                }
+
+                                // only change the first one with negative talents
+                                if (negativeAttribute.size() > 0) {
+                                    break;
                                 }
                             }
-
-                            // remove all negative ones
-                            attributes.removeAll(negativeAttribute);
-
-                            // add positive ones
-                            while (attributes.size() < size) {
-                                attributes.addAll(Attribute.getRandomAttributesPositive(1));
-                            }
-
-                            // only change the first one with negative talents
-                            if (negativeAttribute.size() > 0) {
-                                break;
-                            }
                         }
-                    }
                     }
                 });
             }

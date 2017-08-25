@@ -4,7 +4,6 @@ import com.badlogic.gdx.utils.Timer;
 import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.SharedData;
 import com.jsl.babytrader.Data.Time;
-import com.jsl.babytrader.Runnables.EventTracker;
 import com.jsl.babytrader.Runnables.PromotionTeam;
 import com.jsl.babytrader.Runnables.PurchaseTeam;
 import com.jsl.babytrader.Runnables.ResearchTeam;
@@ -23,7 +22,7 @@ public class Configuration {
 
     // const default values
     final public static int MAX_LEVEL = 3;
-    final public static int UPGRADE_INTERVAL_MONEY = 1000;
+    final public static int UPGRADE_INTERVAL_MONEY = 100;
     final public static int DEFAULT_STARTING_BABY = 5;
 
     final public static int MAX_SELLER_THREADS = 5;
@@ -49,7 +48,6 @@ public class Configuration {
     private static boolean babyTrader_isNormal = true;
     private static boolean seller_isSold = false;
     private static boolean buyer_isPurchased = false;
-    private Thread eventTracker = null;
 
     // counter
     private static int babies_sold = 0;
@@ -186,8 +184,6 @@ public class Configuration {
         team_promotion.start();
         team_research.start();
 
-        eventTracker.start();
-
         Timer.instance().start();
     }
 
@@ -240,8 +236,6 @@ public class Configuration {
 
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
-
-        eventTracker = new Thread(new EventTracker());
     }
 
     public void killThreads() {
@@ -277,9 +271,6 @@ public class Configuration {
 
             team_research.interrupt();
             team_research.join();
-
-            eventTracker.interrupt();
-            eventTracker.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

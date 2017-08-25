@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Aug 18 00:29:54 PDT 2017
+#Wed Aug 23 23:42:01 PDT 2017
 122.file=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/mergeJniLibs/debug/folders/2000/1f/main/lib/arm64-v8a/libgdx-box2d.so
 60.set=JAVA_RESOURCE
 129.file=/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/assets/debug/sprites/baby_f_003_270x387.png

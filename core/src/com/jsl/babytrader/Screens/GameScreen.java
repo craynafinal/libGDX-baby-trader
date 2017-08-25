@@ -18,6 +18,7 @@ import com.jsl.babytrader.Data.Baby;
 import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
+import com.jsl.babytrader.Popups.Popup;
 import com.jsl.babytrader.Popups.PopupPause;
 import com.jsl.babytrader.Popups.PopupUpgrade;
 import com.jsl.babytrader.Utilities.CommonUtilities;
@@ -221,8 +222,6 @@ public class GameScreen extends BaseScreen {
                 Gdx.app.log("Clicking Upgrade Button", "Activated");
                 sound_buttonClick.play();
                 upgrade();
-                //resume();
-                //popup_upgrade.setVisible(false);
             }
         });
 
@@ -242,10 +241,6 @@ public class GameScreen extends BaseScreen {
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
             }
-
-            if (Configuration.getLevelSeller() == Configuration.MAX_LEVEL) {
-                button_upgrade_sell.setDisabled(true);
-            }
         } else if (type.equals(PopupUpgrade.TYPE_BUYER)){
             if (SharedData.getMoney() >= Configuration.getUpgradeCostBuyer()) {
                 SharedData.spendMoney(Configuration.getUpgradeCostBuyer());
@@ -254,10 +249,6 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setVisible(false);
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
-            }
-
-            if (Configuration.getLevelBuyer() == Configuration.MAX_LEVEL) {
-                button_upgrade_buy.setDisabled(true);
             }
         } else if (type.equals(PopupUpgrade.TYPE_PROMOTION)) {
             if (SharedData.getMoney() >= Configuration.getUpgradeCostPromotion()) {
@@ -268,10 +259,6 @@ public class GameScreen extends BaseScreen {
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
             }
-
-            if (Configuration.getLevelPromotion() == Configuration.MAX_LEVEL) {
-                button_promotion.setDisabled(true);
-            }
         } else if (type.equals(PopupUpgrade.TYPE_RESEARCH)) {
             if (SharedData.getMoney() >= Configuration.getUpgradeCostResearch()) {
                 SharedData.spendMoney(Configuration.getUpgradeCostResearch());
@@ -280,10 +267,6 @@ public class GameScreen extends BaseScreen {
                 popup_upgrade.setVisible(false);
             } else {
                 popup_upgrade.setTextDescription(warningMsg);
-            }
-
-            if (Configuration.getLevelResearch() == Configuration.MAX_LEVEL) {
-                button_research.setDisabled(true);
             }
         }
     }
@@ -447,7 +430,6 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Promotion button", "Activated");
                 sound_buttonClick.play();
-                pause();
                 popupUpgradeOpen(PopupUpgrade.TYPE_PROMOTION, Configuration.getLevelPromotion(), Configuration.isNextMaxPromotion(), Configuration.getUpgradeCostPromotion(), PopupUpgrade.DESCRIPTION_PROMOTION);
             }
         });
@@ -460,7 +442,6 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Research button", "Activated");
                 sound_buttonClick.play();
-                pause();
                 popupUpgradeOpen(PopupUpgrade.TYPE_RESEARCH, Configuration.getLevelResearch(), Configuration.isNextMaxResearch(), Configuration.getUpgradeCostResearch(), PopupUpgrade.DESCRIPTION_RESEARCH);
             }
         });
@@ -473,9 +454,7 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Sell Upgrade button", "Activated");
                 sound_buttonClick.play();
-                pause();
                 popupUpgradeOpen(PopupUpgrade.TYPE_SELLER, Configuration.getLevelSeller(), Configuration.isNextMaxSeller(), Configuration.getUpgradeCostSeller(), PopupUpgrade.DESCRIPTION_SELLER);
-                // config.levelUpSeller();
             }
         });
 
@@ -487,19 +466,20 @@ public class GameScreen extends BaseScreen {
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.log("Clicking Buy Upgrade button", "Activated");
                 sound_buttonClick.play();
-                pause();
                 popupUpgradeOpen(PopupUpgrade.TYPE_BUYER, Configuration.getLevelBuyer(), Configuration.isNextMaxBuyer(), Configuration.getUpgradeCostBuyer(), PopupUpgrade.DESCRIPTION_BUYER);
-                //config.levelUpBuyer();
             }
         });
     }
 
     private void popupUpgradeOpen(String type, int level, boolean isMax, int cost, String description) {
-        popup_upgrade.setTextType(type);
-        popup_upgrade.setTextLevel(PopupUpgrade.getLevelText(level, level + 1, isMax));
-        popup_upgrade.setTextCost(PopupUpgrade.getMoneyText(cost));
-        popup_upgrade.setTextDescription(description);
-        popup_upgrade.setVisible(true);
+        if (level != Configuration.MAX_LEVEL) {
+            pause();
+            popup_upgrade.setTextType(type);
+            popup_upgrade.setTextLevel(PopupUpgrade.getLevelText(level, level + 1, isMax));
+            popup_upgrade.setTextCost(PopupUpgrade.getMoneyText(cost));
+            popup_upgrade.setTextDescription(description);
+            popup_upgrade.setVisible(true);
+        }
     }
 
     private void labelSetup() {

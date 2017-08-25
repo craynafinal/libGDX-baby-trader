@@ -8,7 +8,7 @@ public class Time {
     private int min = 0;
     private int sec = 0;
 
-    final static private int DEFAULT_MIN = 1;
+    final static private int DEFAULT_MIN = 5;
 
     public Time() {
         min = DEFAULT_MIN;

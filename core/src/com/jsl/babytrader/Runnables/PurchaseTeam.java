@@ -25,21 +25,30 @@ public class PurchaseTeam extends Team {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                    // proceed if there is any customer
-                    if (SharedData.getCustomerBuyingSize() > 0) {
-                        Customer customer = SharedData.getCustomerBuying();
-                        Baby baby = customer.getBaby();
+                        // proceed if there is any customer
+                        if (SharedData.getCustomerBuyingSize() > 0) {
+                            Customer customer = SharedData.getCustomerBuying();
+                            Baby baby = customer.getBaby();
 
-                        // buy if price range is good
-                        if (baby.getBuyPrice() >= customer.getBuyPrice()) {
-                            SharedData.addMoney(-Math.min(baby.getBuyPrice(), customer.getBuyPrice()));
-                            // buying and adding baby to stock
-                            SharedData.addBaby(baby);
-                            Configuration.increaseBabyPurchased();
+                            // buy if price range is good
+                            if (baby.getBuyPrice() >= customer.getBuyPrice()) {
+                                SharedData.addMoney(-Math.min(baby.getBuyPrice(), customer.getBuyPrice()));
+                                // buying and adding baby to stock
+                                SharedData.addBaby(baby);
+                                Configuration.increaseBabyPurchased();
+
+                                // affects sprites
+                                Configuration.setBabyTraderFace(false);
+                                Configuration.setBuyerPurchased(true);
+                                sound_cash.play();
+                            }
                         }
                     }
-                    }
                 });
+
+                sleep(500);
+                Configuration.setBabyTraderFace(true);
+                Configuration.setBuyerPurchased(false);
             }
         }
     }

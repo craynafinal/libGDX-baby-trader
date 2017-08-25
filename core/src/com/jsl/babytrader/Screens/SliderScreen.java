@@ -88,7 +88,7 @@ public abstract class SliderScreen extends BaseScreen {
     }
 
     // create a set of labels_title and sliders
-    private void createLabelsAndSliders(boolean isPositive, BitmapFont font) {
+    private void createLabelsAndSliders(boolean isPositive) {
         for (Attribute attribute : Attribute.values()) {
             if (attribute.isPositive() == isPositive) {
 
@@ -110,21 +110,23 @@ public abstract class SliderScreen extends BaseScreen {
                     - 1-3 = 2, subtract 2 from attribute index => 1
                  */
                 int index = attribute.getIndex() - (attribute.getIndex() - sliders_sell.size());
-                Color color_display = Color.WHITE;
+
+                Label.LabelStyle style_title = getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, FONT_COLOR_DARK_BLUE);
+                Label.LabelStyle style_common = getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, Color.WHITE);
 
                 // create label
                 String name = attribute.getName();
-                Label label = new Label(String.format(name), new Label.LabelStyle(font, FONT_COLOR_DARK_BLUE));
+                Label label = new Label(String.format(name), style_title);
                 labels_title.add(index, label);
 
-                Label label_display_sell = new Label("", new Label.LabelStyle(font, color_display));
+                Label label_display_sell = new Label("", style_common);
                 labels_display_sell.add(index, label_display_sell);
 
-                Label label_display_buy = new Label("", new Label.LabelStyle(font, color_display));
+                Label label_display_buy = new Label("", style_common);
                 labels_display_buy.add(index, label_display_buy);
 
-                labels_sell.add(index, new Label("Sell", new Label.LabelStyle(font, color_display)));
-                labels_buy.add(index, new Label("Buy", new Label.LabelStyle(font, color_display)));
+                labels_sell.add(index, new Label("Sell", style_common));
+                labels_buy.add(index, new Label("Buy", style_common));
 
                 // create slider
                 sliders_sell.add(index, createSlider(label_display_sell, attribute, true));
@@ -184,7 +186,7 @@ public abstract class SliderScreen extends BaseScreen {
         labels_buy = new ArrayList<Label>();
         labels_sell = new ArrayList<Label>();
 
-        createLabelsAndSliders(isPositive, generateFont(FONT_NOKIA_PATH, 20, FONT_COLOR_DARK_BLUE));
+        createLabelsAndSliders(isPositive);
 
         return addSlidersAndLabelsToTable();
     }

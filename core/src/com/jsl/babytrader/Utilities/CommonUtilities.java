@@ -1,12 +1,13 @@
 package com.jsl.babytrader.Utilities;
 
+import java.util.List;
 import java.util.Random;
 
 public class CommonUtilities {
 
     // Simple random number generator that the result is between min and max.
     public static int getRandomInteger(int min, int max) {
-        return new Random().nextInt(max-min) + min;
+        return new Random().nextInt(max - min) + min;
     }
 
     public static boolean getRandomBoolean() {
@@ -17,11 +18,11 @@ public class CommonUtilities {
         return new Random().nextFloat() * (max - min) + min;
     }
 
-    public static String getRandomString(String ... strings) {
+    public static String getRandomString(List<String> strings) {
         String result = "";
 
-        if (strings.length > 0) {
-            result = strings[getRandomInteger(0, strings.length - 1)];
+        if (strings.size() > 0) {
+            result = strings.get(getRandomInteger(0, strings.size()));
         }
 
         return result;

@@ -19,18 +19,27 @@ public class Customer extends Person {
     final public static float RATE_MIN = 0.8f;
     final public static float RATE_MAX = 1.334f;
 
-    private float rate_sell = 0f;
-    private float rate_buy = 0f;
+    final static public List<String> TEXTURE_MALE = new ArrayList<String>();
+    final static public List<String> TEXTURE_FEMALE = new ArrayList<String>();
 
     private boolean isSelling = false;
-
     private Baby baby = null;
+
+    static {
+        TEXTURE_MALE.add("sprites/customer_m_001_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_002_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_003_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_004_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_005_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_006_163x170.png");
+
+        TEXTURE_FEMALE.add("sprites/customer_f_001_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_002_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_003_163x170.png");
+    }
 
     public Customer(boolean isSelling) {
         super(AGE_MIN, AGE_MAX, CommonUtilities.getRandomInteger(ATTRIBUTE_MIN, ATTRIBUTE_MAX), true);
-
-        this.rate_sell = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
-        this.rate_buy = CommonUtilities.getRandomFloat(RATE_MIN, RATE_MAX);
 
         this.isSelling = isSelling;
 
@@ -54,27 +63,12 @@ public class Customer extends Person {
 
     @Override
     protected String getMaleTexture() {
-        String[] sprites = {
-                "sprites/customer_m_001_163x170.png",
-                "sprites/customer_m_002_163x170.png",
-                "sprites/customer_m_003_163x170.png",
-                "sprites/customer_m_004_163x170.png",
-                "sprites/customer_m_005_163x170.png",
-                "sprites/customer_m_006_163x170.png",
-        };
-
-        return CommonUtilities.getRandomString(sprites);
+        return CommonUtilities.getRandomString(TEXTURE_MALE);
     }
 
     @Override
     protected String getFemaleTexture() {
-        String[] sprites = {
-                "sprites/customer_f_001_163x170.png",
-                "sprites/customer_f_002_163x170.png",
-                "sprites/customer_f_003_163x170.png",
-        };
-
-        return CommonUtilities.getRandomString(sprites);
+        return CommonUtilities.getRandomString(TEXTURE_FEMALE);
     }
 
     @Override

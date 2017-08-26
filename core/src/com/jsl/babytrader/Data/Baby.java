@@ -16,32 +16,33 @@ public class Baby extends Person {
     final public static int AGE_MIN = 1;
     final public static int AGE_MAX = 6;
 
+    final static public List<String> TEXTURE_MALE = new ArrayList<String>();
+    final static public List<String> TEXTURE_FEMALE = new ArrayList<String>();
+
+    static {
+        TEXTURE_MALE.add("sprites/baby_m_001_270x387.png");
+        TEXTURE_MALE.add("sprites/baby_m_002_270x387.png");
+        TEXTURE_MALE.add("sprites/baby_m_003_270x387.png");
+        TEXTURE_MALE.add("sprites/baby_m_004_270x387.png");
+
+        TEXTURE_FEMALE.add("sprites/baby_f_001_270x387.png");
+        TEXTURE_FEMALE.add("sprites/baby_f_002_270x387.png");
+        TEXTURE_FEMALE.add("sprites/baby_f_003_270x387.png");
+        TEXTURE_FEMALE.add("sprites/baby_f_004_270x387.png");
+    }
+
     public Baby() {
         super(AGE_MIN, AGE_MAX, ATTRIBUTE_MAX, false);
     }
 
     @Override
     protected String getMaleTexture() {
-        String[] sprites = {
-                "sprites/baby_m_001_270x387.png",
-                "sprites/baby_m_002_270x387.png",
-                "sprites/baby_m_003_270x387.png",
-                "sprites/baby_m_004_270x387.png"
-        };
-
-        return CommonUtilities.getRandomString(sprites);
+        return CommonUtilities.getRandomString(TEXTURE_MALE);
     }
 
     @Override
     protected String getFemaleTexture() {
-        String[] sprites = {
-                "sprites/baby_f_001_270x387.png",
-                "sprites/baby_f_002_270x387.png",
-                "sprites/baby_f_003_270x387.png",
-                "sprites/baby_f_004_270x387.png"
-        };
-
-        return CommonUtilities.getRandomString(sprites);
+        return CommonUtilities.getRandomString(TEXTURE_FEMALE);
     }
 
     @Override

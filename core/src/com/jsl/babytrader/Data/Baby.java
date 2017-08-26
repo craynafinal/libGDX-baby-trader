@@ -10,7 +10,6 @@ import java.util.Set;
 /**
  * Represents babies.
  */
-
 public class Baby extends Person {
     final public static int ATTRIBUTE_MAX = 5;
     final public static int AGE_MIN = 1;

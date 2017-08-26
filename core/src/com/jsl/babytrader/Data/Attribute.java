@@ -9,7 +9,6 @@ import java.util.Set;
 /**
  * This enum represents attributes of babies and they also save sales values.
  */
-
 public enum Attribute {
     // positive
     Smart(0, true),

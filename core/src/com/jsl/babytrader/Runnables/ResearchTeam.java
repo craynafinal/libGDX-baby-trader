@@ -15,7 +15,6 @@ import static com.jsl.babytrader.Data.SharedData.isEnded;
 /**
  * Represents a research team.
  */
-
 public class ResearchTeam extends Team {
     final private static int SLEEP_TIME_MIN = 5000;
     final private static int SLEEP_TIME_MAX = 10000;

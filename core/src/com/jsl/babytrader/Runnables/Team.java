@@ -9,7 +9,6 @@ import com.jsl.babytrader.Utilities.CommonUtilities;
 /**
  * Base class for team components.
  */
-
 public abstract class Team implements Runnable {
     protected static Sound sound_cash = Gdx.audio.newSound(Gdx.files.internal("sounds/se_cash.mp3"));
 

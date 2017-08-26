@@ -5,13 +5,11 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
 /**
  * Ready screen before starting game.
  */
-
 public class ReadyScreen extends BaseScreen {
     private Label label_ready = null;
     private Thread thread_counter = null;
@@ -19,9 +17,9 @@ public class ReadyScreen extends BaseScreen {
     public ReadyScreen(BabyTrader game) {
         super(game);
 
-        label_ready = new Label("Ready", getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
+        label_ready = new Label("Ready".toUpperCase(), getLabelStyle(FONT_WORK_EXTRA_BOLD, 50, Color.WHITE));
         label_ready.setAlignment(Align.center);
-        label_ready.setPosition(ConstData.SCREEN_WIDTH / 2 - label_ready.getWidth() / 2, ConstData.SCREEN_HEIGHT / 2 - label_ready.getHeight() / 2);
+        label_ready.setPosition(SCREEN_WIDTH / 2 - label_ready.getWidth() / 2, SCREEN_HEIGHT / 2 - label_ready.getHeight() / 2);
 
         addElementsToStage(label_ready);
 

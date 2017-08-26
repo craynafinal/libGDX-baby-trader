@@ -3,7 +3,6 @@ package com.jsl.babytrader.Data;
 /**
  * Timer for game screen.
  */
-
 public class Time {
     private int min = 0;
     private int sec = 0;

@@ -15,10 +15,8 @@ import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Controls.Configuration;
 import com.jsl.babytrader.Data.Attribute;
 import com.jsl.babytrader.Data.Baby;
-import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.Customer;
 import com.jsl.babytrader.Data.SharedData;
-import com.jsl.babytrader.Popups.Popup;
 import com.jsl.babytrader.Popups.PopupPause;
 import com.jsl.babytrader.Popups.PopupUpgrade;
 import com.jsl.babytrader.Utilities.CommonUtilities;
@@ -106,6 +104,10 @@ public class GameScreen extends BaseScreen {
     // meta data
     private int currentBabyIndex = 0;
 
+    public static final float COLOR_BG_RED_GAME = 0.3882f;
+    public static final float COLOR_BG_BLUE_GAME = 0.4392f;
+    public static final float COLOR_BG_GREEN_GAME = 0.4745f;
+
     // configuration
     private Configuration config = null;
 
@@ -113,7 +115,6 @@ public class GameScreen extends BaseScreen {
         super(game);
 
         config = new Configuration();
-        config.timerSetup();
 
         // bgm setup
         setupMusic(getMusic(), true);
@@ -172,7 +173,6 @@ public class GameScreen extends BaseScreen {
         button_popup_continue.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Continue button", "Activated");
                 sound_buttonClick.play();
                 popup_pause.getTable().setVisible(false);
                 resume();
@@ -185,9 +185,7 @@ public class GameScreen extends BaseScreen {
         button_popup_mainMenu.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Main Menu button", "Activated");
                 sound_buttonClick.play();
-
                 switchScreen(BabyTrader.initScreen);
             }
         });
@@ -206,7 +204,6 @@ public class GameScreen extends BaseScreen {
         button_popup_cancel.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Cancel Button", "Activated");
                 sound_buttonClick.play();
                 resume();
                 popup_upgrade.setVisible(false);
@@ -219,7 +216,6 @@ public class GameScreen extends BaseScreen {
         button_popup_upgrade.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Upgrade Button", "Activated");
                 sound_buttonClick.play();
                 upgrade();
             }
@@ -229,7 +225,7 @@ public class GameScreen extends BaseScreen {
     }
 
     private void upgrade() {
-        String warningMsg = "You don't have\nenough money to upgrade.";
+        String warningMsg = "You don't have\nenough money to upgrade.".toUpperCase();
         String type = popup_upgrade.getTextType();
 
         if (type.equals(PopupUpgrade.TYPE_SELLER)) {
@@ -290,7 +286,7 @@ public class GameScreen extends BaseScreen {
                 stringBuilder.append(propertyFormat(attribute.getName()));
             }
 
-            label_properties.setText(stringBuilder);
+            label_properties.setText(stringBuilder.toString().toUpperCase());
         }
     }
 
@@ -310,7 +306,7 @@ public class GameScreen extends BaseScreen {
         if (baby != null) {
             stage.getBatch().draw(baby.getSprite(), 484, 131);
 
-            label_properties_title_baby.setText(baby.getName() + " (" + baby.getAge() + ") $" + baby.getSellPrice());
+            label_properties_title_baby.setText(baby.getName().toUpperCase() + " (" + baby.getAge() + ") $" + baby.getSellPrice());
 
             StringBuilder stringBuilder = new StringBuilder();
 
@@ -318,7 +314,7 @@ public class GameScreen extends BaseScreen {
                 stringBuilder.append(propertyFormat(attribute.getName()));
             }
 
-            label_properties_list_baby.setText(stringBuilder);
+            label_properties_list_baby.setText(stringBuilder.toString().toUpperCase());
         } else {
             label_properties_title_baby.setText("");
             label_properties_list_baby.setText("");
@@ -337,7 +333,8 @@ public class GameScreen extends BaseScreen {
             switchScreen(BabyTrader.gameOverScreen);
         }
 
-        clearingScreen();
+
+        clearingScreen(COLOR_BG_RED_GAME, COLOR_BG_BLUE_GAME, COLOR_BG_GREEN_GAME, COLOR_BG_ALPHA);
         viewportRender();
 
         // stage.draw() must appear before game batch
@@ -371,17 +368,6 @@ public class GameScreen extends BaseScreen {
         game.batch.begin();
         game.batch.end();
 
-    }
-
-    protected static void clearingScreen() {
-        Gdx.gl.glClearColor(
-                ConstData.COLOR_BG_RED_GAME,
-                ConstData.COLOR_BG_BLUE_GAME,
-                ConstData.COLOR_BG_GREEN_GAME,
-                ConstData.COLOR_BG_ALPHA
-        );
-
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 
     private void buttonSetup() {
@@ -566,6 +552,7 @@ public class GameScreen extends BaseScreen {
     public void hide() {
         super.hide();
         config.killThreads();
+        config.timerCancel();
 
         // pick another random music
         setupMusic(getMusic(), true);
@@ -575,6 +562,7 @@ public class GameScreen extends BaseScreen {
     public void show() {
         super.show();
         config.initialize();
+        config.timerSetup();
         config.startThreadsAndTimer();
         popup_pause.setVisible(false);
         setButtonDisabled(false);

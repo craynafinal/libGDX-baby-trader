@@ -23,12 +23,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.ConstData;
 
 /**
  * Base abstract screen class for all other screen classes.
  */
-
 public abstract class BaseScreen implements Screen {
     // bgm placeholder
     private Music bgm = null;
@@ -39,6 +37,16 @@ public abstract class BaseScreen implements Screen {
 
     // commonly used assets
     protected Sound sound_buttonClick = Gdx.audio.newSound(Gdx.files.internal("sounds/se_buttonClick.mp3"));
+
+    public static final int SCREEN_WIDTH = 1024;
+    public static final int SCREEN_HEIGHT = 576;
+
+    public static final float COLOR_BG_RED = 0.6862f;
+    public static final float COLOR_BG_BLUE = 0.7019f;
+    public static final float COLOR_BG_GREEN = 0.7137f;
+    public static final float COLOR_BG_ALPHA = 1f;
+
+    public static final String FONT_CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789][_!$%#@|\\/?-+=()*&.;:,{}\"´`'<>•";
 
     final protected static String FONT_NOKIA_PATH = "fonts/nokiafc22.ttf";
     final protected static String FONT_5COMPUTERS_PATH = "fonts/5Computers-In-Love.ttf";
@@ -58,7 +66,7 @@ public abstract class BaseScreen implements Screen {
 
         // view port setup
         gamecam = new OrthographicCamera();
-        gamePort = new FitViewport(ConstData.SCREEN_WIDTH, ConstData.SCREEN_HEIGHT, gamecam);
+        gamePort = new FitViewport(SCREEN_WIDTH, SCREEN_HEIGHT, gamecam);
         gamecam.position.set(gamePort.getWorldWidth() / 2, gamePort.getWorldHeight() / 2, 0);
 
         this.stage = new Stage(gamePort);
@@ -73,7 +81,7 @@ public abstract class BaseScreen implements Screen {
 
         FreeTypeFontParameter parameter = new FreeTypeFontParameter();
         parameter.size = size;
-        parameter.characters = ConstData.FONT_CHARACTERS;
+        parameter.characters = FONT_CHARACTERS;
 
         BitmapFont result = generator.generateFont(parameter);
         result.setColor(color);
@@ -141,7 +149,7 @@ public abstract class BaseScreen implements Screen {
     }
 
     protected static void clearingScreen() {
-        clearingScreen(ConstData.COLOR_BG_RED, ConstData.COLOR_BG_BLUE, ConstData.COLOR_BG_GREEN, ConstData.COLOR_BG_ALPHA);
+        clearingScreen(COLOR_BG_RED, COLOR_BG_BLUE, COLOR_BG_GREEN, COLOR_BG_ALPHA);
     }
 
     protected void viewportRender() {

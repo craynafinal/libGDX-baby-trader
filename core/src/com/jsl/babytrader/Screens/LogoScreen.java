@@ -1,20 +1,21 @@
 package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Utilities.CommonUtilities;
 
 /**
  * Displays logo.
  */
-
 public class LogoScreen extends BaseScreen {
     private Texture texture_logo = new Texture("sprites/logoScreen_logo_400x85.png");
     private Thread thread_counter = null;
+
+    // meta data
+    public static final float COLOR_BG_RED_LOGO = 1f;
+    public static final float COLOR_BG_BLUE_LOGO = 1f;
+    public static final float COLOR_BG_GREEN_LOGO = 1f;
 
     public LogoScreen(BabyTrader game) {
         super(game);
@@ -25,12 +26,12 @@ public class LogoScreen extends BaseScreen {
 
     @Override
     public void render(float delta) {
-        clearingScreen(1f, 1f, 1f, 1f);
+        clearingScreen(COLOR_BG_RED_LOGO, COLOR_BG_BLUE_LOGO, COLOR_BG_GREEN_LOGO, COLOR_BG_ALPHA);
         viewportRender();
 
         stage.act(Gdx.graphics.getDeltaTime());
         stage.getBatch().begin();
-        stage.getBatch().draw(texture_logo, ConstData.SCREEN_WIDTH / 2 - texture_logo.getWidth() / 2, ConstData.SCREEN_HEIGHT / 2 - texture_logo.getHeight() / 2);
+        stage.getBatch().draw(texture_logo, SCREEN_WIDTH / 2 - texture_logo.getWidth() / 2, SCREEN_HEIGHT / 2 - texture_logo.getHeight() / 2);
         stage.getBatch().end();
 
         stage.draw();

@@ -15,7 +15,6 @@ import java.util.List;
 /**
  * Handles threads and level information of game.
  */
-
 public class Configuration {
     // timer
     private Time time = new Time();
@@ -194,6 +193,10 @@ public class Configuration {
                 time.countDown();
             }
         }, 0, 1);
+    }
+
+    public void timerCancel() {
+        Timer.instance().clear();
     }
 
     public void initialize() {

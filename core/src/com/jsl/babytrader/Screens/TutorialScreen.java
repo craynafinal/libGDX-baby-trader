@@ -77,18 +77,18 @@ public class TutorialScreen extends BaseScreen {
         screenshots.add(sprite_screen_thankYou);
 
         texts = new ArrayList<String>();
-        texts.add("Welcome to Baby Trader tutorial!\n\nNow you have a chance to make the world happier place by buying and selling babies.\n\nLet's start business!");
-        texts.add("Customers want babies with high potential. Babies deserve nice parents who will treat them right.\n\nYou can find perfect match between them for their ultimate happiness!");
-        texts.add("Start by setting values regarding talents of babies. These values will affect your game.\n\nFor example, if being smart is important for a baby, how much would you pay for? How much would you sell for?");
-        texts.add("When game starts, time and money will be displayed on the right. When time or money becomes zero, the game is over.\n\nYour goal is to trade babies as many as possible.");
-        texts.add("Browse your babies in stock by touching arrow buttons. You can see their name, age, and talents. Number of babies in stock will vary in the middle of game.");
-        texts.add("You will have customers who would want to buy your baby. If you have a baby with talents matching their desire and the customer accepts your price, the baby will be automatically sold!");
-        texts.add("Same goes for customers who would like to sell their babies to you. If customer's price falls in your price range you have set in the beginning, you will buy the baby. You need to buy babies to sell them.");
-        texts.add("If you have budget, you should upgrade your abilities. Upgrading selling, buying, promotion, and research abilities will make trades go faster!");
-        texts.add("Upgrading selling and buying abilities will increase number of sales representative so you can face multiple customers at the same time. This way, number of customers waiting in line will decrease.");
-        texts.add("High level of promotion will increase number of customers come in your store, while high level of research will upgrade babies in your stock more often for higher chance of sales.");
-        texts.add("When time or money becomes zero, the game will be over, and it will display high score based on your record.\n\nThis game keeps your high score. Challenge yourself for higher scores!");
-        texts.add("Thank you for reading this tutorial.\n\nHope you enjoy trading babies and become the best Baby Trader!");
+        texts.add("Welcome to Baby Trader tutorial!\n\nNow you have a chance to make the world happier place by buying and selling babies.\n\nLet's start business!".toUpperCase());
+        texts.add("Customers want babies with high potential. Babies deserve nice parents who will treat them right.\n\nYou can find perfect match between them for their ultimate happiness!".toUpperCase());
+        texts.add("Start by setting values regarding talents of babies. These values will affect your game.\n\nFor example, if being smart is important for a baby, how much would you pay for? How much would you sell for?".toUpperCase());
+        texts.add("When game starts, time and money will be displayed on the right. When time or money becomes zero, the game is over.\n\nYour goal is to trade babies as many as possible.".toUpperCase());
+        texts.add("Browse your babies in stock by touching arrow buttons. You can see their name, age, and talents.\n\nNumber of babies in stock will vary in the middle of game.".toUpperCase());
+        texts.add("You will have customers who would want to buy your baby.\n\nIf you have a baby with talents matching their desire and the customer accepts your price, the baby will be automatically sold!".toUpperCase());
+        texts.add("Same goes for customers who would like to sell their babies to you. If customer's price falls in your price range you have set in the beginning, you will buy the baby.\n\nYou need to buy babies to sell them to other customers.".toUpperCase());
+        texts.add("If you have enough budget, you should upgrade your abilities.\n\nUpgrading selling, buying, promotion, and research abilities will make trades go faster!".toUpperCase());
+        texts.add("Upgrading selling and buying abilities will increase number of sales representative so you can face multiple customers at the same time.\n\nThis way, number of customers waiting in line will decrease.".toUpperCase());
+        texts.add("High level of promotion will increase number of customers come in your store, while high level of research will upgrade babies in your stock more often for higher chance of sales.".toUpperCase());
+        texts.add("Game is over when time or money becomes zero, and it will display high score based on your record.\n\nThis game keeps your high score. Challenge yourself for higher scores!".toUpperCase());
+        texts.add("Thank you for reading this tutorial.\n\nHope you enjoy trading babies and become the best Baby Trader!".toUpperCase());
 
         labelSetup();
         buttonSetup();
@@ -100,7 +100,7 @@ public class TutorialScreen extends BaseScreen {
     }
 
     private void labelSetup() {
-        label_textbox = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 30, Color.WHITE));
+        label_textbox = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, 26, Color.WHITE));
         label_textbox.setAlignment(Align.topLeft);
         label_textbox.setWrap(true);
         label_textbox.setWidth(381);
@@ -127,7 +127,6 @@ public class TutorialScreen extends BaseScreen {
         button_back.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Back Button", "Activated");
                 sound_buttonClick.play();
                 decreaseStep();
             }
@@ -139,7 +138,6 @@ public class TutorialScreen extends BaseScreen {
         button_mainMenu.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Main Menu Button", "Activated");
                 sound_buttonClick.play();
                 switchScreen(BabyTrader.initScreen);
             }
@@ -151,7 +149,6 @@ public class TutorialScreen extends BaseScreen {
         button_next.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Next Button", "Activated");
                 sound_buttonClick.play();
                 increaseStep();
             }

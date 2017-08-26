@@ -9,7 +9,6 @@ import java.util.List;
 /**
  * Represent customers.
  */
-
 public class Customer extends Person {
     final public static int ATTRIBUTE_MIN = 1;
     final public static int ATTRIBUTE_MAX = 5;

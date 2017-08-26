@@ -6,7 +6,6 @@ import com.badlogic.gdx.Preferences;
 /**
  * Class that saves data for later use.
  */
-
 public class SaveData {
     final static public String TOKEN_PREFERENCE = "BabyTrader";
     final static public String TOKEN_HIGHSCORE = "HighScore";

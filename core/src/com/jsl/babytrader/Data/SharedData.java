@@ -9,7 +9,6 @@ import java.util.Set;
 /**
  * Data shared by runnables.
  */
-
 public class SharedData {
     // static data for default setup
     final private static int DEFAULT_STARTING_MONEY = 5000;

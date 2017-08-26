@@ -3,18 +3,14 @@ package com.jsl.babytrader.Screens;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Slider;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Data.Attribute;
-import com.jsl.babytrader.Data.ConstData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +18,6 @@ import java.util.List;
 /**
  * Contains common members and methods for slider screens.
  */
-
 public abstract class SliderScreen extends BaseScreen {
     // title
     private Texture sprite_title = null;
@@ -75,11 +70,9 @@ public abstract class SliderScreen extends BaseScreen {
                 if (isSell) {
                     attribute.setSellValue((int) result.getValue());
                     textLabel.setText("$" + ((int) result.getValue()));
-                    Gdx.app.log("Slider", textLabel.getText() + ": " + result.getValue() + " / internal value: " + attribute.getSellValue());
                 } else {
                     attribute.setBuyValue((int) result.getValue());
                     textLabel.setText("$" + ((int) result.getValue()));
-                    Gdx.app.log("Slider", textLabel.getText() +  ": " + result.getValue() + " / internal value: " + attribute.getBuyValue());
                 }
             }
         });
@@ -115,7 +108,7 @@ public abstract class SliderScreen extends BaseScreen {
                 Label.LabelStyle style_common = getLabelStyle(FONT_WORK_EXTRA_BOLD, 20, Color.WHITE);
 
                 // create label
-                String name = attribute.getName();
+                String name = attribute.getName().toUpperCase();
                 Label label = new Label(String.format(name), style_title);
                 labels_title.add(index, label);
 
@@ -125,8 +118,8 @@ public abstract class SliderScreen extends BaseScreen {
                 Label label_display_buy = new Label("", style_common);
                 labels_display_buy.add(index, label_display_buy);
 
-                labels_sell.add(index, new Label("Sell", style_common));
-                labels_buy.add(index, new Label("Buy", style_common));
+                labels_sell.add(index, new Label("Sell".toUpperCase(), style_common));
+                labels_buy.add(index, new Label("Buy".toUpperCase(), style_common));
 
                 // create slider
                 sliders_sell.add(index, createSlider(label_display_sell, attribute, true));
@@ -141,10 +134,10 @@ public abstract class SliderScreen extends BaseScreen {
         table.top();
         table.setFillParent(true);
 
-        int spacing_title = (int) (ConstData.SCREEN_WIDTH * 0.2);
-        int spacing_slider = (int) (ConstData.SCREEN_WIDTH * 0.2);
-        int spacing_display = (int) (ConstData.SCREEN_WIDTH * 0.075);
-        int spacing_miniTitle = (int) (ConstData.SCREEN_WIDTH * 0.05);
+        int spacing_title = (int) (SCREEN_WIDTH * 0.2);
+        int spacing_slider = (int) (SCREEN_WIDTH * 0.2);
+        int spacing_display = (int) (SCREEN_WIDTH * 0.075);
+        int spacing_miniTitle = (int) (SCREEN_WIDTH * 0.05);
 
         int margin_left = 10;
         int margin_top = 20;
@@ -200,7 +193,7 @@ public abstract class SliderScreen extends BaseScreen {
         stage.draw();
 
         game.batch.begin();
-        game.batch.draw(sprite_title, (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2), (ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 30));
+        game.batch.draw(sprite_title, (SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2), (SCREEN_HEIGHT - sprite_title.getHeight() - 30));
         game.batch.end();
     }
 

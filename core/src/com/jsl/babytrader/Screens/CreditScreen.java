@@ -1,17 +1,16 @@
 package com.jsl.babytrader.Screens;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
-import com.jsl.babytrader.Data.ConstData;
 
 /**
  * Credit screen that shows the creator name and tools used for this project.
@@ -35,12 +34,11 @@ public class CreditScreen extends BaseScreen {
 
         // startThreadsAndTimer button setup
         button_back = generateButton(sprite_button_back_up, sprite_button_back_down);
-        button_back.setPosition((ConstData.SCREEN_WIDTH / 2) - (sprite_button_back_up.getWidth() / 2), 60);
+        button_back.setPosition((SCREEN_WIDTH / 2) - (sprite_button_back_up.getWidth() / 2), 60);
 
         button_back.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Back Button", "Activated");
                 sound_buttonClick.play();
                 switchScreen(BabyTrader.initScreen);
             }
@@ -66,8 +64,8 @@ public class CreditScreen extends BaseScreen {
         stage.getBatch().begin();
         stage.getBatch().draw(
             sprite_title,
-            (ConstData.SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2),
-            ConstData.SCREEN_HEIGHT - sprite_title.getHeight() - 50
+            (SCREEN_WIDTH / 2) - (sprite_title.getWidth() / 2),
+            SCREEN_HEIGHT - sprite_title.getHeight() - 50
         );
         stage.getBatch().end();
 
@@ -113,28 +111,48 @@ public class CreditScreen extends BaseScreen {
     }
 
     public Table getLabelTable() {
+        final String website_developer = "chaosdepot.com";
+        final String website_tool = "libgdx.badlogicgames.com";
+        final String website_music = "rengoku-teien.com";
+        final String website_prefix = "http://";
+
         Table result = new Table();
 
         Label.LabelStyle style_small = getLabelStyle(FONT_WORK_EXTRA_BOLD, 26, FONT_COLOR_DARK_BLUE);
         Label.LabelStyle style_big = getLabelStyle(FONT_WORK_EXTRA_BOLD, 40, FONT_COLOR_DARK_BLUE);
 
         Label label_developedBy = getLabel("Developed by", style_small);
-
         Label label_developer = getLabel("Jong Seong Lee", style_big);
+        Label label_developerWebsite = getLabel(website_developer, style_small);
 
-        Label label_developerWebsite = getLabel("chaosdepot.com", style_small);
+        label_developerWebsite.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.net.openURI(website_prefix + website_developer);
+            }
+        });
 
         Label label_toolBy = getLabel("Game framework engine", style_small);
-
         Label label_tool = getLabel("LibGDX", style_big);
+        Label label_toolWebsite = getLabel(website_tool, style_small);
 
-        Label label_toolWebsite = getLabel("libgdx.badlogicgames.com", style_small);
+        label_toolWebsite.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.net.openURI(website_prefix + website_tool);
+            }
+        });
 
         Label label_musicBy = getLabel("Background music", style_small);
-
         Label label_music = getLabel("Rengoku Teien", style_big);
+        Label label_musicWebsite = getLabel(website_music, style_small);
 
-        Label label_musicWebsite = getLabel("rengoku-reien.com", style_small);
+        label_musicWebsite.addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.net.openURI(website_prefix + website_music);
+            }
+        });
 
         float padBottom = 20;
         float padTop = -6;
@@ -157,7 +175,7 @@ public class CreditScreen extends BaseScreen {
         result.row();
         result.add(label_musicWebsite).padTop(padTop);
 
-        result.setPosition((ConstData.SCREEN_WIDTH / 2) - result.getWidth(), 290);
+        result.setPosition((SCREEN_WIDTH / 2) - result.getWidth(), 290);
 
         return result;
     }

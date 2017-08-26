@@ -11,7 +11,6 @@ import static com.jsl.babytrader.Data.SharedData.isEnded;
 /**
  * Represents a sales team.
  */
-
 public class SalesTeam extends Team {
     final private static int SLEEP_TIME_MIN = 500;
     final private static int SLEEP_TIME_MAX = 1000;
@@ -24,37 +23,59 @@ public class SalesTeam extends Team {
             sleep(getWaitTime(SLEEP_TIME_MIN, SLEEP_TIME_MAX, Configuration.getLevelSeller()));
 
             if (!isPaused()) {
-                Gdx.app.postRunnable(new Runnable() {
-                    @Override
-                    public void run() {
-                        // proceed if there is any customer
-                        if (SharedData.getCustomerSellingSize() > 0) {
-                            Customer customer = SharedData.getCustomerSelling();
+//                Gdx.app.postRunnable(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        // proceed if there is any customer
+//                        if (SharedData.getCustomerSellingSize() > 0) {
+//                            Customer customer = SharedData.getCustomerSelling();
+//
+//                            Baby baby = SharedData.getBabyByAttribute(customer.getAttributes());
+//
+//                            if (baby != null) {
+//                                // sell if price range is good
+//
+//                                customer.setBaby(baby);
+//
+//                                if (baby.getSellPrice() <= customer.getSellPrice()) {
+//                                    SharedData.addMoney(Math.max(baby.getSellPrice(), customer.getSellPrice()));
+//                                    Configuration.increaseBabySold();
+//
+//                                    isSold = true;
+//                                } else {
+//                                    SharedData.addBaby(baby);
+//                                }
+//                            }
+//                        }
+//                    }
+//                });
 
-                            Baby baby = SharedData.getBabyByAttribute(customer.getAttributes());
+                // proceed if there is any customer
+                if (SharedData.getCustomerSellingSize() > 0) {
+                    Customer customer = SharedData.getCustomerSelling();
 
-                            if (baby != null) {
-                                // sell if price range is good
+                    Baby baby = SharedData.getBabyByAttribute(customer.getAttributes());
 
-                                customer.setBaby(baby);
+                    if (baby != null) {
+                        // sell if price range is good
 
-                                if (baby.getSellPrice() <= customer.getSellPrice()) {
-                                    SharedData.addMoney(Math.max(baby.getSellPrice(), customer.getSellPrice()));
-                                    Configuration.increaseBabySold();
+                        customer.setBaby(baby);
 
-                                    Configuration.setBabyTraderFace(false);
-                                    Configuration.setSellerSold(true);
-                                    sound_cash.play();
-                                    isSold = true;
-                                } else {
-                                    SharedData.addBaby(baby);
-                                }
-                            }
+                        if (baby.getSellPrice() <= customer.getSellPrice()) {
+                            SharedData.addMoney(Math.max(baby.getSellPrice(), customer.getSellPrice()));
+                            Configuration.increaseBabySold();
+
+                            isSold = true;
+                        } else {
+                            SharedData.addBaby(baby);
                         }
                     }
-                });
+                }
 
                 if (isSold) {
+                    Configuration.setBabyTraderFace(false);
+                    Configuration.setSellerSold(true);
+                    sound_cash.play();
                     sleep(500);
                     Configuration.setBabyTraderFace(true);
                     Configuration.setSellerSold(false);

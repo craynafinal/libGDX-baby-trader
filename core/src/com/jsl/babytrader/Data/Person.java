@@ -11,7 +11,6 @@ import java.util.Set;
 /**
  * Represents a person.
  */
-
 public abstract class Person implements Disposable {
     protected Set<Attribute> attributes = null;
     protected String name = null;

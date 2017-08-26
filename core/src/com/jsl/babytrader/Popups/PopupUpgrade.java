@@ -9,7 +9,6 @@ import com.badlogic.gdx.utils.Align;
 /**
  * Popup for asking a player if he/she wants to upgrade a feature.
  */
-
 public class PopupUpgrade extends Popup {
     private Label type = null;
     private Label level = null;
@@ -17,29 +16,30 @@ public class PopupUpgrade extends Popup {
     private Label description = null;
 
     // text data for each upgrade
-    final public static String TYPE_SELLER = "Seller";
-    final public static String TYPE_BUYER = "Buyer";
-    final public static String TYPE_PROMOTION = "Promotion";
-    final public static String TYPE_RESEARCH = "Research";
+    final public static String TYPE_SELLER = "Seller".toUpperCase();
+    final public static String TYPE_BUYER = "Buyer".toUpperCase();
+    final public static String TYPE_PROMOTION = "Promotion".toUpperCase();
+    final public static String TYPE_RESEARCH = "Research".toUpperCase();
 
     final public static String DESCRIPTION_SELLER =
-        "Seller upgrade will add\n" +
+        ("Seller upgrade will add\n" +
         "another sales agent\n" +
-        "so you can sell babies faster.";
+        "to sell babies faster.").toUpperCase();
 
     final public static String DESCRIPTION_BUYER =
-        "Buyer upgrade will add\n" +
+        ("Buyer upgrade will add\n" +
         "another sales agent\n" +
-        "so you can buy babies faster.";
+        "to buy babies faster.").toUpperCase();
 
     final public static String DESCRIPTION_PROMOTION =
-        "Promotion upgrade will\n" +
+        ("Promotion upgrade will\n" +
         "bring customers\n" +
-        "to your store more often.";
+        "to your store more often.").toUpperCase();
+
     final public static String DESCRIPTION_RESEARCH =
-        "Research upgrade will enhance \n" +
-        "talents of your babies more often\n" +
-        "so your can make higher profit.";
+        ("Research upgrade will\n" +
+        "switch negative talents to\n" +
+        "positive ones more often.").toUpperCase();
 
     public PopupUpgrade(Texture background, Label.LabelStyle labelStyle) {
         super(background);
@@ -48,7 +48,7 @@ public class PopupUpgrade extends Popup {
     }
 
     public static String getLevelText(int prevLevel, int nextLevel, boolean isMax) {
-        return prevLevel + " -> " + nextLevel + (isMax ? "(MAX)" : "");
+        return prevLevel + " -> " + nextLevel + (isMax ? "(Max)".toUpperCase() : "");
     }
 
     public static String getMoneyText(int money) {

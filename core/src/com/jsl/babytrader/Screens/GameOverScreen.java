@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.Align;
 import com.jsl.babytrader.BabyTrader;
 import com.jsl.babytrader.Controls.Configuration;
-import com.jsl.babytrader.Data.ConstData;
 import com.jsl.babytrader.Data.SaveData;
 import com.jsl.babytrader.Data.SharedData;
 
@@ -63,9 +62,10 @@ public class GameOverScreen extends BaseScreen {
         buttonSetup();
         labelSetup();
 
+        // table setup for two tables
         int positionY = 260;
-        int positionX_high = ConstData.SCREEN_WIDTH / 4;
-        int positionX_current = ConstData.SCREEN_WIDTH - ConstData.SCREEN_WIDTH / 4;
+        int positionX_high = SCREEN_WIDTH / 4;
+        int positionX_current = SCREEN_WIDTH - SCREEN_WIDTH / 4;
 
         Table highScoreTable = getTable(positionX_high, positionY, label_highScore, label_highScoreMoney, label_highScoreBabyCount, label_highScoreCustomersVisited);
         Table currentScoreTable = getTable(positionX_current, positionY, label_currentScore, label_currentMoney, label_currentBabyCount, label_currentCustomersVisited);
@@ -76,7 +76,7 @@ public class GameOverScreen extends BaseScreen {
         Gdx.input.setInputProcessor(stage);
     }
 
-    private Table getTable(int x, int y, Label score, Label sold, Label purchased, Label visited) {
+    private static Table getTable(int x, int y, Label score, Label sold, Label purchased, Label visited) {
         int margin = 46;
 
         Table table = new Table();
@@ -108,7 +108,7 @@ public class GameOverScreen extends BaseScreen {
         label_currentCustomersVisited = getLabel(smallFontSize);
     }
 
-    private Label getLabel(int size) {
+    private static Label getLabel(int size) {
         Label label = new Label("", getLabelStyle(FONT_WORK_EXTRA_BOLD, size, Color.WHITE));
         label.setAlignment(Align.center);
         label.setPosition(0, 0);
@@ -123,7 +123,6 @@ public class GameOverScreen extends BaseScreen {
         button_main_menu.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Main Menu button", "Activated");
                 sound_buttonClick.play();
                 switchScreen(BabyTrader.initScreen);
             }
@@ -135,7 +134,6 @@ public class GameOverScreen extends BaseScreen {
         button_retry.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.log("Clicking Exit Game button", "Activated");
                 sound_buttonClick.play();
                 switchScreen(BabyTrader.sliderPositiveScreen);
             }
@@ -190,15 +188,15 @@ public class GameOverScreen extends BaseScreen {
         super.show();
         scoreSetup();
 
-        label_currentScore.setText(currentScore + "");
-        label_currentMoney.setText("$" + currentMoney);
-        label_currentBabyCount.setText(currentBabySold + " / " + currentBabyPurchased);
-        label_currentCustomersVisited.setText(currentCustomersVisited + "");
+        showLabelSetup(label_currentScore, currentScore, label_currentMoney, currentMoney, label_currentBabyCount, currentBabySold, currentBabyPurchased, label_currentCustomersVisited, currentCustomersVisited);
+        showLabelSetup(label_highScore, highScore, label_highScoreMoney, highScoreMoney, label_highScoreBabyCount, highScoreBabySold, highScoreBabyPurchased, label_highScoreCustomersVisited, highScoreCustomersVisited);
+    }
 
-        label_highScore.setText(highScore + "");
-        label_highScoreMoney.setText("$" + highScoreMoney);
-        label_highScoreBabyCount.setText(highScoreBabySold + " / " + highScoreBabyPurchased);
-        label_highScoreCustomersVisited.setText(highScoreCustomersVisited + "");
+    private static void showLabelSetup(Label score, int scoreValue, Label money, int moneyValue, Label babyCount, int babySold, int babyPurchased, Label customer, int customerValue) {
+        score.setText(scoreValue + "");
+        money.setText("$" + moneyValue);
+        babyCount.setText(babySold + " / " + babyPurchased);
+        customer.setText(customerValue + "");
     }
 
     @Override

@@ -22,7 +22,7 @@ public class Configuration {
 
     // const default values
     final public static int MAX_LEVEL = 3;
-    final public static int UPGRADE_INTERVAL_MONEY = 100;
+    final public static int UPGRADE_INTERVAL_MONEY = 1000;
     final public static int DEFAULT_STARTING_BABY = 5;
 
     final public static int MAX_SELLER_THREADS = 5;
@@ -236,6 +236,11 @@ public class Configuration {
 
         team_promotion = new Thread(new PromotionTeam());
         team_research = new Thread(new ResearchTeam());
+
+        // in case game finished in the middle of sprite change
+        setBabyTraderFace(true);
+        setBuyerPurchased(false);
+        setSellerSold(false);
     }
 
     public void killThreads() {

@@ -578,6 +578,10 @@ public class GameScreen extends BaseScreen {
         config.startThreadsAndTimer();
         popup_pause.setVisible(false);
         setButtonDisabled(false);
+
+        // in case when game stopped in the middle of sprite change
+        label_sold.setVisible(false);
+        label_purchased.setVisible(false);
     }
 
     @Override

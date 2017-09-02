@@ -23,11 +23,15 @@ public class Baby extends Person {
         TEXTURE_MALE.add("sprites/baby_m_002_270x387.png");
         TEXTURE_MALE.add("sprites/baby_m_003_270x387.png");
         TEXTURE_MALE.add("sprites/baby_m_004_270x387.png");
+        TEXTURE_MALE.add("sprites/baby_m_005_270x387.png");
+        TEXTURE_MALE.add("sprites/baby_m_006_270x387.png");
 
         TEXTURE_FEMALE.add("sprites/baby_f_001_270x387.png");
         TEXTURE_FEMALE.add("sprites/baby_f_002_270x387.png");
         TEXTURE_FEMALE.add("sprites/baby_f_003_270x387.png");
         TEXTURE_FEMALE.add("sprites/baby_f_004_270x387.png");
+        TEXTURE_FEMALE.add("sprites/baby_f_005_270x387.png");
+        TEXTURE_FEMALE.add("sprites/baby_f_006_270x387.png");
     }
 
     public Baby() {

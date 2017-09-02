@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_71fd32b16bd9aaf7ff11e4194bcbdf618a1dc20c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
@@ -16,17 +25,8 @@
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="aa83e48a16341e30cd653ebd02b6af0c8c6a86e3">
-        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/debug/core-1.0_4091ca507dd00c2ec59a172322498878672ad3f6.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_71fd32b16bd9aaf7ff11e4194bcbdf618a1dc20c/classes.dex" />
+        sha1="7077258ef93962e8f7da97fb8a46581744a7be09">
+        <dex dex="/home/crayna/Downloads/libGDX/libGDX_baby-trader/android/build/intermediates/pre-dexed/release/core-1.0_4091ca507dd00c2ec59a172322498878672ad3f6.jar" />
     </item>
 
 </items>

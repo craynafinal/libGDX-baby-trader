@@ -31,10 +31,19 @@ public class Customer extends Person {
         TEXTURE_MALE.add("sprites/customer_m_004_163x170.png");
         TEXTURE_MALE.add("sprites/customer_m_005_163x170.png");
         TEXTURE_MALE.add("sprites/customer_m_006_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_007_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_008_163x170.png");
+        TEXTURE_MALE.add("sprites/customer_m_009_163x170.png");
 
         TEXTURE_FEMALE.add("sprites/customer_f_001_163x170.png");
         TEXTURE_FEMALE.add("sprites/customer_f_002_163x170.png");
         TEXTURE_FEMALE.add("sprites/customer_f_003_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_004_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_005_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_006_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_007_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_008_163x170.png");
+        TEXTURE_FEMALE.add("sprites/customer_f_009_163x170.png");
     }
 
     public Customer(boolean isSelling) {

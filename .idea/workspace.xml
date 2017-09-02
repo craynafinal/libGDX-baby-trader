@@ -6,43 +6,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12339930-d13c-416e-b2c1-7d75316fad23" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_female_004_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_female_005_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_female_006_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_female_007_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_female_008_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_female_009_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_male_007_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_male_008_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/assets/sprites/customers_male_009_163x170.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_copyright_171x533.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_creditsButton_191x463.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_creditsButton_inv_191x463.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_howToPlayButton_191x410.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_howToPlayButton_inv_191x410.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_startButton_191x357.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/startPage_startButton_inv_191x357.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/android/android-release.apk" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseResources/merged.dir/values/values.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_android_compileReleaseJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/android-release.apk" afterPath="$PROJECT_DIR$/android/android-release.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/gameOver_background_1024x576.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/gameOver_background_1024x576.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/gameOver_button_mainMenu_186x45.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/gameOver_button_mainMenu_186x45.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/gameOver_button_mainMenu_inv_186x45.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/gameOver_button_mainMenu_inv_186x45.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/tutorial_screen_gameover_503x342.png" afterPath="$PROJECT_DIR$/android/build/intermediates/assets/release/sprites/tutorial_screen_gameover_503x342.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageRelease/zip-cache/FBfuOi7a96fvn6cqO9v29sXFXAM=" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageRelease/zip-cache/FBfuOi7a96fvn6cqO9v29sXFXAM=" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-resources/resources-debug.ir.ap_" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-resources/resources-debug.ir.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/res/resources-release.ap_" afterPath="$PROJECT_DIR$/android/build/intermediates/res/resources-release.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_0.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_0.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_2.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_2.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_3.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_3.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_8.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_8.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_9.apk" afterPath="$PROJECT_DIR$/android/build/intermediates/split-apk/debug/slices/slice_9.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_0/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_8/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/debug/folders/1000/5/slice_9/classes.dex" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/release/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/dex/release/folders/1000/1f/main/classes.dex" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" afterPath="$PROJECT_DIR$/android/build/outputs/apk/android-debug.apk" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/ic_launcher-web.png" afterPath="$PROJECT_DIR$/android/ic_launcher-web.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-mdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xxhdpi/ic_launcher.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/res/drawable-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/android/res/drawable-xxxhdpi/ic_launcher.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseAssets/merger.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/generated/source/r/release/com/jsl/babytrader/R.java" afterPath="$PROJECT_DIR$/android/build/generated/source/r/release/com/jsl/babytrader/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeDebugAssets/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/mergeReleaseResources/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageInstantRunResourcesDebug/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageInstantRunResourcesDebug/file-input-save-data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageRelease/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageRelease/dex-renamer-state.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/incremental/packageRelease/file-input-save-data.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/incremental/packageRelease/file-input-save-data.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_0/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_0/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_2/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_3/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_3/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_8/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_8/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/instant-run-support/debug/package_slice_9/dex-renamer-state.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/android/build/intermediates/restart-dex/debug/build-info.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_0/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_2/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_8/buildId.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" afterPath="$PROJECT_DIR$/android/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_9/buildId.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/android/build/reports/lint-results-release-fatal.html" afterPath="$PROJECT_DIR$/android/build/reports/lint-results-release-fatal.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Baby.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" afterPath="$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java" />
     </list>
     <ignored path="libGDX_baby-trader.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,20 +138,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PurchaseTeam.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/PurchaseTeam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="36" column="66" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TutorialScreen.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/TutorialScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="1305">
               <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
               <folding />
             </state>
@@ -144,10 +153,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="315">
               <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
-              <folding>
-                <element signature="e#711#968#0" expanded="true" />
-                <element signature="e#967#968#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -157,34 +163,32 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
               <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-              <folding>
-                <element signature="e#448#456#0" expanded="true" />
-                <element signature="e#527#535#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Customer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
-              <folding>
-                <element signature="e#594#602#0" expanded="true" />
-                <element signature="e#673#681#0" expanded="true" />
-              </folding>
+              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResearchTeam.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Runnables/ResearchTeam.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-              <folding />
-            </state>
+      <file leaf-file-name="ic_launcher.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ic_launcher.png" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/android/res/mipmap-hdpi/ic_launcher.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -2674,6 +2678,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2842,12 +2850,80 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGDX_baby-trader" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGDX_baby-trader" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mipmap" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ic_launcher.png" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGDX_baby-trader" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawable" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ic_launcher.png" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="libGDX_baby-trader" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="android" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2860,6 +2936,7 @@
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="device.picker.selection" value="65ad073f" />
     <property name="ExportApk.SignV2" value="true" />
+    <property name="ExportApk.SignV1" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -3223,7 +3300,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4112" sideWeight="0.5251847" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.4538419" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3272727" sideWeight="0.4538419" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2278788" sideWeight="0.4748153" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.49143174" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32848486" sideWeight="0.4870094" order="10" side_tool="false" content_ui="tabs" />
@@ -3265,14 +3342,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/android/assets/bitmapFonts/5Computers-In-Love.fnt" />
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.6/7d903ecd6b0df2ec334814b8e70618e4c93fd37c/gdx-1.9.6-sources.jar!/com/badlogic/gdx/scenes/scene2d/ui/Widget.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="34" column="13" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.6/7d903ecd6b0df2ec334814b8e70618e4c93fd37c/gdx-1.9.6-sources.jar!/com/badlogic/gdx/scenes/scene2d/ui/ProgressBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
@@ -3600,7 +3669,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Screens/TutorialScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="1305">
           <caret line="98" column="43" selection-start-line="98" selection-start-column="43" selection-end-line="98" selection-end-column="43" />
           <folding />
         </state>
@@ -3610,10 +3679,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="28" column="65" selection-start-line="28" selection-start-column="65" selection-end-line="28" selection-end-column="65" />
-          <folding>
-            <element signature="e#711#968#0" expanded="true" />
-            <element signature="e#967#968#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3621,22 +3687,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="33" column="46" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-          <folding>
-            <element signature="e#448#456#0" expanded="true" />
-            <element signature="e#527#535#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/jsl/babytrader/Data/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="32" column="63" selection-start-line="32" selection-start-column="63" selection-end-line="32" selection-end-column="63" />
-          <folding>
-            <element signature="e#594#602#0" expanded="true" />
-            <element signature="e#673#681#0" expanded="true" />
-          </folding>
+          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+          <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/res/drawable-hdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/res/mipmap-hdpi/ic_launcher.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
   </component>
